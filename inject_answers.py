@@ -2,6 +2,7 @@ import json
 import re
 import argparse
 import sys
+import os
 
 def parse_answer_key(filepath):
     """Parses the flat text file into a dictionary of {question_number: 'A/B/C/D'}"""
@@ -59,10 +60,14 @@ def inject_answers_into_json(json_filepath, answer_filepath):
     print(f"Successfully injected {updated_count} answers into '{json_filepath}'.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Inject correct answers into an existing MCA JSON database.")
-    parser.add_argument("-j", "--json", required=True, help="Path to the existing JSON file (e.g., mca_2025_questions.json)")
-    parser.add_argument("-a", "--answers", required=True, help="Path to the answer key text file (e.g., answers_2025.txt)")
+    parser = argparse.ArgumentParser(description="Inject correct answers into an existing JSON database.")
+    parser.add_argument("-j", "--json", required=True, help="Target JSON filename (script will look in assets/data/json/)")
+    parser.add_argument("-a", "--answers", required=True, help="Answer key text filename (script will look in assets/data/raw/)")
 
     args = parser.parse_args()
 
-    inject_answers_into_json(json_filepath=args.json, answer_filepath=args.answers)
+    # Automatically prepend the directory paths
+    json_filepath = os.path.join("assets", "data", "json", args.json)
+    answer_filepath = os.path.join("assets", "data", "raw", args.answers)
+
+    inject_answers_into_json(json_filepath=json_filepath, answer_filepath=answer_filepath)

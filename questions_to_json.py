@@ -12,7 +12,7 @@ def normalize_text(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def clean_and_append_question(question, db_list, year, exam_name):
+def clean_and_append_question(question, db_list, year, course_name):
     """Post-processes the question and links images by scanning the local directory."""
     if not question:
         return
@@ -42,23 +42,33 @@ def clean_and_append_question(question, db_list, year, exam_name):
         for key, val in question["textual_options"].items():
             question["textual_options"][key] = normalize_text(val)
 
-    # --- NEW: 3. Dynamic Filesystem Image Detection ---
-    # The directory where the script checks for the actual files
-    local_check_dir = f"../images/{year}_{exam_name}"
+    # 3. Dynamic Filesystem Image Detection (Root-Relative Paths)
+    # The directory where the script checks for the actual files (from project root)
+    local_check_dir = f"assets/data/images/{year}_{course_name}"
     
     # The URL path that gets written into the JSON for the frontend to use
-    web_asset_path = f"/assets/data/images/{year}_{exam_name}"
+    web_asset_path = f"/assets/data/images/{year}_{course_name}"
     
-    # Check for the main Question Image
+    # --- Check for Question Images (Arrays) ---
+    question_images = []
+    
+    # Check for the classic single image first (e.g., Q133.jpeg)
     if os.path.exists(f"{local_check_dir}/Q{q_num}.jpeg"):
-        question["question_image"] = f"{web_asset_path}/Q{q_num}.jpeg"
-    else:
-        question["question_image"] = None
+        question_images.append(f"{web_asset_path}/Q{q_num}.jpeg")
+    
+    # Check for sequential images (e.g., Q133_1.jpeg, Q133_2.jpeg)
+    idx = 1
+    while os.path.exists(f"{local_check_dir}/Q{q_num}_{idx}.jpeg"):
+        question_images.append(f"{web_asset_path}/Q{q_num}_{idx}.jpeg")
+        idx += 1
+
+    # Assign array if we found any images, otherwise null
+    question["question_images"] = question_images if question_images else None
 
     # Check for Graphical Options
     found_graphical_opts = {}
     
-    # Default to A, B, C, D if text parsing failed to find options at all (like Q97)
+    # Default to A, B, C, D if text parsing failed to find options at all
     possible_options = list(question["textual_options"].keys()) if question["textual_options"] else ["A", "B", "C", "D"]
     
     for opt in possible_options:
@@ -73,7 +83,6 @@ def clean_and_append_question(question, db_list, year, exam_name):
             question["textual_options"] = None
     else:
         question["graphical_options"] = None
-    # --------------------------------------------------
 
     # 4. Auto-Detect Question Format
     q_text_lower = question["question_text"].lower() if question["question_text"] else ""
@@ -81,7 +90,7 @@ def clean_and_append_question(question, db_list, year, exam_name):
     
     if "read the given passage" in dir_text_lower:
         question["question_format"] = "shared_passage"
-    elif question.get("question_image") is not None or question.get("graphical_options") is not None:
+    elif question.get("question_images") is not None or question.get("graphical_options") is not None:
         question["question_format"] = "visual_reasoning"
     elif "statement:" in q_text_lower or "assumption:" in q_text_lower:
         question["question_format"] = "statement_assumption"
@@ -96,7 +105,7 @@ def clean_and_append_question(question, db_list, year, exam_name):
     db_list.append(question)
 
 
-def parse_questions_to_json(filepath, year, exam_name):
+def parse_questions_to_json(filepath, year, course_name, test_code):
     try:
         with open(filepath, 'r', encoding='utf-8') as file:
             lines = file.readlines()
@@ -104,14 +113,16 @@ def parse_questions_to_json(filepath, year, exam_name):
         print(f"Error: The input file '{filepath}' was not found.")
         sys.exit(1)
 
-    # Optional safety check just to warn you if the folder is missing
-    local_check_dir = f"../images/{year}_{exam_name}"
+    # Safety check for image folder (Root-Relative)
+    local_check_dir = f"assets/data/images/{year}_{course_name}"
     if not os.path.exists(local_check_dir):
         print(f"Warning: The image directory '{local_check_dir}' does not exist. No images will be linked.")
 
+    # Paper Metadata
     database = {
         "paper_metadata": {
-            "exam_name": exam_name,
+            "course_name": course_name,
+            "test_code": test_code,
             "year": year,
             "marking_scheme": {
                 "reward": 3,
@@ -170,7 +181,7 @@ def parse_questions_to_json(filepath, year, exam_name):
                 continue
 
             if current_question:
-                clean_and_append_question(current_question, database["questions"], year, exam_name)
+                clean_and_append_question(current_question, database["questions"], year, course_name)
 
             q_num = int(q_match.group(1))
             q_text = q_match.group(2).strip()
@@ -187,7 +198,7 @@ def parse_questions_to_json(filepath, year, exam_name):
                 "question_number": q_num,
                 "direction_text": current_direction, 
                 "question_text": q_text,
-                "question_image": None, 
+                "question_images": None, 
                 "textual_options": {},
                 "graphical_options": None,
                 "correct_answer": None,
@@ -227,22 +238,30 @@ def parse_questions_to_json(filepath, year, exam_name):
     if current_question:
         if floating_buffer and current_target == "BUFFER" and current_question["question_text"] is not None:
             current_question["question_text"] += "\n" + "\n".join(floating_buffer)
-        clean_and_append_question(current_question, database["questions"], year, exam_name)
+        clean_and_append_question(current_question, database["questions"], year, course_name)
 
     return database
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convert MCA exam questions from text to JSON.")
-    parser.add_argument("-i", "--input", required=True, help="Path to the input text file")
-    parser.add_argument("-o", "--output", required=True, help="Path to save the output JSON file")
+    parser = argparse.ArgumentParser(description="Convert exam questions from text to JSON.")
+    parser.add_argument("-i", "--input", required=True, help="Input filename (script will look in assets/data/raw/)")
+    parser.add_argument("-o", "--output", required=True, help="Output JSON filename (script will save to assets/data/json/)")
     parser.add_argument("-y", "--year", type=int, required=True, help="The year of the exam paper")
-    parser.add_argument("-e", "--exam", default="MCA", help="The name of the exam")
+    parser.add_argument("-c", "--course", required=True, help="The name of the course (e.g., MCA)")
+    parser.add_argument("-t", "--test-code", required=True, help="The CUSAT test code number for this paper")
 
     args = parser.parse_args()
 
-    parsed_data = parse_questions_to_json(filepath=args.input, year=args.year, exam_name=args.exam)
+    # Automatically prepend the directory paths
+    input_filepath = os.path.join("assets", "data", "raw", args.input)
+    output_filepath = os.path.join("assets", "data", "json", args.output)
+
+    # Automatically create the 'json' output directory if it doesn't exist
+    os.makedirs(os.path.dirname(output_filepath), exist_ok=True)
+
+    parsed_data = parse_questions_to_json(filepath=input_filepath, year=args.year, course_name=args.course, test_code=args.test_code)
     
-    with open(args.output, 'w', encoding='utf-8') as json_file:
+    with open(output_filepath, 'w', encoding='utf-8') as json_file:
         json.dump(parsed_data, json_file, indent=4, ensure_ascii=False)
         
-    print(f"Success! Converted {len(parsed_data['questions'])} questions and saved to {args.output}")
+    print(f"Success! Converted {len(parsed_data['questions'])} questions and saved to {output_filepath}")

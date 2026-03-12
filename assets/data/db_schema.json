@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Universal Exam Paper Schema",
+  "type": "object",
+  "required": [
+    "paper_metadata",
+    "questions"
+  ],
+  "properties": {
+    "paper_metadata": {
+      "type": "object",
+      "required": [
+        "course_name",
+        "test_code",
+        "year",
+        "marking_scheme"
+      ],
+      "properties": {
+        "course_name": {
+          "type": "string"
+        },
+        "test_code": {
+          "type": "string"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "marking_scheme": {
+          "type": "object",
+          "required": [
+            "reward",
+            "penalty",
+            "unanswered"
+          ],
+          "properties": {
+            "reward": {
+              "type": "integer"
+            },
+            "penalty": {
+              "type": "integer"
+            },
+            "unanswered": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question_number",
+          "topic_tag",
+          "explanation",
+          "question_format"
+        ],
+        "properties": {
+          "question_number": {
+            "type": "integer"
+          },
+          "direction_text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "question_text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "question_images": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "textual_options": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "A": { "type": "string" },
+              "B": { "type": "string" },
+              "C": { "type": "string" },
+              "D": { "type": "string" }
+            }
+          },
+          "graphical_options": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "A": { "type": "string" },
+              "B": { "type": "string" },
+              "C": { "type": "string" },
+              "D": { "type": "string" }
+            }
+          },
+          "correct_answer": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": ["A", "B", "C", "D", null]
+          },
+          "topic_tag": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "question_format": {
+            "type": "string",
+            "enum": [
+              "shared_passage",
+              "visual_reasoning",
+              "statement_assumption",
+              "course_of_action",
+              "standard_mcq"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
