@@ -1,0 +1,1459 @@
+1.   A 3 × 3 matrix has a characteristic polynomial given by λ 3 ˗ 5λ 2 + 8λ ˗ 4 =
+     0. The sum of its eigen values is
+
+      (A)   3
+      (B)   5
+      (C)   4
+      (D)   2
+
+
+2.   The characteristic equation of a 2×2 matrix A is given by
+
+      (A)   det( A)
+      (B)   det ( A − λ I ) = 0
+      (C)   A2 − λ I =0
+      (D)   λ 2 + trace( A) ⋅ λ = 0
+
+
+3.   The quadratic form 3x 2 + 4xy + 2y 2 can be reduced to canonical form by
+
+      (A)   orthogonal transformation
+      (B)   eigenvector computation
+      (C)   using rank coefficient
+      (D)   using the Cayley-Hamilton theorem
+
+
+4.   Two matrices A and B are multiplied to get AB if
+
+      (A)   both have same order
+      (B)   both are rectangular
+      (C)   no. of columns of A is equal to no. of rows of B
+      (D)   no. of rows of A is equal to no. of columns of B
+
+
+                                                  3 5 2
+5.   What is the value of the 3 × 3 determinant 7 4 5 ?
+                                                  1 2 3
+
+      (A) −56
+      (B) −58
+      (C) −54
+      (D) −66
+
+
+6.    If Rank(A)=2 and Rank(B) =3, then Rank(AB) is
+
+       (A)    6
+       (B)    5
+       (C)    3
+       (D)    Data inadequate
+
+
+7.    If A is areal matrix and λ is an eigen value of A, then which of the
+      following is true about λ?
+       (A)    λis positive
+       (B)    λ is always real
+       (C)    λcan be real or complex
+       (D)    λ is an integer
+
+
+8.    Which of the following is a sufficient condition for diagonalizability?
+       (A)    All eigenvalues are distinct
+       (B)    The matrix is non-singular
+       (C)    All eigenvalues are in-distinct
+       (D)    The matrix is singular
+
+
+9.    The maxima of the functionf(x) = ̶x2 + 4x – 3 occurs at which possibility
+of x?
+
+       (A)    x=2
+       (B)    x = −2
+       (C)    x=1
+       (D)    x=4
+
+
+                    x2 − 1
+10.   If f ( x) =          , then lim f ( x ) is
+                     x −1         x →1
+
+
+       (A)    1
+       (B)    0
+       (C)    2
+       (D)    3
+11.   Logarithmic differentiation is particularly useful whenf(x)is a
+
+       (A)   polynomial function
+       (B)   constant
+       (C)   exponential function
+       (D)   product or quotient of functions
+
+
+12.   Iff ′ (x)> 0 for all x in an interval, thenf (x)is
+
+       (A)   decreasing in the interval
+       (B)   constant in the interval
+       (C)   increasing in the interval
+       (D)   periodic in the interval
+
+
+13.   The derivative ofy = xx is
+
+       (A)   xx(ln(x) + 1)
+       (B)   xx– 1ln(x)
+       (C)   xx(ln(x) – 1)
+       (D)   xx+1ln(x)
+
+
+14.   In Lagrange’s method of undetermined multipliers, the constraint
+      equation g(x,y) = 0 is used to
+
+       (A)   eliminate y from the equation
+       (B)   maximize or minimize the function subject to the constraint
+       (C)   find the Jacobian
+       (D)   eliminate x from the equation
+
+15.   The Taylor series for f ( x, y ) = e x + y around (0,0) up to second-order term is
+
+       (A) 1 + x + y
+                           x2 y2
+       (B) 1 + x + y +       +   + xy
+                           2   2
+       (C) ex + ey
+       (D) x + y + xy
+
+16.   The Jacobian determinant J (u, v; x, y) is used to
+       (A)   find critical points of a function
+       (B)   transform variables in multiple integrals
+       (C)   compute higher-order derivatives
+       (D)   solve partial differential equations
+
+17.   The total derivative of z = x2y + y2 is
+
+       (A)   dz = 2x dx + 2y dy
+       (B)   dz = (2xy) dx + (x2 + 2y)dy
+       (C)   dz + x2 + y2
+       (D)   dz + x2dx + y dy
+
+
+18.   The partial derivative off (x,y) = x2y + y3 with respect to x is
+
+       (A)   2xy + 3y 2
+       (B)   2x + y
+       (C)   2xy
+       (D)   y 2 + 2x
+
+
+19.   The gradient vector∇f is
+
+       (A)   perpendicular to the level curves of f (x,y)
+       (B)   tangential to the level curves of f (x,y)
+       (C)   always zero
+       (D)   undefined
+
+
+                                        ∂ (u , v)
+20.   If u = x2 + y2 and v = xy, then              is
+                                        ∂ ( x, y )
+
+       (A)   2x + 2y
+       (B)   2xy − x2
+       (C)   2 x ⋅ y – 2y ⋅ x
+       (D)   2 x ⋅ y – 2x2
+
+
+21.   The integral of ∫ e x sin( x) dx is evaluated using
+
+       (A)   integration by parts twice
+       (B)   trigonometric substitution
+       (C)   partial fractions
+       (D)   substitution u = ex
+                                         1
+22.   What is the integral of ∫                  dx ?
+                                   x 2 + 2x + 5
+
+             1         x +1
+       (A)     tan −1      +C
+             2         2 
+                     x+2
+       (B)   tan −1       +C
+                     3 
+             1         x+2
+       (C)     tan −1       +C
+             2         2 
+               2
+                 (
+       (D) ln x + 2 x + 5 + C )
+
+                                  ∞ 1
+23.   The improper integral ∫1       2
+                                       dx converges to
+                                    x
+
+       (A) 0
+       (B) 1
+       (C) ∞
+             1
+       (D)
+             2
+
+
+                                            11
+24.   What does the double integral ∫ ∫ ( x + y ) dy dx evaluate to?
+                                            0y
+
+       (A) 5
+             1
+       (B)
+             2
+       (C) 7
+       (D) 6
+
+                     π
+                     2 sinθ
+25.   The integral ∫ ∫ r dr dθ is represented by
+                     0 0
+
+       (A)   a quarter of a circle in polar coordinates
+       (B)   a semicircular area
+       (C)   a sector of a unit circle
+       (D)   a parabola
+
+26.   What is the Laplace Transform of the functionf (t) = e(at)?
+                1
+       (A)
+               s−a
+                1
+       (B)
+               s+a
+                s
+       (C)
+               s−a
+                s
+       (D)
+               s+a
+
+
+27.   Which of the following is NOT a valid logical equivalence?
+
+      (A) p → q ≡ ~p ∨ q
+      (B) p ∧ q ≡ ~(~p ∨~q)
+      (C) p ∨ q ≡ ~(~p ∧~q)
+      (D) p → q ≡ ~p → ~q
+28.   What is the inverse of the function f ( x ) = 2 x + 1 ?
+
+       (A)     f −1 ( x ) = 2x −1
+                              x −1
+       (B)     f −1 ( x ) =
+                                2
+       (C)     f −1 ( x ) = 1 − 2x
+                              1− x
+       (D)     f −1 ( x ) =
+                               2
+
+
+                     1
+29.   If cos(θ ) =      then θ is equal to
+                      2
+
+       (A)    30°
+       (B)    45°
+       (C)    60°
+       (D)    90°
+
+30.   Period of tan( ) is equal to
+              π
+       (A)
+               3
+              π
+       (B)
+               2
+            2π
+       (C)
+            3
+       (D) π
+
+31.   Range of y = sin (x) is
+
+       (A)   [−1, 1]
+       (B)   [−1, 0]
+       (C)   [−2,2]
+       (D)   None of the above
+
+32.   Domain of tan( ) is
+
+       (A) [−1, 1]
+       (B) R
+                        (2n + 1)π       
+       (C) R \  x | x =             ,n∈Z
+                             2          
+       (D) R \ { x | x = nπ , n ∈ Z }
+
+
+33.   Quadratic function is considered as
+
+       (A)   third degree polynomial function
+       (B)   fourth degree polynomial function
+       (C)   first degree polynomial function
+       (D)   second degree polynomial function
+
+
+34.   If tanθ>0, sin θ<0, then terminal arm of angle lies in quadrant
+
+       (A)   1
+       (B)   2
+       (C)   3
+       (D)   4
+
+
+                   3
+35.   If sin x =     then, cos x = ?
+                   4
+
+              2
+       (A)
+              3
+                  3
+       (B)
+                 2
+                  7
+       (C)
+                4
+               1
+       (D)
+               2
+
+
+36.   If (G, .) is a group such that a 2 = e, ∀a∈G, then G is
+
+       (A)    semi group
+       (B)    abelian group
+       (C)    non-abelian group
+       (D)    None of the above
+
+
+37.   The number of functions from an m-element set to an n-element set is
+
+       (A)    m+n
+       (B)    mn
+       (C)    nm
+       (D)    m*n
+
+
+38.   If U = {1,2,3,4,5} and A = {2,4} then A' should be
+
+       (A)    {2,4,5}
+       (B)    {2,4}
+       (C)    {1,2,3,4,5}
+       (D)    {1,3,5}
+
+39.   The power set of the set S = 3, {1, 4} ,5 is
+
+       (A) {S ,3,1, 4, {1,3, 5} , {1, 4, 5}{3, 4} , φ}
+       (B) {S ,3, {1, 4} ,5}
+       (C) {S , {3} , {3, {1, 4}} , {3,5} , φ}
+       (D) None of the above
+
+40.   Number of subsets of a set of order three is
+
+       (A)    3
+       (B)    6
+       (C)    8
+       (D)    9
+ 41.   Some group (G, 0) is known to be abelian. Then which one of the
+      following is TRUE for G?
+
+       (A)   g = g−1 for every g∈G
+       (B)   g = g 2 for every g∈G
+       (C)   (g h) 2 = g 2 h 2 for every g,h∈G
+       (D)   G is of finite order
+
+42.   If every element of a group G is its own inverse, then G is
+
+       (A)   infinite
+       (B)   abelian
+       (C)   finite
+       (D)   cyclic
+
+43.   Assume R and S are (non-empty) relations in a set A. Which of the
+      following given relations is FALSE?
+
+       (A)   If R and S are transitive, then R ∩ S is transitive
+       (B)   If R and S are symmetric, then R ∪ S is symmetric
+       (C)   If R and S are reflexive, then R ∪ S is reflexive
+       (D)   If R and S are transitive, then R ∪ S is transitive
+
+
+                                 dy
+44.   If x 2 + 2xy = y 2, then      is
+                                 dx
+
+             x+ y
+       (A)   y−x
+       (B)   2x + 2 y
+             x +1
+       (C)     y
+       (D)   −x
+
+
+45.   ∫ cos x dx is
+       (A)  x sin x
+       (B) 2 x sin x + 2 cos( x ) + C
+              1
+       (C)       sin x
+               x
+                   1
+       (D)            sin x
+              2 x
+
+
+46.   If f (a) = f (b) = 0, and f (x) is continuous on [a, b] and f (x) is
+      differentiable on (a, b), then,
+
+       (A)   f (x) must be identically 0
+       (B)   There exists at least one number c, a<c<b such that f '(c) = 0
+       (C)   f '(x) must be different from 0 for all x on [a, b]
+       (D)   f '(x) must exist for every x on (a , b)
+
+
+47.   If f is continuous on [5, 2] and if F is an antiderivativeof f on [5, 2],
+                                             5
+                   3           −4
+      where F (2) = and F (5) = , then ∫ f ( x)dx = ?
+                   2           3       2
+
+              2
+       (A)
+              3
+              5
+       (B)
+              7
+               17
+       (C) −
+                6
+               13
+       (D)   −
+                6
+
+
+48.   If y = x x, then y' = ?
+
+       (A) x x ln x
+       (B) x x (1 + ln x)
+              xx
+       (C)
+             ln x
+                xx
+       (D)
+             1 + ln x
+
+
+49.   If f (x) =∫ex (x – 1) (x – 2) dx, then f decreases in the interval
+
+       (A)   (−∞,−2)
+       (B)   (−2, −1)
+       (C)   (1, 2)
+       (D)   (2, + ∞)
+ 50.   If a 3 – b 3 = 56 and a – b = 2, then the value of (a 2 + b 2) is :
+
+       (A)   −10
+       (B)   −12
+       (C)   20
+       (D)   18
+
+
+51.   A bag contains 3 white, 2 blue and 5 red balls. One ball is drawn at
+      random from the bag. What is the probability that the ball drawn is not
+      red?
+              3
+       (A)
+             10
+             1
+       (B)
+             5
+             1
+       (C)
+             2
+             4
+       (D)
+             5
+
+
+52. Let A be the square matrix of order 3, then [kA], where k is a scalar, is
+equal to
+
+       (A)   3k[A]
+       (B)   k3[A]
+       (C)   k[A]
+       (D)   [A]
+
+
+53.   Find the value of sin (1920°)
+             1
+       (A)
+             2
+              1
+       (B)
+               2
+               3
+       (C)
+              2
+             1
+       (D)
+             3
+
+
+54.   If we add two irrational numbers the resulting number is
+       (A)   always an rational number
+      (B)   always an irrational number
+      (C)   may be a rational or an irrational number
+      (D)   always an integer
+
+
+55.   The functionf (x) = x3 – 6x2 + 9x + 25has
+
+      (A)   A maxima at x = 1 and a minima at x = 3
+      (B)   A maxima at x = 3and a minima at x = 1
+      (C)   No maxima but a minima at x = 1
+      (D)   A maxima at x = 1but no minima
+
+
+56.   Which of the following sets are null sets?
+
+      (A)   {0}
+      (B)   Φ
+      (C)   {}
+      (D)   Both (B) and (C)
+
+
+57.   How many distinguishable permutations of the letters in the word
+      BANANA are there?
+
+      (A)   720
+      (B)   120
+      (C)   60
+      (D)   360
+
+
+58.   Simplified form of the Boolean expression (X+Y+XY)(X+Z) is
+
+      (A)   X+Y+Z
+      (B)   X+YZ
+      (C)   XY+YZ
+      (D)   XZ+Y
+
+
+59.   The number of distinct simple graphs with up to three nodes is
+
+      (A)   15
+      (B)   10
+      (C)   9
+      (D)   8
+ 60.   The region of feasible solution of a linear programming problem has a
+      ...................... property in geometry, provided the feasible solution of the
+      problem exists
+
+       (A)   concavity
+       (B)   convexity
+       (C)   quadratic
+       (D)   polyhedron
+
+
+61.   The first and second derivatives of a quadratic polynomial at x = 1 are 1
+      and 2 respectively. Then the value of f(1) – f(0) is given by
+             3
+       (A)
+             2
+             1
+       (B)
+             2
+       (C) 1
+       (D) 0
+
+
+62.   The Mean Value Theorem was stated and proved by
+
+       (A)   Parameshvara
+       (B)   Govindasvami
+       (C)   Michel Rolle
+       (D)   Augustin Louis Cauchy
+
+
+63.   The Newton-Raphson method is used to solve
+
+       (A)   ordinary differential equations
+       (B)   algebraic and transcendental equations
+       (C)   partial differential equations
+       (D)   matrix equations
+
+
+64.   The eigenvectors of a matrix correspond to
+
+       (A)   the null space of the matrix
+       (B)   the solutions to the characteristic equation
+       (C)   the orthogonal components of the matrix
+       (D)   the determinant of the matrix
+ 65. Find the minimum value of the function f(x, y) = x2 + y2 +199 over the
+real domain
+
+       (A)   12
+       (B)   13
+       (C)   0
+       (D)   199
+
+
+66.   Consider a random variable with exponential distribution with λ=1.
+      Compute the probability for P (X >3).
+
+       (A)   e–3
+       (B)   e–1
+       (C)   e–2
+       (D)   e–4
+
+
+67.   Find the number of different 8-letter arrangements that can be made from
+      the letters of the word EDUCATION so that all vowels do not occur
+      together
+
+       (A)   40320
+       (B)   1440
+       (C)   2880
+       (D)   37440
+
+
+68.   Which of the following statement is correct?
+
+       (A)   Equal and Equivalent sets are actually the same
+       (B)   Equivalent sets have a different number of elements
+       (C)   Equal sets have the same elements
+       (D)   Two null sets are not equal
+
+
+69.   A rectangular lot is to have an area of 1600 sq. m. Find the least amount
+      of fence that could be used to enclose the area
+
+       (A) 160 m
+       (B) 200 m
+       (C) 100 m
+        (D) 300 m
+70.   If cosx = 0 then x = …………...
+
+       (A) nπ
+                         π
+       (B) (2n + 1)
+                         2
+       (C)   ( n + 1)π
+             nπ
+       (D)
+               2
+
+
+                                    2      2
+      What is eccentricity for 
+                                   x   y
+71.                                   +   = 1?
+                                 25   16 
+
+             2
+       (A)
+             5
+             3
+       (B)
+             5
+       (C) 15
+             5
+       (D)
+             3
+
+
+72.   sin 75° + sin 15° = …………….
+
+                 3
+       (A)
+                 2
+
+                 2
+       (B)
+                 3
+
+               3
+       (C)
+              2
+              1
+       (D)
+                 2
+
+
+73.   The nth roots of any number are in
+
+       (A)   arithmetic progression
+       (B)   geometric progression
+       (C)   harmonic progression
+       (D)   no specific pattern
+ 74.   Consider the equation f(x, y) = x2 + y2 – a. For what values of ‘a’ do we
+      have critical points for the function
+
+       (A)   independent of a
+       (B)   for any real number except zero
+       (C)   a∊ (0, +∞)
+       (D)   a∊ (−1, 1)
+
+
+75.   What is the conjugate of the given complex number?
+            Z=3i +7
+
+       (A)   z̄ = 3 + 7i
+       (B)   z̄ = –3i + 7
+       (C)   z̄ = 3i – 7
+       (D)   z̄ = –3i– 7
+
+
+76.   If A = 1, B = 2, C = 3,… what is the sum of the word “CODE”?
+
+       (A)   27
+       (B)   30
+       (C)   32
+       (D)   33
+
+
+77.   Which number does not belong in the series?
+
+             1, 4, 9, 16, 23, 36
+
+       (A)   4
+       (B)   16
+       (C)   23
+       (D)   36
+
+
+78.   John is twice as old as Mary. If sum of their age is 36, how old is Mary?
+
+       (A)   12
+       (B)   18
+       (C)   24
+       (D)   15
+
+
+79.   If a train travels 60 km in 45 minutes, how far will it travel in 2 hours?
+        (A)   180
+       (B)   260
+       (C)   160
+       (D)   240
+
+
+80.   A box contains 3 red balls, 5 green balls and 2 blue balls. What is the
+      probability of picking a green ball?
+             1
+       (A)
+             2
+             5
+       (B)
+             8
+             5
+       (C)
+             7
+             1
+       (D)
+             3
+
+
+81. A clock strikes 5 times at 5 o’clock. How many times will it strike in a
+day?
+
+       (A)   78
+       (B)   90
+       (C)   132
+       (D)   156
+
+
+82. A clock shows 3:45. What is the reflex angle between the hour and
+minute hands?
+
+       (A)   97.5°
+       (B)   202.5°
+       (C)   287.5°
+       (D)   192.5°
+
+
+83.   If P is Q’s mother and Q is R’s brother, how is P related to R?
+
+       (A)   Aunt
+       (B)   Mother
+       (C)   Sister
+       (D)   Grandmother
+ 84.   Statement:        “The government has decided to increase the tax on
+                        luxury items to reduce inequality”.
+      Assumption:
+               (i) Luxury items are mainly consumed by wealthy
+                   individuals
+              (ii) Increasing tax on luxury items will reduce inequality
+
+       (A)   Only assumption (i) is implicit
+       (B)   Only assumption (ii) is implicit
+       (C)   Both assumptions are implicit
+       (D)   Neither assumption is implicit
+
+
+85.   Problem: There is a problem of water scarcity in the region.
+      Which of the following is the best course of action to deal with this issue?
+
+        (i) Implement water conservation campaigns
+       (ii) Build more dams to store water
+       (iii) Increase the price of water to discourage wastage
+
+       (A)   Only course 1
+       (B)   Course 1 and 2 together
+       (C)   Course 2 and 3 together
+       (D)   Course 1 and 3 together
+
+
+86.   Identify the odd one out among the following shapes.
+
+       (A)   Triangle
+       (B)   Square
+       (C)   Pentagon
+       (D)   Oval
+
+
+87.   If “PAPER” is coded as “QBQFS”, then how is “BOOK” coded?
+
+       (A)   CPPL
+       (B)   CPPQ
+       (C)   CPPR
+       (D)   CPPS
+
+
+88.   If the nth triangular number is 21, what is the value of n?
+       (A)   5
+       (B)   6
+       (C)   7
+       (D)   8
+
+
+89.   What is the next number in the sequence?
+
+             2, 6, 18, 54, .....
+
+       (A)   108
+       (B)   162
+       (C)   216
+       (D)   243
+
+
+90.   What is the next number in the sequence?
+
+             3, 6, 9, 12, 15, ……
+
+       (A)   17
+       (B)   19
+       (C)   18
+       (D)   20
+
+
+91.   What is the next number in the sequence?
+
+             1, 3, 6, 10, 15, ......
+
+      (A) 20
+      (B) 21
+      (C) 22
+      (D) 23
+
+92.   What is a set in set theory?
+       (A)   A collection of well-defined objects
+       (B)   A list of numbers
+       (C)   A mathematical equation
+       (D)   A type of diagram
+
+
+93.   What is the cardinality of the set A = {a, b, c}?
+
+       (A) 0
+       (B) 1
+       (C) 2
+       (D) 3
+
+
+Direction: Read the given passage and answer the questions (94-96):
+
+      In a certain code language, ‘dumb monkeys are actors’ is coded as ‘la pa zi
+      ta’, ‘joker monkeys are dumb’ is coded as ‘hi pa zi la’, ‘flower are red fool’
+      is coded as ‘nazigasi’, ‘dumb pins and flower’ is coded as ‘la mi jona’.
+
+94.     What does ‘pa’ stands for?
+
+         (A)   monkeys
+         (B)   dumb
+         (C)   are
+         (D)   actors
+
+
+95.     What does ‘na’ stands for?
+
+         (A)   monkeys
+         (B)   flower
+         (C)   are
+         (D)   red
+
+
+96.     What will be coded as ‘ga pa ta’ in the given language?
+
+         (A)   flower red monkeys
+         (B)   red monkeys actors
+         (C)   flower red actors
+         (D)   flower red joker
+
+97.   Predict the next pattern
+
+
+
+
+         (A)
+
+         (B)
+
+
+         (C)
+
+
+         (D)
+
+
+
+98. Which of the following words cannot be formed using the word,
+INTELLIGENCE?
+
+      (A)    TILLAGE
+      (B)    IGNITE
+      (C)    GENTLE
+      (D)    NEGLECT
+
+
+99.   If in a certain language, POPULAR is coded as QPQVMBS, which word
+      would be coded as GBNPVT?
+
+      (A)    FARMER
+      (B)    FAMOUS
+      (C)    FRAMES
+      (D)    FARMES
+100. Direction: Select the suitable figure from the Answer Figures that would
+     replace the question mark (?) in the Problem Figures.
+
+                          Problem Figures:                         Answer Figures:
+
+
+(A)(B)(C)(D)(1)           (2)     (3)    (4)    (5)
+
+          (A)   1
+          (B)   2
+          (C)   4
+          (D)   5
+
+
+101. Direction: Select the suitable figure from the Answer Figures that would
+     replace the question mark (?) in the Problem Figures.
+
+                          Problem Figures:                         Answer Figures:
+
+
+
+
+                    (A)     (B)         (C)    (D)           (1)     (2)    (3)    (4)   (5)
+
+          (A)   1
+          (B)   2
+          (C)   3
+          (D)   4
+
+
+102. Direction: Select the suitable figure from the Answer Figures that would
+     replace the question mark (?) in the Problem Figures.
+
+                                  Problem Figures:                         Answer Figures:
+
+
+
+
+      (A)       (B)        (C)      (D)               (1)   (2)    (3)      (4)   (5)
+
+          (A)   1
+          (B)   2
+          (C)   3
+          (D)   4
+
+103. Direction: Choose the figure which is different from the rest.
+
+
+
+        (1)       (2)   (3)    (4)   (5)
+
+
+       (A)    1
+       (B)    2
+       (C)    3
+       (D)    4
+
+
+104. Find the minimum number of straight lines required to make the given
+figure.
+
+
+
+
+       (A)    16
+       (B)    17
+       (C)    18
+       (D)    19
+
+
+105. Identify the figure that completes the pattern.
+
+
+
+
+                         (X)               (1)   (2)      (3)         (4)
+
+
+       (A)    4
+       (B)    3
+       (C)    2
+       (D)    1
+ 106. Direction: Select a suitable figure from the four alternatives that would
+     complete the figure matrix.
+
+
+
+
+       (A)   1
+       (B)   2
+       (C)   3
+       (D)   4
+
+
+107. Direction: Group the given figures into three classes using each figure
+only once.
+
+
+
+
+       (A)   1,4 ; 2,3 ; 5,6
+       (B)   1,5 ; 2,6 ; 4,3
+       (C)   1,6 ; 2,3 ; 4,5
+       (D)   1,2 ; 3,6 ; 4,5
+
+
+108. Direction: Find out which of the figures (1), (2), (3) and (4) can be
+     formed from the pieces given in figure (X).
+
+
+
+
+       (A)   1
+       (B)   2
+       (C)   3
+       (D)   4
+ 109. If in a certain code, COVET is written as FRYHW, which word would be
+     written as SHDUO?
+
+       (A)   QUAKE
+       (B)   REPAY
+       (C)   STINK
+       (D)   PEARL
+
+
+110. If PALE is coded as 2134, EARTH is coded as 41590, how is PEARL
+     coded in that code?
+
+       (A)   29530
+       (B)   24153
+       (C)   25413
+       (D)   25430
+
+
+111. Which pair of numbers comes next?
+
+             32, 31, 32, 29, 32, 27, 32, ……, ………
+
+       (A)   25, 32
+       (B)   31, 32
+       (C)   29, 32
+       (D)   25, 30
+
+
+112. Which is the next number in the series?
+
+             4, 16, 26, 34, 40, …….
+
+       (A)   45
+       (B)   46
+       (C)   43
+       (D)   44
+
+
+113. The least number which when divided by 16, 18, 20 and 25 leaves 4 as
+     remainder in each case but when divided by 7 leaves no remainder is?
+
+       (A)   17004
+       (B)   18000
+       (C)   18004
+       (D)   18002
+ 114. Look at this series:
+
+             70, 71, 76, …., 81, 86, 70, 91.
+
+      What number should fill the blank?
+
+       (A)   70
+       (B)   71
+       (C)   80
+       (D)   96
+
+
+115. Look at this series:
+
+             664, 332, 340, 170, …., 89.
+
+      What number should fill the blank?
+
+       (A)   85
+       (B)   97
+       (C)   109
+       (D)   178
+
+
+116. Divide 45 into two parts such that one part is twice the other
+
+       (A)   15, 30
+       (B)   20, 30
+       (C)   25, 25
+       (D)   10, 40
+
+
+117. How many times do the minute and hour hands form a 90° angle in a 12-
+hour period?
+
+       (A)   12
+       (B)   22
+       (C)   36
+       (D)   48
+ 118. In a certain code language, ‘ENTRY’ is coded as 12345 and ‘STEADY’
+     is coded as 931785, how is ‘ENDEAR’ coded in that language?
+
+       (A)   128983
+       (B)   137864
+       (C)   128174
+       (D)   125683
+
+
+119. The sum of the series 5 + 9 + 13+ …. +49 is
+
+       (A)   351
+       (B)   535
+       (C)   324
+       (D)   435
+
+120. Aarav's mother was 3 times as old as Aarav 5 years ago. After 5 years she
+     will be twice as old as Aarav. How old is Aarav today?
+
+       (A)   15 years
+       (B)   25 years
+       (C)   20 years
+       (D)   10 years
+
+121. A man sold an article for Rs. 2400 thus making a profit of 20%. Find the
+     cost price of the article
+
+       (A)   2000 rupees
+       (B)   1600 rupees
+       (C)   1700 rupees
+       (D)   1800 rupees
+
+122. Among five rods P, Q, R, S and T, S is lengthier than T. R is shorter than
+     P. Q is lengthier than S. P is lengthier than only one rod. Which rod is
+     second lengthiest among all the rods ?
+
+       (A)   S
+       (B)   T
+       (C)   P
+       (D)   Q
+ 123. Select the option that is related to the third term in the same way as the
+     second term is related to the first term. FLOWER : UOLDVI : :
+     JASMINE : ………….. ?
+
+       (A)   QZHNRMV
+       (B)   QAHNRMV
+       (C)   QZHMRNV
+       (D)   QZGNRMV
+
+124. The sum of current ages of Neelima and Keerthyis 50 years. 10 years ago,
+     Keerthywas twice as old as Neelima. What is Keerthy’s current age?
+
+      (A) 15 years
+      (B) 25 years
+      (C) 30 yeas
+      (D) 10 years
+125. Mathew's father has a brother, Paul, whose daughter, Rachel is Kayla's
+     mother. Sonu is Rachel's only brother. How is Sonu related to Mathew?
+
+       (A)   Brother
+       (B)   Cousin
+       (C)   Nephew
+       (D)   Son
+
+
+
+126. If SUMMER is coded as RUNNER, the code for WINTER is
+
+       (A)   SUITER
+       (B)   VIOUER
+       (C)   WALKER
+       (D)   SUFFER
+
+
+127. In a certain code “CH4IR” is written as “GL8MV”. How is
+     “1N5T4GR4M” is written in that code?
+
+       (A)   4HFID8E8N
+       (B)   5R9X8KV8Q
+       (C)   4P8W7JU8O
+       (D)   5KF2E4GR4
+ 128. Look at this series:
+
+             22, 21, 23, 22, 24, 23, ...
+
+      What number should come next?
+
+       (A)   25
+       (B)   24
+       (C)   22
+       (D)   26
+
+
+129. Shyam walks 5 km towards east and then turns left and walks 6 km.
+     Again he turns right and walks 9 km. Finally, he turns to his right and
+     walks 6 km. How far is he from the starting point?
+
+       (A)   26 km
+       (B)   21 km
+       (C)   14 km
+       (D)   9 km
+
+
+130. The symmetric difference of A = {2, 4, 6} and B = {4, 5, 7} is
+
+       (A)   {2, 6, 5, 7}
+       (B)   {2, 5}
+       (C)   {4, 6, 7}
+       (D)   {4, 5, 6, 7}
+
+
+131. How many words can be formed by rearranging the letters of the word
+     "ASCENT" so that A and T occupy the first and the last positions
+     respectively?
+
+       (A)   20
+       (B)   24
+       (C)   26
+       (D)   18
+
+
+132. If A + B means A is the mother of B; A - B means A is the brother B; A %
+     B means A is the father of B and A×B means A is the sister of B, which of
+     the following shows that P is the maternal uncle of Q?
+        (A)   Q−N+M×P
+       (B)   P+S×N−Q
+       (C)   P−M+N×Q
+       (D)   Q−S%P
+
+
+133. Find the correct alternative which will replace the question mark?
+
+
+
+
+       (A)   49
+       (B)   33
+       (C)   27
+       (D)   44
+
+
+
+
+134. Two different positions of the same dice are shown below, select the
+     number that will be on the face opposite to the one having 2 as per the
+     options
+
+
+
+
+       (A)   5
+       (B)   6
+       (C)   4
+       (D)   3
+
+
+135. How many triangles are present in the following figure?
+
+
+
+
+       (A)   24
+       (B)   20
+       (C)   22
+       (D)   16
+ 136. Water flows at a rate of 10 meters per minute from a cylindrical pipe of 5
+     mm in diameter. How long will it take to fill a conical tank with a base
+     diameter of 40 cm and a height of 24 cm?
+
+       (A)   40 minutes 10 seconds
+       (B)   51 minutes 12 seconds
+       (C)   50 minutes 30 seconds
+       (D)   55 minutes 40 seconds
+
+
+137. What should come in place of the question mark (?) in the following
+number series?
+
+             5,8,20,34,76,142, ?
+
+       (A) 296
+       (B) 284
+       (C) 272
+       (D) 302
+
+
+138. Out of 100 students in a certain class, 70 students like
+     Mathematics, 40 students like Science and 15 students like both
+     Mathematics and Science. A student is selected at random. Find the
+     probability that the student likes Mathematics or Science
+
+       (A)   0.95
+       (B)   0.8
+       (C)   0.5
+       (D)   0.4
+
+
+139. Select the figure that will come next in the following series
+
+
+
+
+       (A)
+        (B)
+
+
+       (C)
+
+
+       (D)
+
+
+
+140. In a certain language, TRIANGLE is coded as SQHZMFKD, which word
+     would be coded as DWZLOKD?
+
+       (A)   EXAMPLE
+       (B)   FIGMENT
+       (C)   DISMISS
+       (D)   DISJOIN
+
+
+141. A triangle with at least two sides are of the same length is
+
+       (A)   obtuse triangle
+       (B)   right triangle
+       (C)   isosceles triangle
+       (D)   scalene triangle
+
+
+142. Six people are sitting in a row. Y is sitting between X and R. X is sitting
+     next to Z. Z is sitting next to P, who is sitting on the extreme left and Q is
+     sitting next to R. Who are sitting adjacent to X?
+
+       (A)   Z and Y
+       (B)   P and X
+       (C)   Y and R
+       (D)   Q and Y
+ 143. If the numerator of a fraction is increased by 150% and the denominator
+                                                         5
+      is increased by 300%, the resultant fraction is      . What is the original
+                                                        16
+      fraction?
+             1
+       (A)
+             2
+             1
+       (B)
+             4
+             3
+       (C)
+             4
+             1
+       (D)
+             5
+
+
+144. If U is the universal set with 100 elements, A and B are two sets such that
+     n(A)=50, n(B)=60, n ( A ∩ B ) = 20, then n ( A '∩ B ') =
+       (A)   40
+       (B)   20
+       (C)   90
+       (D)   10
+
+
+145. What is the Cardinality of the Power set of the set {0, 1, 2}?
+
+       (A)   8
+       (B)   6
+       (C)   7
+       (D)   9
+
+
+
+
+146. The shaded area of figure is best described by?
+
+
+
+
+       (A)   A′ (Complement of A)
+       (B)   A U B – (A ∩ B)
+       (C)   A–B
+       (D)   B
+ 147. If A and B are symmetric matrices and AB=BA, then A−1B is a
+
+       (A)   Symmetric matrix
+       (B)   Skew-symmetric matrix
+       (C)   Identity matrix
+       (D)   None of the above
+
+
+148. If + means ‘ ÷ ’, – means ‘+’, × means ‘– ’ and ÷ means ‘ × ’, then what
+     will be the value of the following expression.
+             18 ÷ 6 – 27 + 3 × 12 = ?
+
+       (A)   92
+       (B)   105
+       (C)   95
+       (D)   107
+
+
+149. Find the sum of two numbers, whose product is 200 and difference is
+minimum
+
+       (A)   30
+       (B)   27
+       (C)   35
+       (D)   33
+
+
+150. Which two signs should be interchanged in the following equation to
+     make it correct.
+
+             18 + 6 − 6 ÷ 3 × 3 = 6?
+
+       (A)   + and –
+       (B)   + and ÷
+       (C)   – and ÷
+       (D)   + and ×
