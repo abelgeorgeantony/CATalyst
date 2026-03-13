@@ -43,20 +43,17 @@ def clean_and_append_question(question, db_list, year, course_name):
             question["textual_options"][key] = normalize_text(val)
 
     # 3. Dynamic Filesystem Image Detection (Root-Relative Paths)
-    # The directory where the script checks for the actual files (from project root)
     local_check_dir = f"assets/data/images/{year}_{course_name}"
-    
-    # The URL path that gets written into the JSON for the frontend to use
     web_asset_path = f"/assets/data/images/{year}_{course_name}"
     
     # --- Check for Question Images (Arrays) ---
     question_images = []
     
-    # Check for the classic single image first (e.g., Q133.jpeg)
+    # Check for the classic single image first
     if os.path.exists(f"{local_check_dir}/Q{q_num}.jpeg"):
         question_images.append(f"{web_asset_path}/Q{q_num}.jpeg")
     
-    # Check for sequential images (e.g., Q133_1.jpeg, Q133_2.jpeg)
+    # Check for sequential images
     idx = 1
     while os.path.exists(f"{local_check_dir}/Q{q_num}_{idx}.jpeg"):
         question_images.append(f"{web_asset_path}/Q{q_num}_{idx}.jpeg")
@@ -67,8 +64,6 @@ def clean_and_append_question(question, db_list, year, course_name):
 
     # Check for Graphical Options
     found_graphical_opts = {}
-    
-    # Default to A, B, C, D if text parsing failed to find options at all
     possible_options = list(question["textual_options"].keys()) if question["textual_options"] else ["A", "B", "C", "D"]
     
     for opt in possible_options:
@@ -77,8 +72,6 @@ def clean_and_append_question(question, db_list, year, course_name):
             
     if found_graphical_opts:
         question["graphical_options"] = found_graphical_opts
-        
-        # If we found an image for every single option, delete the text options
         if question["textual_options"] and len(found_graphical_opts) == len(question["textual_options"]):
             question["textual_options"] = None
     else:
@@ -99,13 +92,13 @@ def clean_and_append_question(question, db_list, year, course_name):
     else:
         question["question_format"] = "standard_mcq"
 
-    # Final conversion of empty string to Null for pure JSON readability
+    # Final conversion of empty string to Null
     question["question_text"] = question["question_text"] if question["question_text"] != "" else None
     
     db_list.append(question)
 
 
-def parse_questions_to_json(filepath, year, course_name, test_code):
+def parse_questions_to_json(filepath, year, course_name, test_code, total_time, reward, penalty, unanswered):
     try:
         with open(filepath, 'r', encoding='utf-8') as file:
             lines = file.readlines()
@@ -113,21 +106,23 @@ def parse_questions_to_json(filepath, year, course_name, test_code):
         print(f"Error: The input file '{filepath}' was not found.")
         sys.exit(1)
 
-    # Safety check for image folder (Root-Relative)
     local_check_dir = f"assets/data/images/{year}_{course_name}"
     if not os.path.exists(local_check_dir):
         print(f"Warning: The image directory '{local_check_dir}' does not exist. No images will be linked.")
 
-    # Paper Metadata
+    # Paper Metadata (Initialized dynamically)
     database = {
         "paper_metadata": {
             "course_name": course_name,
             "test_code": test_code,
             "year": year,
+            "total_time": total_time,
+            "total_questions": 0,
+            "maximum_marks": 0,
             "marking_scheme": {
-                "reward": 3,
-                "penalty": -1,
-                "unanswered": 0
+                "reward": reward,
+                "penalty": penalty,
+                "unanswered": unanswered
             }
         },
         "questions": []
@@ -140,7 +135,6 @@ def parse_questions_to_json(filepath, year, course_name, test_code):
     current_question = None
     current_direction = None
     direction_end_q = None 
-    
     current_target = "BUFFER" 
     current_option = None
     floating_buffer = []      
@@ -203,7 +197,7 @@ def parse_questions_to_json(filepath, year, course_name, test_code):
                 "graphical_options": None,
                 "correct_answer": None,
                 "topic_tag": "Uncategorized",
-                "explanation": [],           
+                "explanation": None,           
                 "question_format": None      
             }
 
@@ -240,28 +234,47 @@ def parse_questions_to_json(filepath, year, course_name, test_code):
             current_question["question_text"] += "\n" + "\n".join(floating_buffer)
         clean_and_append_question(current_question, database["questions"], year, course_name)
 
+    # --- DYNAMICALLY CALCULATE TOTALS ---
+    total_q = len(database["questions"])
+    database["paper_metadata"]["total_questions"] = total_q
+    database["paper_metadata"]["maximum_marks"] = total_q * reward
+    # ------------------------------------
+
     return database
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert exam questions from text to JSON.")
-    parser.add_argument("-i", "--input", required=True, help="Input filename (script will look in assets/data/raw/)")
-    parser.add_argument("-o", "--output", required=True, help="Output JSON filename (script will save to assets/data/json/)")
+    parser.add_argument("-q", "--questions", required=True, help="Input filename (script will look in assets/data/raw/)")
+    parser.add_argument("-j", "--json", required=True, help="Output JSON filename (script will save to assets/data/json/)")
     parser.add_argument("-y", "--year", type=int, required=True, help="The year of the exam paper")
     parser.add_argument("-c", "--course", required=True, help="The name of the course (e.g., MCA)")
     parser.add_argument("-t", "--test-code", required=True, help="The CUSAT test code number for this paper")
+    parser.add_argument("-m", "--minutes", type=int, required=True, help="Total time allowed for the exam in minutes")
+    
+    # Optional flags for marking scheme
+    parser.add_argument("-r", "--reward", type=int, default=3, help="Marks rewarded for correct answer (Default: 3)")
+    parser.add_argument("-p", "--penalty", type=int, default=-1, help="Marks deducted for wrong answer (Default: -1)")
+    parser.add_argument("-u", "--unanswered", type=int, default=0, help="Marks for unanswered question (Default: 0)")
 
     args = parser.parse_args()
 
-    # Automatically prepend the directory paths
-    input_filepath = os.path.join("assets", "data", "raw", args.input)
-    output_filepath = os.path.join("assets", "data", "json", args.output)
-
-    # Automatically create the 'json' output directory if it doesn't exist
-    os.makedirs(os.path.dirname(output_filepath), exist_ok=True)
-
-    parsed_data = parse_questions_to_json(filepath=input_filepath, year=args.year, course_name=args.course, test_code=args.test_code)
+    question_filepath = os.path.join("assets", "data", "raw", args.questions)
+    json_filepath = os.path.join("assets", "data", "json", args.json)
     
-    with open(output_filepath, 'w', encoding='utf-8') as json_file:
+    os.makedirs(os.path.dirname(json_filepath), exist_ok=True)
+
+    parsed_data = parse_questions_to_json(
+        filepath=question_filepath, 
+        year=args.year, 
+        course_name=args.course, 
+        test_code=args.test_code,
+        total_time=args.minutes,
+        reward=args.reward,
+        penalty=args.penalty,
+        unanswered=args.unanswered
+    )
+    
+    with open(json_filepath, 'w', encoding='utf-8') as json_file:
         json.dump(parsed_data, json_file, indent=4, ensure_ascii=False)
         
-    print(f"Success! Converted {len(parsed_data['questions'])} questions and saved to {output_filepath}")
+    print(f"Success! Converted {len(parsed_data['questions'])} questions and saved to {json_filepath}")

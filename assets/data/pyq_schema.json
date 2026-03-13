@@ -13,6 +13,9 @@
         "course_name",
         "test_code",
         "year",
+        "total_time",
+        "total_questions",
+        "maximum_marks",
         "marking_scheme"
       ],
       "properties": {
@@ -24,6 +27,18 @@
         },
         "year": {
           "type": "integer"
+        },
+        "total_time": {
+          "type": "integer",
+          "description": "Total time allowed for the exam in minutes"
+        },
+        "total_questions": {
+          "type": "integer",
+          "description": "Total number of questions present in the JSON"
+        },
+        "maximum_marks": {
+          "type": "integer",
+          "description": "Calculated as total_questions * reward"
         },
         "marking_scheme": {
           "type": "object",
@@ -116,10 +131,10 @@
             "type": "string"
           },
           "explanation": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "question_format": {
             "type": "string",
