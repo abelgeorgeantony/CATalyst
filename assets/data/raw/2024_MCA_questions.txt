@@ -1,0 +1,1500 @@
+
+
+
+          −4.5                         8 −4 2 
+1.   If  −4  is an eigenvector of   4 0
+                                               2  , the eigenvalue corresponding to the
+          1                          0 −2 −4 
+     eigenvector is?
+      (A)   λ=1
+      (B)   λ = −4.5
+      (C)   λ=4
+      (D)   λ=6
+
+
+2.   A is an upper triangular with all diagonal entries zero, then I + A is
+
+      (A)   Idempotent
+      (B)   Singular
+      (C)   Nilpotent
+      (D)   Invertible
+
+
+3.   If x 2 − 41x + 400 = 0; y 2 − 29 y + 210 = 0 , then choose the correct condition.
+
+      (A)   x>y
+      (B)   x<y
+      (C)   x≥y
+      (D)   x=y
+
+
+4.   If α, β are the roots of the quadratic equation x2 − 8x + k = 0 , find the value of k such
+     the α 2 + β 2 = 40
+
+      (A)   14
+      (B)   16
+      (C)   10
+      (D)   12
+5.   What is the minimum value of f ( x) = x 2 − 5 x + 41?
+
+            149
+      (A)
+             4
+            139
+      (B)
+             4
+            119
+      (C)
+             4
+            129
+      (D)
+             4
+
+
+6.   Given that log10 2 = 0.3010 , then log 2 10 is equal to?
+
+            1000
+      (A)
+             301
+      (B) 0.6990
+      (C) 0.3010
+            699
+      (D)
+            301
+
+
+7.   The greatest value assumed by the function f ( x) = 5 − x − 3 is
+
+      (A)   5
+      (B)   3
+      (C)   6
+      (D)   8
+
+
+8.   Verify Euler's theorem for the following function, u = ax 2 + 2hxy + by 2
+
+      (A)   Not Verified, Degree n = 0
+      (B)   Verified, Degree n = 1
+      (C)   Verified, Degree n = 4
+      (D)   Verified, Degree n = 2
+          x
+9.    For 3 = 1 , Find y ' by solving the equation for y and differentiating directly
+         y
+
+                   1 23
+       (A)   y'=     x
+                   3
+                   1 −2 3
+       (B)   y'=     x
+                   3
+                   1 −1 3
+       (C)   y'=     x
+                   3
+                   1 13
+       (D)   y'=     x
+                   3
+
+
+10.   If A is a subset of B then
+
+       (A)   The cardinalities may be same
+       (B)   The cardinality of A is greater than B
+       (C)   The cardinality of B is greater than A
+       (D)   The cardinalities may be finite
+
+11.   Find the maximum and minimum of f ( x, y ) = 5 x − 3 y subject to the constraint
+      x 2 + y 2 = 136.
+
+       (A)   Minimum at (−10, 6); Maximum at (10, −6)
+       (B)   Minimum at (10, 6); Maximum at (10, 6)
+       (C)   Minimum at (−12, 6); Maximum at (12, −6)
+       (D)   Minimum at (−10, 8); Maximum at (10, −8)
+
+
+12.   How many edges does a Null graph have?
+
+       (A)   0
+       (B)   1
+       (C)   2
+       (D)   3
+13.   Consider a simple undirected unweighted graph with at least three vertices. If A is the
+      adjacency matrix of the graph, then the number of 3-cycles in the graph is given by
+      the trace of ?
+
+             A3
+       (A)
+             3
+             A3
+       (B)
+             6
+             A2
+       (C)
+             4
+             A2
+       (D)
+             8
+
+
+14.   The maximum number of edges possible in a graph G with 9 vertices which is 3
+      colourable is equal to
+
+       (A)   24
+       (B)   25
+       (C)   26
+       (D)   27
+
+
+15.   From a tower of 80 m high, the angle of depression of a bus is 30 . How far is the bus
+      from the tower?
+
+       (A)   40 m
+       (B)   46.24 m
+       (C)   138.4 m
+       (D)   160 m
+
+
+16.   The half-interval method in numerical analysis is also known as
+
+       (A)   Bisection method
+       (B)   Newton-Raphson method
+       (C)   Regula Falsi method
+       (D)   Taylor’s method
+17.               (       )
+      Find ∫ 6 x x 2 + 6 dx
+
+
+             3x4
+       (A)       + 18 x 2 + C
+              2
+             3x4
+       (B)       − 18 x 2 + C
+              2
+             3x4
+       (C)       − 18 x 2 − C
+              2
+             3x 4
+       (D)        + x2 + C
+              2
+
+
+18.   Let S = {1, 2, 3, 5, 7, 10, 11}. The number of non-empty subsets of S that have the
+      sum of all elements a multiple of 3, is
+
+       (A)   40
+       (B)   41
+       (C)   42
+       (D)   43
+
+
+19.   Complete the indefinite integral formula ∫ x n dx = …………….…
+
+              x n−1
+       (A)           +c
+             (n + 1)
+
+              x n+1
+       (B)           +c
+             (n + 1)
+
+              x n−1
+       (C)           +c
+             (n − 1)
+
+              x n +1
+       (D)           +c
+             (n − 1)
+
+
+20.   ……………. are entities whose value is determined from the solution of LPP
+
+       (A)   Decision variable
+       (B)   Constraints
+       (C)   Objective function
+       (D)   Opportunity cost
+21.   Mathematically, the functions in Green’s theorem will be
+
+       (A)   Continuous derivatives
+       (B)   Discrete partial derivatives
+       (C)   Continuous partial derivatives
+       (D)   Discrete derivatives
+
+
+22.   Identify the orientations of two figures given below with respect to Green’s Theorem
+
+
+
+
+                  (Figure 1)                          (Figure 2)
+
+       (A)   Figure 1 – Positive Orientation, Figure 2 – Negative Orientation
+       (B)   Figure 1 – Negative Orientation, Figure 2 – Positive Orientation
+       (C)   Figure 1 – Downward Orientation, Figure 2 – Upward Orientation
+       (D)   Figure 1 – Upward Orientation, Figure 2 – Downward Orientation
+
+
+23.   The divergence of the vector –yi + xj is
+
+       (A)   0
+       (B)   1
+       (C)   2
+       (D)   3
+
+                                                 2
+24.   Find the area bounded by the curve y = x + 2 and straight line y = x + 3
+
+       (A)   A = 1.6
+       (B)   A = 1.7
+       (C)   A = 1.7655
+       (D)   A = 1.8633
+
+
+25.   Every mathematical model
+
+       (A)   represents data in numerical form
+       (B)   must be deterministic
+       (C)   requires computer aid for its solution
+       (D)   cannot be defined
+26.   Which of the following is union of {1, 2, 5} and {1, 2, 6}?
+
+       (A)   {1, 2}
+       (B)   {5, 6}
+       (C)   {1, 2, 5, 6}
+       (D)   {1, 2, 6}
+
+
+27.   If x ∈ N and x is prime, then x is
+
+       (A)   infinite set
+       (B)   finite set
+       (C)   empty set
+       (D)   not a set
+
+
+28.   Let the players who play cricket be 12, the ones who play football 10, those who play
+      only cricket are 6, then the number of players who play only football are ……………,
+      assuming there is a total of 16 players.
+
+       (A)   16
+       (B)   8
+       (C)   4
+       (D)   10
+
+
+29.   Which of the following function is also referred to as an injective function?
+
+       (A)   Many-to-one
+       (B)   Onto
+       (C)   One-to-One
+       (D)   None of the above
+
+                                                            10000
+30.   The positive integer just greater than (1 + 0.0001)           is
+
+       (A)   2
+       (B)   3
+       (C)   4
+       (D)   5
+
+                            p      q                                 p+q
+31.   The coefficients of x and x in the expression of (1 + x)             are
+
+       (A)   equal
+       (B)   equal with opposite signs
+       (C)   reciprocals of each other
+       (D)   None of the above
+                                               2          n            −1
+32.   Let p be a non singular matrix 1 + p + p + … + p = O, then p          =?
+      (O denotes the null matrix)
+
+       (A) pn
+       (B) –pn
+                              n
+       (C) –(1 + p + … + p )
+       (D) None of the above
+
+                                    T
+33.   For any square matrix A, AA is a
+
+       (A)   unit matrix
+       (B)   symmetric matrix
+       (C)   skew symmetric matrix
+       (D)   diagonal matrix
+
+                                                                                   –1
+34.   For two invertible matrices A and B of suitable orders, the value of (AB)         is
+
+       (A)        –1
+             (BA)
+       (B)    –1 –1
+             B A
+       (C)    –1 –1
+             A B
+       (D)        –1
+             (AB')
+
+
+35.   If the system of linear equation x + 2ay + az = 0, x + 3by + bz = 0, x + 4cy + cz = 0
+      has a non zero solution, then a, b, c
+
+       (A)   are in A.P.
+       (B)   are in G. P.
+       (C)   are in H. P.
+       (D)   satisfy a + 2b + 3c = 0
+
+
+36.   If A is a square matrix of order 3, then the true statement is (where I is unit matrix)
+
+       (A)   det (–A) = –det A
+       (B)   det A = 0
+       (C)   det (A + I) = 1 + det A
+       (D)   det 2A = 2 det A
+
+37.   The dimension of zero vector space is
+
+       (A)   not defined
+       (B)   1
+       (C)   0
+       (D)   infinite
+                                                                                        1
+38.   What is the quadratic polynomial whose sum and the product of zeroes is      2,
+                                                                                        3
+      respectively?
+
+       (A)   3x 2 − 3 2 x + 1
+       (B)   3x 2 + 3 2 x + 1
+       (C) 3x 2 + 3 2 x − 1
+       (D) None of the above
+
+                     2       2   2
+39.   Let D = a + b + c ; a, b being consecutive integers and c = ab then      D is
+
+       (A)   always an even integer
+       (B)   always an odd integer
+       (C)   sometimes an odd integer, sometimes not
+       (D)   sometimes a rational number, sometimes not
+
+         2       2       2
+40.   If a + b + c = 1, then ab + bc + ac lies in the interval
+
+       (A)   [1 2, 2]
+       (B) [−1, 2]
+       (C) [ −1 2, 2]
+       (D) [ −1,1 2]
+
+
+                                            2
+41.   If the roots of the quadratic equation x + px + q = 0 are tan 30° and tan 15°,
+      respectively then the value of 2 + q – p is
+
+       (A)   0
+       (B)   1
+       (C)   2
+       (D)   3
+
+
+42.   Which of the following is an example of an Ideal of Ring R?
+
+       (A)   Z
+       (B)   {0}
+       (C)   Q
+       (D)   2Z
+43.   The field Q   ( 3 + 7 ) is isomorphic to
+       (A) Q
+       (B) R
+       (C)   Q   ( 3, 7 )
+       (D) C
+
+
+44.   Find the fixed field of Q   ( 2 ) of the mapping 2 goes to − 2
+       (A)   Q
+       (B)   R
+       (C)   C
+       (D)   Z
+
+
+45.   Number of zero divisors of Q is
+
+       (A)   0
+       (B)   1
+       (C)   2
+       (D)   3
+
+
+46.   In any Abelian group, every subgroup is
+
+       (A)   normal
+       (B)   finite
+       (C)   cyclic
+       (D)   zero
+
+
+47.   The number of normal subgroups in a nontrivial simple group is
+
+       (A)   2
+       (B)   1
+       (C)   0
+       (D)   4
+
+
+48.   Find the maximum order of an element in the permutation group S5
+
+       (A)   2
+       (B)   6
+       (C)   3
+       (D)   10
+49.   Find the number of units in the ring Z5
+
+       (A)   2
+       (B)   4
+       (C)   3
+       (D)   1
+
+
+                                         3π 
+50.   The principal value of tan −1  tan     is
+                                          4 
+
+             2π
+       (A)
+              4
+               2π
+       (B)   −
+                4
+             3π
+       (C)
+              4
+                 π
+       (D)   −
+                 4
+
+                         –1
+51.   The domain of sin (2x) is
+
+       (A) [0, 1]
+       (B) [– 1, 1]
+       (C) [ −1 2,1 2]
+       (D) [–2, 2]
+
+                                                               –1
+52.   Which of the following is the principal value branch of cos x?
+
+       (A) [ −π 2, π 2]
+       (B) (0, π)
+       (C) [0, π]
+       (D) (0, π) – {π 2}
+
+
+                              –1    2    2
+53.   The domain of y = cos        (x – 2 ) is
+
+       (A) [3, 5]
+       (B) [0, π]
+       (C)    − 5, − 3  ∩  − 5, 3 
+                                  
+       (D)    − 5, − 3  ∪  − 3, 5 
+                                  
+                −1
+54.   sin(tan        x), where |x| < 1, is equal to
+
+                      x
+       (A)
+                 1 − x2
+                      1
+       (B)
+                 1 − x2
+                      1
+       (C)
+                 1 + x2
+                      x
+       (D)
+                 1 + x2
+
+
+55.   If the length of the shadow of a tree is decreasing, then the angle of elevation is
+
+       (A)      increasing
+       (B)      decreasing
+       (C)      remains the same
+       (D)      None of the above
+
+
+56.   The angle of elevation of the top of a building from a point on the ground, which is
+      30 m away from the foot of the building, is 30°. The height of the building is
+
+       (A) 10 m
+                30
+       (B)         m
+                 3
+
+                 3
+       (C)         m
+                10
+       (D) 30 m
+
+
+57.   If the height of the building and distance from the building foot’s to a point is
+      increased by 20%, then the angle of elevation on the top of the building
+
+       (A)      increases
+       (B)      decreases
+       (C)      do not change
+       (D)      None of the above
+                   3      2
+58.   If f (x) = 2x – 3x – 12x + 5 and x belongs to [−2, 4], then the maximum value of
+      function is at the following value of x
+
+       (A)   1
+       (B)   2
+       (C)   3
+       (D)   4
+
+
+                               e2 x − 1 
+      Given function f ( x) =  2 x
+                               e + 1 
+59.                                        is
+                                        
+
+       (A)   strictly increasing
+       (B)   strictly decreasing
+       (C)   even
+       (D)   oscillating
+
+
+60.   If ab = 2a + 3b; a > 0, b > 0 then the minimum value of ab is
+
+       (A) 12
+       (B) 24
+       (C) 1
+           4
+       (D) 1
+           2
+
+
+61.   Which of the following functions has a finite number of points of discontinuity in R
+      ([.] represents the greatest integer function)?
+
+       (A) tan x
+       (B) x[x]
+       (C)    x x
+       (D) sin [πx]
+
+
+62.   The number of values of x ∈ [0, 2] at which f (x) = x − (1 2) + x − 1 + tan x is not
+      differentiable is
+
+       (A)   0
+       (B)   1
+       (C)   3
+       (D)   1.5
+63.   A and B are standing on ground 50 meters apart. The angles of elevation for these two
+      to the top of a tree are 60° and 30°. What is height of the tree?
+
+       (A) 503 m
+       (B) 25
+               m
+            3
+       (C) 25 3 m
+       (D)   25
+                m
+             4
+
+
+64.   The area of the triangle ABC with the vertices A(−5, 7), B(−4, −5) and C(4, 5) is
+
+       (A)   63
+       (B)   35
+       (C)   53
+       (D)   36
+
+                                                       2           2
+65.   If y = mx + 4 is a tangent to both the parabolas, y = 4x and x = 2by, then b is equal to
+
+       (A)   −64
+       (B)   128
+       (C)   −128
+       (D)   −32
+
+                                           2    2     2                2
+66.   Two common tangents to the circle x + y = 2a and parabola y = 8ax are
+
+       (A)   x = ±(y + 2a)
+       (B)   y = ±(x + 2a)
+       (C)   x = ±(y + a)
+       (D)   y = ±(x + a)
+
+                                                           2
+67.   Let P be the point (1, 0) and Q a point on the locus y = 8x. The locus of midpoint of
+      PQ is
+
+       (A) y2 – 4x + 2 = 0
+              2
+       (B) y + 4x – 2 = 0
+       (C) x2 + 4y + 2 = 0
+       (D) x2 – 4y + 2 = 0
+                                            2
+68.   The normal at the point (bt1 , 2bt1) on a parabola meets the parabola again in the
+                   2
+      point (bt2 , 2bt2) then
+
+       (A)   t2 = −t1 − 2 t1
+       (B)   t2 = −t1 + 2 t1
+       (C)   t2 = t1 − 2 t1
+       (D) t2 = t1 + 2/t1
+
+
+69.   A parabola has the origin as its focus and the line x = 2 as the directrix. Then the
+      vertex of the parabola is at
+
+       (A)   (0, 2)
+       (B)   (1, 0)
+       (C)   (0, 1)
+       (D)   (2, 0)
+
+
+70.   If a ≠ 0 and the line 2bx + 3cy + 4d = 0 passes through the points of intersection of the
+                       2           2
+      parabolas y = 4ax and x = 4ay then
+
+       (A) d 2 + (2b + 3c)2 = 0
+               2               2
+       (B) d + (3b + 2c) = 0
+               2               2
+       (C) d + (2b – 3c) = 0
+       (D) d 2 + (3b – 2c)2 = 0
+
+
+71.   The locus of a point P(α, β) moving under the condition that the line y = αx + β is a
+                                       x2
+                                        y2
+      tangent to the hyperbola        −    = 1 is
+                                   a 2 b2
+
+       (A)   an ellipse
+       (B)   a circle
+       (C)   a hyperbola
+       (D)   a parabola
+
+
+72.   If a hyperbola passes through the point P(10, 16) and it has vertices at (±6, 0), then
+      the equation of the normal at P is
+
+       (A)   3x + 4y = 94
+       (B)   x + 2y = 42
+       (C)   2x + 5y = 100
+       (D)   x + 3y = 58
+73.   The objective function of a linear programming problem is
+
+       (A)   a constraint
+       (B)   a function to be optimized
+       (C)   a relation between the variables
+       (D)   None of the above
+
+
+74.   In 30 balls, a batsman hits the boundaries 6 times. What will be the probability that he
+      did not hit the boundaries?
+
+             1
+       (A)
+             5
+             4
+       (B)
+             5
+             3
+       (C)
+             5
+             2
+       (D)
+             5
+
+
+75.   What will be the probability of an impossible event?
+
+       (A)   0
+       (B)   1
+       (C)   Infinity
+       (D)   −1
+
+76.   Mark the object that does not follow the rule
+
+
+
+
+       (A)   I
+       (B)   B
+       (C)   E
+       (D)   H
+
+
+77.   Arrange the given words in a logical and meaningful order
+
+       1.    Pupa         2.    Larva            3.    Moth         4.    Eggs
+
+       (A)   4, 1, 2, 3
+       (B)   4, 2, 1, 3
+       (C)   4, 3, 2, 1
+       (D)   4, 3, 1, 2
+78.   Find the next number in the sequence:
+              16, 30, 54, 88, 132…
+
+       (A)   206
+       (B)   186
+       (C)   188
+       (D)   190
+
+
+79.   Which of the following set is equivalent to set A= {a, b, c, d, e}?
+
+       (A)   B = {1,2,3,4,5}
+       (B)   B = {}
+       (C)   B = {−1,2,3}
+       (D)   C = {2}
+
+80.   Arrange the following words according to dictionary
+
+       1.    Fenestration    2. Feather       3. Feed head        4. Feature   5. Feminine
+
+       (A)   2, 4, 1, 5, 3
+       (B)   2, 4, 3 ,5, 1
+       (C)   4, 2, 3, 1, 5
+       (D)   4, 2, 5, 1, 3
+
+
+81.   If the word "RED" is coded "UHG”, then what is the code for "NOT"?
+
+       (A)   QRW
+       (B)   NOY
+       (C)   NOT
+       (D)   TOT
+
+82.   Direction: Read the following information carefully and answer the question.
+
+                A ÷ B means A is the son of B
+                A – B means A is the wife of B
+                A × B means A is the brother of B
+                A + B means A is the mother of B
+                A = B means A is the sister of B
+
+      What does P × R + Q mean?
+
+       (A)   P is the father of Q
+       (B)   P is the brother of Q
+       (C)   P is the uncle of Q
+       (D)   P is the sister of Q
+83.   If it is 9:20, then what is the angle between the hands of the clock?
+
+       (A)   190°
+       (B)   150°
+       (C)   180°
+       (D)   160°
+
+
+84.   Which of the following come in place of ?
+
+             AB, DEF, HIJK, ? , STUVWX
+
+       (A)   LMN
+       (B)   LMNO
+       (C)   MNOPQ
+       (D)   QRSTU
+
+
+85.   Two bus tickets from city A to B and three tickets from city A to C cost `77 but three
+      tickets from city A to B and two tickets from city A to C cost `73. What are the fares
+      for cities B and C from A?
+
+       (A)   `12, `13
+       (B)   `15, `16
+       (C)   `4, `20
+       (D)   `13, `17
+
+
+86.   A monkey climbs 30 feet at the beginning of each hour and rests for a while when he
+      slips back 20 feet before he again starts climbing at the beginning of the next hour. If
+      he begins his ascent at 8.00 a.m., at what will he first touch a flag at 120 feet from the
+      ground?
+
+       (A)   8:00 pm
+       (B)   6:00 pm
+       (C)   5:00 pm
+       (D)   7:00 pm
+87.   Here are some words translated from an artificial language
+
+             gemolinea means fair warning
+             gerimitu means report card
+             gilageri means weather report
+
+      Which word could mean "fair weather"?
+
+       (A)   gemogila
+       (B)   gerigeme
+       (C)   gerimita
+       (D)   gemomitu
+
+
+88.   Here are some words translated from an artificial language
+
+                tamceno means sky blue
+                cenorax means blue cheese
+                aplmitl means star bright
+
+      Which word could mean "bright sky"?
+
+       (A)   raxmitl
+       (B)   cenotam
+       (C)   mitltam
+       (D)   aplceno
+
+
+89.   Harry wants to go to the university. He starts from his home, which is in the East and
+      comes to a crossing. The road to the left ends in a theatre, straight ahead is the
+      hospital. In which direction is the university?
+
+       (A)   South
+       (B)   North
+       (C)   East
+       (D)   West
+
+
+90.   If A is to the south of B and C is to the east of B, in what direction is A with respect to C?
+
+       (A)   South-West
+       (B)   North-West
+       (C)   South-East
+       (D)   North-East
+91.   I am facing west. I turn 45° in the clockwise direction and then 180° in the same
+      direction and then 270° anti-clockwise. Which direction am I facing now?
+
+       (A)   South-East
+       (B)   East
+       (C)   North-West
+       (D)   South-West
+
+
+92.   Two positions of dice of the figure are shown below. Find how many points will
+      appear on the face opposite of face 5 points?
+
+
+
+
+       (A)   2
+       (B)   1
+       (C)   4
+       (D)   3
+
+
+93.   Two positions of a cube with its surfaces are shown below. When the surface ‘D’
+      touch the bottom, what surface will be on top?
+
+
+
+
+       (A)   A
+       (B)   B
+       (C)   F
+       (D)   C
+
+
+
+
+      Direction (Question No. 94 to 98) : Read the passage given below carefully and
+      answer the question from.
+
+      Eight friends – P, Q, R, S, T, U, V and W are sitting around a circle facing the centre.
+      V is third to the right of Q and second to the left of R. Q is second to the left of T and
+      immediate right of S. U is between Q and T. P is not at the left of R
+
+94.   Who is second at right of S?
+       (A)   U
+       (B)   P
+       (C)   R
+       (D)   T
+
+
+95.   Who is exactly at left of S?
+
+       (A)   Q
+       (B)   U
+       (C)   P
+       (D)   V
+
+
+96.   What is the exact position of W?
+
+       (A)   Just right of V
+       (B)   Just left of V
+       (C)   Immediate right to R
+       (D)   In between U and V
+
+
+97.   In which of the following pairs first person sits exactly at right of second person?
+
+       (A)   UT
+       (B)   VT
+       (C)   WR
+       (D)   WT
+
+
+98.   Who is second to right of T?
+
+       (A)   R
+       (B)   W
+       (C)   P
+       (D)   V
+99.    Which of the following cubes can be created by folding the given figure?
+
+
+
+
+        (A)
+
+
+
+        (B)
+
+
+
+        (C)
+
+
+        (D)
+
+
+
+100.   Asuthosh ranked sixteenth from the top and twenty ninth from the bottom among
+       those who passed an examination. Six boys did not participate in the competition and
+       five failed in it. How many boys were there in the class?
+
+        (A)   55
+        (B)   50
+        (C)   65
+        (D)   60
+
+                                                        th                                          nd
+101.   In a row of children facing North, John is 12         from the left end. Sanjay, who is 22
+                                  th
+       from the right end, is 4        to the right of John. Total how many children are there in
+       the row?
+
+        (A)   35
+        (B)   37
+        (C)   36
+        (D)   34
+       Direction (Question No. 102 to 103): On the basis of the data given answer the
+       following question
+
+       A, B and C are three boys while R, S and T are three girls.
+       They are sitting in such a way that the boys are facing the girls.
+       A and R is diagonally opposite to each other.
+       C is not sitting at any of the ends.
+       T is just left of R but opposite to C
+
+102.   Who is sitting diagonally opposite to B ?
+
+        (A)   A
+        (B)   R
+        (C)   T
+        (D)   S
+
+
+103.   Who is sitting opposite to B?
+
+        (A)   A
+        (B)   C
+        (C)   R
+        (D)   T
+
+
+104.   Fill in the blanks
+
+               SCD, TEF, UGH, ………, WKL
+
+        (A)   VIJ
+        (B)   CMN
+        (C)   UJI
+        (D)   IJT
+
+
+105.   In a certain code, TRIPPLE is written as SQHOOKD. How is DISPOSE written in
+       that code?
+
+        (A)   DSOESPI
+        (B)   CHRONRD
+        (C)   ESJTPTF
+        (D)   ESOPSID
+106.   Four positions of a dice are given below. Identify the number at the bottom when top
+       is 1
+
+
+
+
+        (A)   4
+        (B)   6
+        (C)   5
+        (D)   2
+
+
+107.   There are four towns P, Q, R and T. Q is to the south-west of P, R is to the east of Q
+       and south-east of P, and T is to the north of R in line with QP. In which direction of P
+       is T located?
+
+        (A)   North
+        (B)   South-East
+        (C)   North-East
+        (D)   East
+
+
+108.   The number in the question below is to be codified in the following code
+
+                  Digit: 5 3 7 1 4 9 6 2 8
+                  Letter: C J O X N Q T Z F
+
+       Find the code for 163542
+
+        (A)   XTJCNZ
+        (B)   XTCJNZ
+        (C)   XTJCZN
+        (D)   TXJCNZ
+Direction (Question No. 109 to 113): Read the following information carefully and then
+answer the question below.
+
+Following are the criteria of admitting a student in the first year Engineering course in a
+college:
+
+The student must
+
+   a. have passed XII standard examination in Science with at least 80% marks
+                                               st
+   b. not be more than 20 years old as on 1 August 1994.
+   c. have secured at least 90 marks in the entrance test out of the total of 150 marks
+   d. be able to pay `15,000 as tuition fee for 1st semester and `5,000 admission charges at
+      the time of taking admission.
+In the case of a candidate, who satisfies all other criteria except at
+    I. c. above but can pay, at least 60% of the stipulated fees, the case may be referred to
+          the Admission Committee.
+   II. d. above but has secured more than 95% marks in XII standard examination, the
+          case may be referred to Chairman – Admissions
+                                              st
+You are given the following cases as on 1 August 1994. Depending upon the information
+provided in each case and based on the criteria mentioned above, recommend your decision.
+You are not to assume anything. If the information provided is not adequate to take a
+decision, mark `data inadequate’ as the answer.
+
+                                 th
+109.   Sandhu was born on 25 September 1975. He has secured 85% and 65% marks in XII
+       standard examination in Science stream and the entrance test, respectively. He can
+       pay the requisite tuition fee and admission charges.
+
+         (A)   Admit
+         (B)   Don’t Admit
+         (C)   Refer to Chairman - Admissions
+         (D)   Refer to Admission Committee
+
+
+110.   Sharmila has secured 95% marks in XII standard Science stream and 70% marks in
+       the entrance test. She can pay only 65% of the requisite tuition fee and admission
+       charges
+
+         (A)   Admit
+         (B)   Don’t Admit
+         (C)   Data Inadequate
+         (D)   Refer to Admission Committee
+                                         th
+111.   Harini was 19 years old as on 20 December 1993. She has secured 98% marks in
+       XII standard examination with Science and has secured 80% marks in the entrance
+       test. She can pay the requisite tuition fees and admission charges
+
+        (A)   Refer to Admission Committee
+        (B)   Don’t Admit
+        (C)   Data Inadequate
+        (D)   Admit
+
+                                  th
+112.   Noorzana was born on 20 July, 1974. She has secured 85% and 75% marks in XII
+       standard with Science and the entrance test, respectively. She can pay the requisite
+       tuition fees and admission charges
+
+        (A)   Refer to Admission Committee
+        (B)   Refer to Chairman of Admissions
+        (C)   Data Inadequate
+        (D)   Don’t Admit
+
+                             th
+113.   Ashok was born on 27 November, 1974. He has secured 90% marks in XII standard
+       examination with Science and 95% marks in the entrance test. He can pay `10,000
+       tuition fees and `3,500 admission charges
+
+        (A)   Refer to Admission Committee
+        (B)   Don’t Admit
+        (C)   Data Inadequate
+        (D)   Refer to Chairman of Admissions
+
+
+114.   Which of the following year is not a leap year?
+
+        (A)   2024
+        (B)   2100
+        (C)   2080
+        (D)   1960
+
+
+115.   How many triangles are there in a given figure?
+
+
+
+
+        (A)   24
+        (B)   25
+        (C)   26
+        (D)   28
+116.   A dice is numbered from 1 to 6 in different ways. If 1 is adjacent to 2, 3 and 5, then
+       which of the following statements is necessarily true?
+
+        (A)   4 is adjacent to 6
+        (B)   1 is adjacent to 6
+        (C)   1 is adjacent to 4
+        (D)   2 is adjacent to 5
+
+
+117.   A is D’s brother. D is B’s father. B and C are sisters. How is C related to A?
+        (A)   Aunt
+        (B)   Niece
+        (C)   Nephew
+        (D)   Cousin
+
+
+118.   Find out the correct answer figure that should come next in the sequence of problem
+       figures.
+
+
+
+
+        (A)   4
+        (B)   3
+        (C)   2
+        (D)   1
+119.   Find out the correct answer figure that should come next in the sequence of problem
+       figures.
+
+
+
+
+        (A)   2
+        (B)   1
+        (C)   4
+        (D)   3
+
+
+120.   Find out the correct answer figure that should come next in the sequence of problem
+       figures.
+
+
+
+
+        (A)   1
+        (B)   2
+        (C)   3
+        (D)   4
+
+
+121.   If AIRLINE is written as ENILRIA7, then RAILWAY will be written as
+
+        (A)   YAWLIAR7
+        (B)   YAWLIAR8
+        (C)   YAWILAR7
+        (D)   YAWILAR8
+122.   In the following question, arrange the given words in the sequence in which they
+       occur in the dictionary and then choose the correct sequence
+
+              1. Eagle 2. Earth       3.Eager      4. Early 5. Each
+
+        (A)   5,3,2,4,1
+        (B)   5,3,1,4,2
+        (C)   4,5,3,2,1
+        (D)   4,3,5,1,2
+
+
+123.   Which number comes next in the series?
+
+               1536, 384, 96, ………
+
+        (A)   23
+        (B)   24
+        (C)   28
+        (D)   18
+
+
+124.   If PINK is coded as 1691411, then RED will be coded as
+
+        (A)   1963
+        (B)   1854
+        (C)   1853
+        (D)   1954
+
+
+125.   Choose the next word:
+
+              Linear, Planar, Spatial, ...............
+
+        (A)   Temporal
+        (B)   Multidimensional
+        (C)   Unidimensional
+        (D)   Bidimensional
+
+
+126.   Complete the sequence:
+
+              Verbal, Nonverbal, Paraverbal, ...............
+
+        (A)   Meta verbal
+        (B)   Intraverbal
+        (C)   Extraverbal
+        (D)   Trans verbal
+127.   Find the next in the series:
+
+              Perpendicular, Parallel, Collinear, ...............
+
+        (A)   Intersecting
+        (B)   Coplanar
+        (C)   Concurrent
+        (D)   Orthogonal
+
+
+128.   Which is the odd one out?
+
+              Thesis, Dissertation, Manuscript, Article.
+
+        (A)   Thesis
+        (B)   Dissertation
+        (C)   Manuscript
+        (D)   Article
+
+
+129.   Find the sum of the infinite series:
+
+                  1 1 1
+               1 − + − + ..........
+                  3 9 27
+
+              3
+        (A)
+              4
+              1
+        (B)
+              2
+              2
+        (C)
+              3
+              3
+        (D)
+              2
+
+
+130.   In a financial model, if an initial investment of `1000 is compounded annually at 10%
+       interest, what will be the total value after 10 years?
+
+        (A)   `2593.74
+        (B)   `10000.74
+        (C)   `5000.74
+        (D)   `2000.74
+131.   What will come in place of question mark (?) in the following series?
+
+              132      156     182     210         240           ?
+
+        (A)   272
+        (B)   284
+        (C)   296
+        (D)   302
+
+
+132.   What will come in place of question mark (?) in the following series?
+
+              508      53     212     29      60         ?
+
+        (A)   15
+        (B)   19
+        (C)   23
+        (D)   13
+
+
+133.   What will come in place of question mark (?) in the following series?
+
+              2299      2203        2109     2017        ?           1839
+
+        (A)   1935
+        (B)   1927
+        (C)   1946
+        (D)   1953
+
+
+134.   What will come in place of question mark (?) in the following series?
+
+              16800         4200     1050     262.5          ?       16.40625
+
+        (A)   64.725
+        (B)   60.225
+        (C)   65.625
+        (D)   68.428
+
+
+135.   On a Big Billion day sale, Google flagship mobile phone was available at a discount
+       of 20% on Flipkart. The customers who are purchasing for the first time on Flipkart
+       will get additional cashback of 10% on the billing amount. Suraj being 1st time user of
+       Flipkart purchases the mobile phone for `36000, find the actual cost price of the
+       mobile phone.
+
+        (A)   `50000
+        (B)   `45000
+        (C)   `52250
+        (D)   `47250
+136.   As per a company policy only 25% of the female employees and 20% of the male
+       employees can hold the positions higher than level 2. If the ratio of female and male
+       employees in the company is 3 : 2, then find the percentage of employees which are
+       working below level 2.
+
+        (A)   75
+        (B)   77
+        (C)   70
+        (D)   72
+
+
+137.   Find the value of (?)
+
+               221 ÷ 13 ×      576 + 100 = ?
+
+        (A)   628
+        (B)   428
+        (C)   408
+        (D)   508
+
+
+138.   Find the value of (?)
+
+              6 × 6 × 6 × 6 × 6 + 6 × 6 × 6 × 6 = 81 × 3.5 × ?
+
+        (A)   64
+        (B)   16
+        (C)   32
+        (D)   36
+
+
+139.   Find the value of (?)
+                                   7
+              19% of 250 + ? = 2
+
+        (A)   85.50
+        (B)   75.50
+        (C)   80.50
+        (D)   70.50
+
+
+140.   Find the value of (?)
+                                  5            5                 3     16        ?
+              (6 × 6 × 6 × 6 × 6) × (9 × 9 × 9) ÷ (18 × 18 × 18) = 2        ×3
+
+        (A)   36
+        (B)   39
+        (C)   37
+        (D)   41
+141.   The cost of 1 dozen banana is `72 and the cost of one apple is 50% more than the cost
+       of one banana. Anumol purchased x banana and (x + 4) apples and spent `186. Find
+       the total number of fruits that he purchased.
+
+        (A)   16
+        (B)   20
+        (C)   24
+        (D)   30
+
+
+142.   If the numerator of a fraction is increased by 150% and the denominator of a fraction
+       increased by 200%, fraction becomes 10 19 . Find the fraction.
+
+        (A)   12
+              17
+        (B)   10
+              16
+        (C)   12
+              19
+        (D)    9
+              11
+
+
+143.   In a group of persons travelling in a bus, 6 persons can speak Tamil, 15 can speak
+       Hindi and 6 can speak Gujarati. In that group, none can speak any other language. If 2
+       persons in the group can speak two languages and one person can speak all the three
+       languages, then how many persons are there in the group?
+
+        (A)   21
+        (B)   22
+        (C)   23
+        (D)   24
+
+
+144.   Count the number of triangles and squares in the given figure.
+
+
+
+
+        (A)   21 triangles, 7 squares
+        (B)   18 triangles, 8 squares
+        (C)   20 triangles, 8 squares
+        (D)   22 triangles, 7 squares
+145.   How many parallelograms are there in the following figure?
+
+
+
+
+        (A)   17
+        (B)   19
+        (C)   21
+        (D)   15
+
+
+146.   If it was Sunday on January 1st 2006, the day of the week on January 1st 2010 is
+
+        (A)   Sunday
+        (B)   Friday
+        (C)   Saturday
+        (D)   Monday
+
+
+Direction (Question No. 147 to 150): Study the following bar chart carefully and answer the
+question given below:
+
+Data regarding the number of people who were tested positive with COVID-19 during
+January, February and March in five countries is given in the stack bar chart.
+147.   Find the average number of people per day who were tested positive in India in
+       March.
+
+        (A)   60.73
+        (B)   67.74
+        (C)   72.34
+        (D)   76.47
+
+
+148.   Which countries in February showed more than 3000 positive tests?
+
+        (A)   China and Italy only
+        (B)   China, Italy, Spain and the USA only
+        (C)   China, Italy and the USA only
+        (D)   China and the USA only
+
+
+149.   By what percent the number of positive tested people grew in Spain in February from
+       January?
+
+        (A)   335.13%
+        (B)   235.13%
+        (C)   353.13%
+        (D)   253.13%
+
+
+150.   Japan in January had twice the number of cases that India had in January while 50%
+       more cases in February than India that India had in February. Find the number of
+       cases in Japan in March if cases in March were twice the total cases till February end.
+
+        (A)   2300
+        (B)   2100
+        (C)   2200
+        (D)   2400
+

@@ -61,7 +61,7 @@ def extract_pdf(input_pdf, q_first, q_last, a_first, a_last):
     run_pdftotext(a_args)
     print(f"  -> Saved to {answers_output}")
 
-    print("\nExtraction Complete! You can now run the JSON parser and Answer Injector.")
+    print("\nExtraction Complete! Before running the JSON parser and Answer Injector you must ABSOLUTELY make sure the text files came out nicely.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Extract questions and answers from a PDF using pdftotext.")
