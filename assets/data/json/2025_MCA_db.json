@@ -3,6 +3,9 @@
         "course_name": "MCA",
         "test_code": "501",
         "year": 2025,
+        "total_time": 120,
+        "total_questions": 150,
+        "maximum_marks": 450,
         "marking_scheme": {
             "reward": 3,
             "penalty": -1,
@@ -13,7 +16,7 @@
         {
             "question_number": 1,
             "direction_text": null,
-            "question_text": "MCA (FINAL) A 3 × 3 matrix has a characteristic polynomial given by λ 3 ˗ 5λ 2 + 8λ ˗ 4 = 0. The sum of its eigen values is",
+            "question_text": "A 3 × 3 matrix has a characteristic polynomial given by λ 3 ˗ 5λ 2 + 8λ ˗ 4 = 0. The sum of its eigen values is",
             "question_images": null,
             "textual_options": {
                 "A": "3",
@@ -22,9 +25,9 @@
                 "D": "2"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -39,9 +42,9 @@
                 "D": "λ 2 + trace( A) ⋅ λ = 0"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -56,9 +59,9 @@
                 "D": "using the Cayley-Hamilton theorem"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -73,9 +76,9 @@
                 "D": "no. of rows of A is equal to no. of columns of B"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -90,9 +93,9 @@
                 "D": "−66"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -107,9 +110,9 @@
                 "D": "Data inadequate"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -124,9 +127,9 @@
                 "D": "λ is an integer"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -141,9 +144,9 @@
                 "D": "The matrix is singular"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -158,9 +161,9 @@
                 "D": "x=4"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -175,9 +178,9 @@
                 "D": "3"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -192,9 +195,9 @@
                 "D": "product or quotient of functions"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -209,9 +212,9 @@
                 "D": "periodic in the interval"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -226,9 +229,9 @@
                 "D": "xx+1ln(x)"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -243,9 +246,9 @@
                 "D": "eliminate x from the equation"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -260,9 +263,9 @@
                 "D": "x + y + xy"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -277,9 +280,9 @@
                 "D": "solve partial differential equations"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -294,9 +297,9 @@
                 "D": "dz + x2dx + y dy"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -311,9 +314,9 @@
                 "D": "y 2 + 2x"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -328,9 +331,9 @@
                 "D": "undefined"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -345,9 +348,9 @@
                 "D": "2 x ⋅ y – 2x2"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -362,9 +365,9 @@
                 "D": "substitution u = ex 1"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -379,9 +382,9 @@
                 "D": "ln x + 2 x + 5 + C )"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -396,9 +399,9 @@
                 "D": "2"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -413,9 +416,9 @@
                 "D": "6"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -430,9 +433,9 @@
                 "D": "a parabola"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -447,9 +450,9 @@
                 "D": "s+a"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -464,9 +467,9 @@
                 "D": "p → q ≡ ~p → ~q"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -481,9 +484,9 @@
                 "D": "f −1 ( x ) = 2"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -498,9 +501,9 @@
                 "D": "90°"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -515,9 +518,9 @@
                 "D": "π"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -532,9 +535,9 @@
                 "D": "None of the above"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -549,9 +552,9 @@
                 "D": "R \\ { x | x = nπ , n ∈ Z }"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -566,9 +569,9 @@
                 "D": "second degree polynomial function"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -583,9 +586,9 @@
                 "D": "4"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -600,9 +603,9 @@
                 "D": "2"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -617,9 +620,9 @@
                 "D": "None of the above"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -634,9 +637,9 @@
                 "D": "m*n"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -651,9 +654,9 @@
                 "D": "{1,3,5}"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -668,9 +671,9 @@
                 "D": "None of the above"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -685,9 +688,9 @@
                 "D": "9"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -702,9 +705,9 @@
                 "D": "G is of finite order"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -719,9 +722,9 @@
                 "D": "cyclic"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -736,9 +739,9 @@
                 "D": "If R and S are transitive, then R ∪ S is transitive"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -753,9 +756,9 @@
                 "D": "−x"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -770,9 +773,9 @@
                 "D": "sin x 2 x"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -787,9 +790,9 @@
                 "D": "f '(x) must exist for every x on (a , b)"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -804,9 +807,9 @@
                 "D": "− 6"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -821,9 +824,9 @@
                 "D": "1 + ln x"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -838,9 +841,9 @@
                 "D": "(2, + ∞)"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -855,9 +858,9 @@
                 "D": "18"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -872,9 +875,9 @@
                 "D": "5"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -889,9 +892,9 @@
                 "D": "[A]"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -906,9 +909,9 @@
                 "D": "3"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -923,9 +926,9 @@
                 "D": "always an integer"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -940,9 +943,9 @@
                 "D": "A maxima at x = 1but no minima"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -957,9 +960,9 @@
                 "D": "Both (B) and (C)"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -974,9 +977,9 @@
                 "D": "360"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -991,9 +994,9 @@
                 "D": "XZ+Y"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1008,9 +1011,9 @@
                 "D": "8"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1025,9 +1028,9 @@
                 "D": "polyhedron"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1042,9 +1045,9 @@
                 "D": "0"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1059,9 +1062,9 @@
                 "D": "Augustin Louis Cauchy"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1076,9 +1079,9 @@
                 "D": "matrix equations"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1093,9 +1096,9 @@
                 "D": "the determinant of the matrix"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1110,9 +1113,9 @@
                 "D": "199"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1127,9 +1130,9 @@
                 "D": "e–4"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1144,9 +1147,9 @@
                 "D": "37440"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1161,9 +1164,9 @@
                 "D": "Two null sets are not equal"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1178,9 +1181,9 @@
                 "D": "300 m"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1195,9 +1198,9 @@
                 "D": "2"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1212,9 +1215,9 @@
                 "D": "3"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1229,9 +1232,9 @@
                 "D": "2"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1246,9 +1249,9 @@
                 "D": "no specific pattern"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1263,9 +1266,9 @@
                 "D": "a∊ (−1, 1)"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1280,9 +1283,9 @@
                 "D": "z̄ = –3i– 7"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1297,9 +1300,9 @@
                 "D": "33"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1314,9 +1317,9 @@
                 "D": "36"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1331,9 +1334,9 @@
                 "D": "15"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1348,9 +1351,9 @@
                 "D": "240"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1365,9 +1368,9 @@
                 "D": "3"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1382,9 +1385,9 @@
                 "D": "156"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1399,9 +1402,9 @@
                 "D": "192.5°"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1416,9 +1419,9 @@
                 "D": "Grandmother"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1433,9 +1436,9 @@
                 "D": "Neither assumption is implicit"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "statement_assumption"
         },
         {
@@ -1450,9 +1453,9 @@
                 "D": "Course 1 and 3 together"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "course_of_action"
         },
         {
@@ -1467,9 +1470,9 @@
                 "D": "Oval"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1484,9 +1487,9 @@
                 "D": "CPPS"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1501,9 +1504,9 @@
                 "D": "8"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1518,9 +1521,9 @@
                 "D": "243"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1535,9 +1538,9 @@
                 "D": "20"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1552,9 +1555,9 @@
                 "D": "23"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1569,9 +1572,9 @@
                 "D": "A type of diagram"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1586,9 +1589,9 @@
                 "D": "3"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1603,9 +1606,9 @@
                 "D": "actors"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "shared_passage"
         },
         {
@@ -1620,9 +1623,9 @@
                 "D": "red"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "shared_passage"
         },
         {
@@ -1637,9 +1640,9 @@
                 "D": "flower red joker"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "shared_passage"
         },
         {
@@ -1656,9 +1659,9 @@
                 "C": "/assets/data/images/2025_MCA/Q97C.jpeg",
                 "D": "/assets/data/images/2025_MCA/Q97D.jpeg"
             },
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1673,9 +1676,9 @@
                 "D": "NEGLECT"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1690,9 +1693,9 @@
                 "D": "FARMES"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1709,9 +1712,9 @@
                 "D": "5"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1728,9 +1731,9 @@
                 "D": "4"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1747,9 +1750,9 @@
                 "D": "4"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1766,9 +1769,9 @@
                 "D": "4"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1785,9 +1788,9 @@
                 "D": "19"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1804,9 +1807,9 @@
                 "D": "1"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1823,9 +1826,9 @@
                 "D": "4"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1842,9 +1845,9 @@
                 "D": "1,2 ; 3,6 ; 4,5"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1861,9 +1864,9 @@
                 "D": "4"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -1878,9 +1881,9 @@
                 "D": "PEARL"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1895,9 +1898,9 @@
                 "D": "25430"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1912,9 +1915,9 @@
                 "D": "25, 30"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1929,9 +1932,9 @@
                 "D": "44"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1946,9 +1949,9 @@
                 "D": "18002"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1963,9 +1966,9 @@
                 "D": "96"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1980,9 +1983,9 @@
                 "D": "178"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -1997,9 +2000,9 @@
                 "D": "10, 40"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2014,9 +2017,9 @@
                 "D": "48"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2031,9 +2034,9 @@
                 "D": "125683"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2048,9 +2051,9 @@
                 "D": "435"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2065,9 +2068,9 @@
                 "D": "10 years"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2082,9 +2085,9 @@
                 "D": "1800 rupees"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2099,9 +2102,9 @@
                 "D": "Q"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2116,9 +2119,9 @@
                 "D": "QZGNRMV"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2133,9 +2136,9 @@
                 "D": "10 years"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2150,9 +2153,9 @@
                 "D": "Son"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2167,9 +2170,9 @@
                 "D": "SUFFER"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2184,9 +2187,9 @@
                 "D": "5KF2E4GR4"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2201,9 +2204,9 @@
                 "D": "26"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2218,9 +2221,9 @@
                 "D": "9 km"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2235,9 +2238,9 @@
                 "D": "{4, 5, 6, 7}"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2252,9 +2255,9 @@
                 "D": "18"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2269,9 +2272,9 @@
                 "D": "Q−S%P"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2288,9 +2291,9 @@
                 "D": "44"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -2307,9 +2310,9 @@
                 "D": "3"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -2326,9 +2329,9 @@
                 "D": "16"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -2343,9 +2346,9 @@
                 "D": "55 minutes 40 seconds"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2360,9 +2363,9 @@
                 "D": "302"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2377,9 +2380,9 @@
                 "D": "0.4"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2396,13 +2399,13 @@
                 "C": "/assets/data/images/2025_MCA/Q139C.jpeg",
                 "D": "/assets/data/images/2025_MCA/Q139D.jpeg"
             },
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
-            "question_number": 140,
+            "question_number": 121,
             "direction_text": null,
             "question_text": "In a certain language, TRIANGLE is coded as SQHZMFKD, which word would be coded as DWZLOKD?",
             "question_images": null,
@@ -2413,9 +2416,9 @@
                 "D": "DISJOIN"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2430,9 +2433,9 @@
                 "D": "scalene triangle"
             },
             "graphical_options": null,
-            "correct_answer": "C",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2447,9 +2450,9 @@
                 "D": "Q and Y"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2464,9 +2467,9 @@
                 "D": "5"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2481,9 +2484,9 @@
                 "D": "10"
             },
             "graphical_options": null,
-            "correct_answer": "D",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2498,9 +2501,9 @@
                 "D": "9"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2517,9 +2520,9 @@
                 "D": "B"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "visual_reasoning"
         },
         {
@@ -2534,9 +2537,9 @@
                 "D": "None of the above"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2551,9 +2554,9 @@
                 "D": "107"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2568,9 +2571,9 @@
                 "D": "33"
             },
             "graphical_options": null,
-            "correct_answer": "A",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         },
         {
@@ -2585,9 +2588,9 @@
                 "D": "+ and ×"
             },
             "graphical_options": null,
-            "correct_answer": "B",
+            "correct_answer": null,
             "topic_tag": "Uncategorized",
-            "explanation": [],
+            "explanation": null,
             "question_format": "standard_mcq"
         }
     ]

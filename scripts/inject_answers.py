@@ -1,8 +1,36 @@
+#!/usr/bin/env python
+# PYTHON_ARGCOMPLETE_OK
+
 import json
 import re
 import argparse
 import sys
 import os
+import argcomplete
+
+# --- Dynamic Path Resolution ---
+# 1. Get the absolute path of the directory containing this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# 2. Go one level up to find the project root
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+# 3. Build your asset paths absolutely from the project root
+DATA_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
+
+# --- Custom Completers ---
+def json_file_completer(prefix, parsed_args, **kwargs):
+    """Suggests only .json files from the assets/data/json directory."""
+    target_dir = os.path.join(DATA_DIR, "json")
+    if not os.path.exists(target_dir):
+        return []
+    return [f for f in os.listdir(target_dir) if f.lower().endswith('.json') and f.startswith(prefix)]
+
+def txt_file_completer(prefix, parsed_args, **kwargs):
+    """Suggests only .txt files from the assets/data/raw directory."""
+    target_dir = os.path.join(DATA_DIR, "raw")
+    if not os.path.exists(target_dir):
+        return []
+    return [f for f in os.listdir(target_dir) if f.lower().endswith('.txt') and f.startswith(prefix)]
+
 
 def parse_answer_key(filepath):
     """Parses the flat text file into a dictionary of {question_number: 'A/B/C/D'}"""
@@ -61,13 +89,21 @@ def inject_answers_into_json(json_filepath, answer_filepath):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Inject correct answers into an existing JSON database.")
-    parser.add_argument("-j", "--json", required=True, help="Target JSON filename (script will look in assets/data/json/)")
-    parser.add_argument("-a", "--answers", required=True, help="Answer key text filename (script will look in assets/data/raw/)")
+    
+    # Attach the completers to their respective arguments
+    parser.add_argument("-j", "--json", required=True, 
+                        help="Target JSON filename").completer = json_file_completer
+                        
+    parser.add_argument("-a", "--answers", required=True, 
+                        help="Answer key text filename").completer = txt_file_completer
+
+    # CRITICAL: Trigger autocomplete before parse_args
+    argcomplete.autocomplete(parser)
 
     args = parser.parse_args()
 
     # Automatically prepend the directory paths
-    json_filepath = os.path.join("assets", "data", "json", args.json)
-    answer_filepath = os.path.join("assets", "data", "raw", args.answers)
+    json_filepath = os.path.join(DATA_DIR, "json", args.json)
+    answer_filepath = os.path.join(DATA_DIR, "raw", args.answers)
 
     inject_answers_into_json(json_filepath=json_filepath, answer_filepath=answer_filepath)

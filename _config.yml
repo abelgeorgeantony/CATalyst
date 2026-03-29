@@ -1,0 +1,29 @@
+# Site Settings
+title: CATalyst
+description: >- # this means to ignore newlines until "baseurl:"
+  A practice ground to prepare and get a good rank in the CUSAT CAT (MCA) entrance exam.
+author: Abel
+
+# URL Configuration
+# These are crucial for GitHub Pages to load your CSS and assets correctly
+url: "https://abelgeorgeantony.github.io" # The base hostname of your GitHub Pages site
+baseurl: "/CATalyst" # The subpath of your repository
+
+# Build Settings
+theme: minima # A clean, default Jekyll theme. You can change this later.
+plugins:
+  - jekyll-feed
+
+# Exclusions
+# Tell Jekyll to ignore these files and folders when building the static site
+exclude:
+  - extract_pdf_text.py
+  - inject_answers.py
+  - questions_to_json.py
+  - README.md
+  - assets/data/raw/
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/bundle/

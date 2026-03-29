@@ -1,8 +1,28 @@
+#!/usr/bin/env python
+# PYTHON_ARGCOMPLETE_OK
+
 import re
 import json
 import argparse
 import sys
 import os
+import argcomplete
+
+# --- Dynamic Path Resolution ---
+# 1. Get the absolute path of the directory containing this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# 2. Go one level up to find the project root
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+# 3. Build your asset paths absolutely from the project root
+DATA_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
+
+# --- Custom Completer ---
+def txt_file_completer(prefix, parsed_args, **kwargs):
+    """Suggests only .txt files from the assets/data/raw directory."""
+    target_dir = os.path.join(DATA_DIR, "raw")
+    if not os.path.exists(target_dir):
+        return []
+    return [f for f in os.listdir(target_dir) if f.lower().endswith('.txt') and f.startswith(prefix)]
 
 def normalize_text(text):
     """Cleans OCR/PDF text by removing newlines and squashing redundant spaces."""
@@ -42,20 +62,21 @@ def clean_and_append_question(question, db_list, year, course_name):
         for key, val in question["textual_options"].items():
             question["textual_options"][key] = normalize_text(val)
 
-    # 3. Dynamic Filesystem Image Detection (Root-Relative Paths)
-    local_check_dir = f"assets/data/images/{year}_{course_name}"
+    # 3. Dynamic Filesystem Image Detection
+    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{course_name}")
+    # We keep web_asset_path relative because this gets written to the JSON for the Jekyll frontend
     web_asset_path = f"/assets/data/images/{year}_{course_name}"
     
     # --- Check for Question Images (Arrays) ---
     question_images = []
     
     # Check for the classic single image first
-    if os.path.exists(f"{local_check_dir}/Q{q_num}.jpeg"):
+    if os.path.exists(os.path.join(local_check_dir, f"Q{q_num}.jpeg")):
         question_images.append(f"{web_asset_path}/Q{q_num}.jpeg")
     
     # Check for sequential images
     idx = 1
-    while os.path.exists(f"{local_check_dir}/Q{q_num}_{idx}.jpeg"):
+    while os.path.exists(os.path.join(local_check_dir, f"Q{q_num}_{idx}.jpeg")):
         question_images.append(f"{web_asset_path}/Q{q_num}_{idx}.jpeg")
         idx += 1
 
@@ -67,7 +88,7 @@ def clean_and_append_question(question, db_list, year, course_name):
     possible_options = list(question["textual_options"].keys()) if question["textual_options"] else ["A", "B", "C", "D"]
     
     for opt in possible_options:
-        if os.path.exists(f"{local_check_dir}/Q{q_num}{opt}.jpeg"):
+        if os.path.exists(os.path.join(local_check_dir, f"Q{q_num}{opt}.jpeg")):
             found_graphical_opts[opt] = f"{web_asset_path}/Q{q_num}{opt}.jpeg"
             
     if found_graphical_opts:
@@ -106,7 +127,7 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
         print(f"Error: The input file '{filepath}' was not found.")
         sys.exit(1)
 
-    local_check_dir = f"assets/data/images/{year}_{course_name}"
+    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{course_name}")
     if not os.path.exists(local_check_dir):
         print(f"Warning: The image directory '{local_check_dir}' does not exist. No images will be linked.")
 
@@ -244,10 +265,13 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert exam questions from text to JSON.")
-    parser.add_argument("-q", "--questions", required=True, help="Input filename (script will look in assets/data/raw/)")
-    parser.add_argument("-j", "--json", required=True, help="Output JSON filename (script will save to assets/data/json/)")
+    
+    # Attach the completer to the input argument
+    parser.add_argument("-q", "--questions", required=True, 
+                        help="Input filename (script will look in assets/data/raw/)").completer = txt_file_completer
+                        
     parser.add_argument("-y", "--year", type=int, required=True, help="The year of the exam paper")
-    parser.add_argument("-c", "--course", required=True, help="The name of the course (e.g., MCA)")
+    parser.add_argument("-c", "--course", type=str.upper, required=True, help="The name of the course (e.g., MCA)")
     parser.add_argument("-t", "--test-code", required=True, help="The CUSAT test code number for this paper")
     parser.add_argument("-m", "--minutes", type=int, required=True, help="Total time allowed for the exam in minutes")
     
@@ -256,10 +280,17 @@ if __name__ == "__main__":
     parser.add_argument("-p", "--penalty", type=int, default=-1, help="Marks deducted for wrong answer (Default: -1)")
     parser.add_argument("-u", "--unanswered", type=int, default=0, help="Marks for unanswered question (Default: 0)")
 
+    # CRITICAL: Trigger autocomplete before parse_args
+    argcomplete.autocomplete(parser)
+
     args = parser.parse_args()
 
-    question_filepath = os.path.join("assets", "data", "raw", args.questions)
-    json_filepath = os.path.join("assets", "data", "json", args.json)
+    # Automatically prepend the directory path
+    question_filepath = os.path.join(DATA_DIR, "raw", args.questions)
+    
+    # Dynamically construct the JSON filename
+    json_filename = f"{args.year}_{args.course}_db.json"
+    json_filepath = os.path.join(DATA_DIR, "json", json_filename)
     
     os.makedirs(os.path.dirname(json_filepath), exist_ok=True)
 

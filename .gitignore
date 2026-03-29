@@ -1,0 +1,20 @@
+# =========================
+# Jekyll & Ruby
+# =========================
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+# Note: Gemfile.lock is typically tracked in version control to ensure 
+# consistent builds, so it is deliberately omitted from this ignore list.
+
+# =========================
+# Python (Data Scripts)
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/

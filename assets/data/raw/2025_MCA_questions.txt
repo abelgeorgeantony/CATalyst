@@ -1,7 +1,3 @@
-                                        MCA
-                                      (FINAL)
-
-
 1.   A 3 × 3 matrix has a characteristic polynomial given by λ 3 ˗ 5λ 2 + 8λ ˗ 4 =
      0. The sum of its eigen values is
 
@@ -42,7 +38,7 @@
       (A) −56
       (B) −58
       (C) −54
-       (D) −66
+      (D) −66
 
 
 6.    If Rank(A)=2 and Rank(B) =3, then Rank(AB) is
@@ -86,7 +82,7 @@ of x?
        (B)    0
        (C)    2
        (D)    3
-11.   Logarithmic differentiation is particularly useful whenf(x)is a
+11.   Logarithmic differentiation is particularly useful whenf(x)is a
 
        (A)   polynomial function
        (B)   constant
@@ -129,7 +125,7 @@ is
        (D) x + y + xy
 
 16.   The Jacobian determinant J (u, v; x, y) is used to
-       (A)   find critical points of a function
+       (A)   find critical points of a function
        (B)   transform variables in multiple integrals
        (C)   compute higher-order derivatives
        (D)   solve partial differential equations
@@ -1266,4 +1262,198 @@ hour period?
      the following shows that P is the maternal uncle of Q?
        (A)   Q−N+M×P
        (B)   P+S×N−Q
-       (C)   P
+       (C)   P−M+N×Q
+       (D)   Q−S%P
+
+
+133. Find the correct alternative which will replace the question mark?
+
+
+
+
+       (A)   49
+       (B)   33
+       (C)   27
+       (D)   44
+
+
+
+
+134. Two different positions of the same dice are shown below, select the
+     number that will be on the face opposite to the one having 2 as per the
+     options
+
+
+
+
+       (A)   5
+       (B)   6
+       (C)   4
+       (D)   3
+
+
+135. How many triangles are present in the following figure?
+
+
+
+
+       (A)   24
+       (B)   20
+       (C)   22
+       (D)   16
+136. Water flows at a rate of 10 meters per minute from a cylindrical pipe of 5
+     mm in diameter. How long will it take to fill a conical tank with a base
+     diameter of 40 cm and a height of 24 cm?
+
+       (A)   40 minutes 10 seconds
+       (B)   51 minutes 12 seconds
+       (C)   50 minutes 30 seconds
+       (D)   55 minutes 40 seconds
+
+
+137. What should come in place of the question mark (?) in the following
+number series?
+
+             5,8,20,34,76,142, ?
+
+       (A) 296
+       (B) 284
+       (C) 272
+       (D) 302
+
+
+138. Out of 100 students in a certain class, 70 students like
+     Mathematics, 40 students like Science and 15 students like both
+     Mathematics and Science. A student is selected at random. Find the
+     probability that the student likes Mathematics or Science
+
+       (A)   0.95
+       (B)   0.8
+       (C)   0.5
+       (D)   0.4
+
+
+139. Select the figure that will come next in the following series
+
+
+
+
+       (A)
+       (B)
+
+
+       (C)
+
+
+       (D)
+
+
+
+121. In a certain language, TRIANGLE is coded as SQHZMFKD, which word
+     would be coded as DWZLOKD?
+
+       (A)   EXAMPLE
+       (B)   FIGMENT
+       (C)   DISMISS
+       (D)   DISJOIN
+
+
+141. A triangle with at least two sides are of the same length is
+
+       (A)   obtuse triangle
+       (B)   right triangle
+       (C)   isosceles triangle
+       (D)   scalene triangle
+
+
+142. Six people are sitting in a row. Y is sitting between X and R. X is sitting
+     next to Z. Z is sitting next to P, who is sitting on the extreme left and Q is
+     sitting next to R. Who are sitting adjacent to X?
+
+       (A)   Z and Y
+       (B)   P and X
+       (C)   Y and R
+       (D)   Q and Y
+143. If the numerator of a fraction is increased by 150% and the denominator
+                                                         5
+      is increased by 300%, the resultant fraction is      . What is the original
+                                                        16
+      fraction?
+             1
+       (A)
+             2
+             1
+       (B)
+             4
+             3
+       (C)
+             4
+             1
+       (D)
+             5
+
+
+144. If U is the universal set with 100 elements, A and B are two sets such that
+     n(A)=50, n(B)=60, n ( A ∩ B ) = 20, then n ( A '∩ B ') =
+       (A)   40
+       (B)   20
+       (C)   90
+       (D)   10
+
+
+145. What is the Cardinality of the Power set of the set {0, 1, 2}?
+
+       (A)   8
+       (B)   6
+       (C)   7
+       (D)   9
+
+
+
+
+146. The shaded area of figure is best described by?
+
+
+
+
+       (A)   A′ (Complement of A)
+       (B)   A U B – (A ∩ B)
+       (C)   A–B
+       (D)   B
+147. If A and B are symmetric matrices and AB=BA, then A−1B is a
+
+       (A)   Symmetric matrix
+       (B)   Skew-symmetric matrix
+       (C)   Identity matrix
+       (D)   None of the above
+
+
+148. If + means ‘ ÷ ’, – means ‘+’, × means ‘– ’ and ÷ means ‘ × ’, then what
+     will be the value of the following expression.
+             18 ÷ 6 – 27 + 3 × 12 = ?
+
+       (A)   92
+       (B)   105
+       (C)   95
+       (D)   107
+
+
+149. Find the sum of two numbers, whose product is 200 and difference is
+minimum
+
+       (A)   30
+       (B)   27
+       (C)   35
+       (D)   33
+
+
+150. Which two signs should be interchanged in the following equation to
+     make it correct.
+
+             18 + 6 − 6 ÷ 3 × 3 = 6?
+
+       (A)   + and –
+       (B)   + and ÷
+       (C)   – and ÷
+       (D)   + and ×
+

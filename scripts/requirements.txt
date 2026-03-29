@@ -1,0 +1,2 @@
+# CLI autocompletion for argparse
+argcomplete>=3.0.0
