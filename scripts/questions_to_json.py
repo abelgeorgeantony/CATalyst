@@ -269,16 +269,14 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
 
     return database
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convert exam questions from text to JSON.")
+    parser = argparse.ArgumentParser(description="Convert exam questions from text to JSON. Auto-detects Year, Course, and Test Code from filename: <year>_<course>_<testcode>.txt")
     
     # Attach the completer to the input argument
     parser.add_argument("-q", "--questions", required=True, 
-                        help="Input filename (script will look in assets/data/raw/)").completer = txt_file_completer
+                        help="Input filename in format <year>_<course>_<testcode>.txt (script will look in assets/data/raw/)").completer = txt_file_completer
                         
-    parser.add_argument("-y", "--year", type=int, required=True, help="The year of the exam paper")
-    parser.add_argument("-c", "--course", type=str.upper, required=True, help="The name of the course (e.g., MCA)")
-    parser.add_argument("-t", "--test-code", required=True, help="The CUSAT test code number for this paper")
     parser.add_argument("-m", "--minutes", type=int, required=True, help="Total time allowed for the exam in minutes")
     
     # Optional flags for marking scheme
@@ -294,24 +292,61 @@ if __name__ == "__main__":
     # Automatically prepend the directory path
     question_filepath = os.path.join(DATA_DIR, "raw", args.questions)
     
+    # --- FILENAME PARSING LOGIC ---
+    # Strip extension (e.g., .txt) and split by underscore
+    base_filename = os.path.splitext(os.path.basename(args.questions))[0]
+    filename_parts = base_filename.split('_')
+    
+    if len(filename_parts) != 3:
+        print(f"Error: The filename '{args.questions}' does not strictly match the required format '<year>_<course>_<testcode>.ext'")
+        print("Example of correct format: 2025_MCA_501.txt")
+        sys.exit(1)
+        
+    try:
+        parsed_year = int(filename_parts[0])
+    except ValueError:
+        print(f"Error: The year part of the filename '{filename_parts[0]}' is not a valid integer.")
+        sys.exit(1)
+        
+    parsed_course = filename_parts[1].upper()
+    parsed_test_code = filename_parts[2]
+    # ------------------------------
+    
     # Dynamically construct the JSON filename
-    json_filename = f"{args.year}_{args.course}_db.json"
+    json_filename = f"{parsed_year}_{parsed_course}_db.json"
     json_filepath = os.path.join(DATA_DIR, "json", json_filename)
     
     os.makedirs(os.path.dirname(json_filepath), exist_ok=True)
 
+    print(f"Detected parameters -> Year: {parsed_year}, Course: {parsed_course}, Test Code: {parsed_test_code}")
+
     parsed_data = parse_questions_to_json(
         filepath=question_filepath, 
-        year=args.year, 
-        course_name=args.course, 
-        test_code=args.test_code,
+        year=parsed_year, 
+        course_name=parsed_course, 
+        test_code=parsed_test_code,
         total_time=args.minutes,
         reward=args.reward,
         penalty=args.penalty,
         unanswered=args.unanswered
     )
     
+    # --- Verification Step ---
+    parsed_questions = parsed_data["questions"] 
+    present_numbers = {q.get("question_number") for q in parsed_questions if q.get("question_number") is not None}
+    expected_numbers = set(range(1, 151))
+    skipped_numbers = sorted(list(expected_numbers - present_numbers))
+    
+    print("\n--- Parsing Verification ---")
+    if skipped_numbers:
+        print(f"WARNING: {len(skipped_numbers)} questions were skipped/missing!")
+        print(f"Missing Question Numbers: {skipped_numbers}")
+    else:
+        print("SUCCESS: All 150 questions were parsed and accounted for.")
+    print("----------------------------\n")
+    
+    
     with open(json_filepath, 'w', encoding='utf-8') as json_file:
         json.dump(parsed_data, json_file, indent=4, ensure_ascii=False)
         
-    print(f"Success! Converted {len(parsed_data['questions'])} questions and saved to {json_filepath}")
+    print(f"Saved to {json_filepath}")

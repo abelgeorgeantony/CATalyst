@@ -170,7 +170,7 @@ is
        (B)   trigonometric substitution
        (C)   partial fractions
        (D)   substitution u = ex
-                                        1
+                                        1
 22.   What is the integral of ∫ 2                dx ?
                                    x + 2x + 5
 

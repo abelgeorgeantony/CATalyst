@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedFile = paperSelect.value;
     if (selectedFile) {
         // Redirect to the quiz page, passing the filename in the URL
-        window.location.href = `practice.html?paper=${encodeURIComponent(selectedFile)}`;
+        window.location.href = `practice?paper=${encodeURIComponent(selectedFile)}`;
     }
 });
 });

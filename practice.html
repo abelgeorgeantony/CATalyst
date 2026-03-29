@@ -1,34 +1,173 @@
 ---
 layout: base
-title: Examination Room
+permalink: /practice
+title: Practice Session
 scripts:
   - /assets/js/practice.js
 ---
 
-<div id="exam-loading">Initializing Test Environment...</div>
+<style>
+  /* Classic Academic / Neo-Brutalist Aesthetic */
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --border-thickness: 2px;
+  }
 
-<div id="exam-container" style="display: none;">
-    <div class="exam-header">
-        <h2 id="paper-title">Paper Title</h2>
-        <div class="timer" id="time-remaining">00:00:00</div>
+  body, button, input, div, span, p, h1, h2, h3 {
+    font-family: "Courier New", Courier, monospace !important;
+    font-weight: bold !important;
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  .neo-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: var(--border-thickness) solid var(--black);
+  }
+
+  .neo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border-thickness) solid var(--black);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .neo-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border: var(--border-thickness) solid var(--black);
+    margin-bottom: 15px;
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  .neo-button {
+    border: var(--border-thickness) solid var(--black);
+    padding: 10px 15px;
+    background-color: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: none; /* No smooth transitions */
+  }
+
+  .neo-button:hover, .neo-button.selected {
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  .neo-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .options-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .option-block {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    min-height: 40px;
+  }
+
+  .option-label {
+    padding-right: 15px;
+  }
+
+  .question-arena {
+    min-height: 300px;
+  }
+
+  .question-image, .option-image {
+    max-width: 100%;
+    border: var(--border-thickness) solid var(--black);
+    margin-top: 10px;
+  }
+
+  .navigation-panel {
+    display: flex;
+    justify-content: space-between;
+    border-top: var(--border-thickness) solid var(--black);
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .nav-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  #submit-exam {
+    border: 3px solid var(--black);
+    text-decoration: underline;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+</style>
+
+<div id="loading-screen" class="neo-container">
+  <h2>LOADING EXAM MODULE...</h2>
+  <p>Please wait.</p>
+</div>
+
+<div id="error-screen" class="neo-container hidden">
+  <h2>SYSTEM ERROR</h2>
+  <p id="error-message"></p>
+</div>
+
+<div id="exam-container" class="neo-container hidden">
+  
+  <div class="neo-header">
+    <h2 id="exam-title">EXAM TITLE</h2>
+    <h2 id="exam-timer">00:00:00</h2>
+  </div>
+
+  <div class="question-arena">
+    <div id="q-number" class="neo-badge">Q. 1</div>
+    <div id="q-direction" style="margin-bottom: 15px; font-style: italic;"></div>
+    <div id="q-stem" style="font-size: 1.1em; margin-bottom: 15px;"></div>
+    <div id="q-images"></div>
+
+    <div class="options-panel" id="options-panel">
+      <button class="neo-button option-block" data-option="A">
+        <span class="option-label">A)</span> <span class="option-content"></span>
+      </button>
+      <button class="neo-button option-block" data-option="B">
+        <span class="option-label">B)</span> <span class="option-content"></span>
+      </button>
+      <button class="neo-button option-block" data-option="C">
+        <span class="option-label">C)</span> <span class="option-content"></span>
+      </button>
+      <button class="neo-button option-block" data-option="D">
+        <span class="option-label">D)</span> <span class="option-content"></span>
+      </button>
     </div>
+  </div>
 
-    <div class="exam-body">
-        <div class="question-section">
-            <div id="q-number" class="q-badge">Q. 1</div>
-            <div id="q-direction" class="q-direction"></div>
-            <div id="q-stem" class="q-stem"></div>
-            <div id="q-images" class="q-images"></div>
-        </div>
-
-        <div class="options-section" id="options-container">
-            </div>
+  <div class="navigation-panel">
+    <div class="nav-group">
+      <button id="btn-prev" class="neo-button">◄ PREVIOUS</button>
+      <button id="btn-clear" class="neo-button">CLEAR SELECTION</button>
+      <button id="btn-next" class="neo-button">NEXT ►</button>
     </div>
+    <button id="btn-submit" class="neo-button">SUBMIT EXAM</button>
+  </div>
 
-    <div class="exam-footer">
-        <button id="btn-prev" class="btn-secondary">◄ Previous</button>
-        <button id="btn-clear" class="btn-secondary">Clear</button>
-        <button id="btn-next" class="btn-primary">Next ►</button>
-        <button id="btn-submit" class="btn-danger" style="float: right;">Submit Exam</button>
-    </div>
+</div>
+
+<div id="results-screen" class="neo-container hidden">
+  <h2>EXAM SUBMITTED</h2>
+  <p>Your session has concluded. The final score has been computed in the console.</p>
 </div>
