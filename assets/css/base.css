@@ -1,1 +1,131 @@
-hi
+/* Classic Web Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Center the site like a classic document */
+.site-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #000000;
+    padding: 20px 30px;
+}
+
+/* Header & Navigation */
+.site-header {
+    border-bottom: 2px solid #000000;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/* Brought back the Monospace look */
+.site-title, h1, h2, h3 {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.site-title a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.site-title a:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Unapologetic Classic Links */
+a {
+    color: #0000EE;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+a:hover {
+    background-color: #0000EE;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* The "Plain but bold" GitHub Button */
+.btn-github {
+    display: inline-flex;          /* Changed to inline-flex for alignment */
+    align-items: center;           /* Centers the SVG and text vertically */
+    gap: 8px;                      /* Adds space between the logo and text */
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    color: #000000 !important;
+    padding: 5px 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Make sure the SVG inherits the text color */
+.btn-github svg {
+    fill: currentColor; 
+}
+
+.btn-github:hover {
+    background-color: #000000;
+    color: #ffffff !important;
+}
+
+.main-content {
+    min-height: 50vh;
+}
+
+ul, ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 40px;
+    border-top: 2px solid #000000;
+    padding-top: 15px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.85rem;
+    text-align: right;
+}

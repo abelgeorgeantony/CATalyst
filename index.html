@@ -1,19 +1,112 @@
 ---
 layout: base
 title: Home
+scripts:
+- /assets/js/index.js
 ---
 
-<section class="hero">
-    <h2>Welcome to CATalyst</h2>
-    <p>Your practice ground for the CUSAT CAT (MCA) entrance exam.</p>
-</section>
+<style>
+    /* Form control styling strictly for the dashboard */
+    .dashboard-panel {
+        border: 2px dashed #000000;
+        padding: 20px;
+        background-color: #f9f9f9;
+        margin-top: 20px;
+    }
 
-<section class="dashboard">
-    <h3>Available Question Papers</h3>
-    <p>Select a year to begin practicing:</p>
-    
-    <ul id="paper-list">
-        <li><a href="#">2025 MCA Paper</a></li>
-        <li><a href="#">2024 MCA Paper</a></li>
-    </ul>
-</section>
+    .control-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    select {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+        border: 2px solid #000;
+        background-color: #fff;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    select:disabled {
+        background-color: #e0e0e0;
+        cursor: not-allowed;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        border: 2px solid #000000;
+        background-color: #000000;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.2s;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    .btn-primary:disabled {
+        background-color: #cccccc;
+        border-color: #999999;
+        color: #666666;
+        cursor: not-allowed;
+    }
+
+    .error-log {
+        color: #d00000;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        font-size: 0.9rem;
+        display: none;
+    }
+
+    .notice-box {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding-top: 15px;
+        border-top: 1px dotted #999999;
+        font-size: 0.9rem;
+        color: #555555;
+        font-style: italic;
+        text-align: center;
+        line-height: 1.5;
+    }
+</style>
+
+<h2>Practice Papers</h2>
+<p>Choose a previous year question paper from the dropdown below to start practicing.</p>
+
+<div class="dashboard-panel">
+    <div class="control-group">
+        <label for="paper-select">> SELECT PAPER:</label>
+        <select id="paper-select" disabled>
+            <option value="">Loading available papers...</option>
+        </select>
+    </div>
+
+    <div class="control-group">
+        <button id="start-btn" disabled class="btn-primary">Start Practice</button>
+    </div>
+
+    <div id="error-log" class="error-log"></div>
+</div>
+
+<p class="notice-box">
+    This was built on the consensus that this will be used by real people for analyzing their real knowledge.<br>You
+    would only make a fool out of yourself if you resort to cheating!
+</p>

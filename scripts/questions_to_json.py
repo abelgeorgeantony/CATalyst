@@ -37,34 +37,33 @@ def clean_and_append_question(question, db_list, year, course_name):
     if not question:
         return
         
-    q_text = question["question_text"] or ""
+    q_text = question["question"]["stem"] or ""
     q_num = question["question_number"]
     
     # 1. Handle Inline Directions
     inline_match = re.match(r'^Direction:\s*(.*?\.)(\s+|$)(.*)', q_text, re.IGNORECASE | re.DOTALL)
     
     if inline_match:
-        question["direction_text"] = inline_match.group(1)
-        question["question_text"] = inline_match.group(3)
+        question["question"]["direction"] = inline_match.group(1)
+        question["question"]["stem"] = inline_match.group(3)
     else:
         fallback_match = re.match(r'^Direction:\s*(.*)', q_text, re.IGNORECASE | re.DOTALL)
         if fallback_match:
-            question["direction_text"] = fallback_match.group(1)
-            question["question_text"] = ""
+            question["question"]["direction"] = fallback_match.group(1)
+            question["question"]["stem"] = ""
 
     # 2. Normalize and Clean All Text Fields
-    if question["direction_text"]:
-        question["direction_text"] = normalize_text(question["direction_text"])
+    if question["question"]["direction"]:
+        question["question"]["direction"] = normalize_text(question["question"]["direction"])
         
-    question["question_text"] = normalize_text(question["question_text"])
+    question["question"]["stem"] = normalize_text(question["question"]["stem"])
     
-    if question["textual_options"]:
-        for key, val in question["textual_options"].items():
-            question["textual_options"][key] = normalize_text(val)
+    for opt in ["A", "B", "C", "D"]:
+        if question["options"][opt]["text"]:
+            question["options"][opt]["text"] = normalize_text(question["options"][opt]["text"])
 
     # 3. Dynamic Filesystem Image Detection
     local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{course_name}")
-    # We keep web_asset_path relative because this gets written to the JSON for the Jekyll frontend
     web_asset_path = f"/assets/data/images/{year}_{course_name}"
     
     # --- Check for Question Images (Arrays) ---
@@ -81,40 +80,33 @@ def clean_and_append_question(question, db_list, year, course_name):
         idx += 1
 
     # Assign array if we found any images, otherwise null
-    question["question_images"] = question_images if question_images else None
+    question["question"]["images"] = question_images if question_images else None
 
-    # Check for Graphical Options
-    found_graphical_opts = {}
-    possible_options = list(question["textual_options"].keys()) if question["textual_options"] else ["A", "B", "C", "D"]
-    
-    for opt in possible_options:
+    # Check for Option Images
+    for opt in ["A", "B", "C", "D"]:
         if os.path.exists(os.path.join(local_check_dir, f"Q{q_num}{opt}.jpeg")):
-            found_graphical_opts[opt] = f"{web_asset_path}/Q{q_num}{opt}.jpeg"
-            
-    if found_graphical_opts:
-        question["graphical_options"] = found_graphical_opts
-        if question["textual_options"] and len(found_graphical_opts) == len(question["textual_options"]):
-            question["textual_options"] = None
-    else:
-        question["graphical_options"] = None
+            question["options"][opt]["image"] = f"{web_asset_path}/Q{q_num}{opt}.jpeg"
 
     # 4. Auto-Detect Question Format
-    q_text_lower = question["question_text"].lower() if question["question_text"] else ""
-    dir_text_lower = question["direction_text"].lower() if question["direction_text"] else ""
+    q_text_lower = question["question"]["stem"].lower() if question["question"]["stem"] else ""
+    dir_text_lower = question["question"]["direction"].lower() if question["question"]["direction"] else ""
+    
+    has_q_images = question["question"]["images"] is not None
+    has_opt_images = any(question["options"][opt]["image"] is not None for opt in ["A", "B", "C", "D"])
     
     if "read the given passage" in dir_text_lower:
-        question["question_format"] = "shared_passage"
-    elif question.get("question_images") is not None or question.get("graphical_options") is not None:
-        question["question_format"] = "visual_reasoning"
+        question["question"]["format"] = "shared_passage"
+    elif has_q_images or has_opt_images:
+        question["question"]["format"] = "visual_reasoning"
     elif "statement:" in q_text_lower or "assumption:" in q_text_lower:
-        question["question_format"] = "statement_assumption"
+        question["question"]["format"] = "statement_assumption"
     elif "course of action" in q_text_lower or "problem:" in q_text_lower:
-        question["question_format"] = "course_of_action"
+        question["question"]["format"] = "course_of_action"
     else:
-        question["question_format"] = "standard_mcq"
+        question["question"]["format"] = "standard_mcq"
 
     # Final conversion of empty string to Null
-    question["question_text"] = question["question_text"] if question["question_text"] != "" else None
+    question["question"]["stem"] = question["question"]["stem"] if question["question"]["stem"] != "" else None
     
     db_list.append(question)
 
@@ -186,14 +178,19 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
 
         q_match = question_pattern.match(stripped_line)
         if q_match:
-            if current_question and (current_question["textual_options"] is not None and len(current_question["textual_options"]) < 2):
-                if current_target == "QUESTION" and current_question["question_text"] is not None:
-                    current_question["question_text"] += f"\n{stripped_line}"
-                elif current_target == "DIRECTION" and current_direction is not None:
-                    current_direction += f"\n{stripped_line}"
-                elif current_target == "BUFFER":
-                    floating_buffer.append(stripped_line)
-                continue
+            # Multi-line question check: if we have a question but missing options
+            if current_question:
+                opts = current_question["options"]
+                filled_opts = sum(1 for k in opts if opts[k]["text"] is not None or opts[k]["image"] is not None)
+                
+                if filled_opts < 2:
+                    if current_target == "QUESTION" and current_question["question"]["stem"] is not None:
+                        current_question["question"]["stem"] += f"\n{stripped_line}"
+                    elif current_target == "DIRECTION" and current_direction is not None:
+                        current_direction += f"\n{stripped_line}"
+                    elif current_target == "BUFFER":
+                        floating_buffer.append(stripped_line)
+                    continue
 
             if current_question:
                 clean_and_append_question(current_question, database["questions"], year, course_name)
@@ -211,15 +208,21 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
 
             current_question = {
                 "question_number": q_num,
-                "direction_text": current_direction, 
-                "question_text": q_text,
-                "question_images": None, 
-                "textual_options": {},
-                "graphical_options": None,
+                "question": {
+                    "format": None,
+                    "direction": current_direction, 
+                    "stem": q_text,
+                    "images": None
+                },
+                "options": {
+                    "A": {"text": None, "image": None},
+                    "B": {"text": None, "image": None},
+                    "C": {"text": None, "image": None},
+                    "D": {"text": None, "image": None}
+                },
                 "correct_answer": None,
                 "topic_tag": "Uncategorized",
-                "explanation": None,           
-                "question_format": None      
+                "explanation": None
             }
 
             current_target = "QUESTION"
@@ -231,18 +234,21 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
             opt_letter = opt_match.group(1).upper()
             opt_text = opt_match.group(2).strip()
             
-            if current_question["textual_options"] is not None:
-                current_question["textual_options"][opt_letter] = opt_text
+            if opt_letter in current_question["options"]:
+                current_question["options"][opt_letter]["text"] = opt_text if opt_text else None
 
             current_option = opt_letter 
             current_target = "OPTION"
             continue
 
-        if current_target == "OPTION" and current_question and current_question["textual_options"] is not None:
-            current_question["textual_options"][current_option] += f" {stripped_line}"
+        if current_target == "OPTION" and current_question and current_option:
+            if current_question["options"][current_option]["text"] is not None:
+                current_question["options"][current_option]["text"] += f" {stripped_line}"
+            else:
+                current_question["options"][current_option]["text"] = stripped_line
 
-        elif current_target == "QUESTION" and current_question and current_question["question_text"] is not None:
-            current_question["question_text"] += f"\n{stripped_line}"
+        elif current_target == "QUESTION" and current_question and current_question["question"]["stem"] is not None:
+            current_question["question"]["stem"] += f"\n{stripped_line}"
             
         elif current_target == "DIRECTION" and current_direction is not None:
             current_direction += f"\n{stripped_line}"
@@ -251,8 +257,8 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
             floating_buffer.append(stripped_line)
 
     if current_question:
-        if floating_buffer and current_target == "BUFFER" and current_question["question_text"] is not None:
-            current_question["question_text"] += "\n" + "\n".join(floating_buffer)
+        if floating_buffer and current_target == "BUFFER" and current_question["question"]["stem"] is not None:
+            current_question["question"]["stem"] += "\n" + "\n".join(floating_buffer)
         clean_and_append_question(current_question, database["questions"], year, course_name)
 
     # --- DYNAMICALLY CALCULATE TOTALS ---

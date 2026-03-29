@@ -67,57 +67,88 @@
         "type": "object",
         "required": [
           "question_number",
+          "question",
+          "options",
           "topic_tag",
-          "explanation",
-          "question_format"
+          "explanation"
         ],
         "properties": {
           "question_number": {
             "type": "integer"
           },
-          "direction_text": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "question_text": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "question_images": {
-            "type": [
-              "array",
-              "null"
+          "question": {
+            "type": "object",
+            "required": [
+              "format"
             ],
-            "items": {
-              "type": "string"
+            "properties": {
+              "direction": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "stem": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "images": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "format": {
+                "type": "string",
+                "enum": [
+                  "shared_passage",
+                  "visual_reasoning",
+                  "statement_assumption",
+                  "course_of_action",
+                  "standard_mcq"
+                ]
+              }
             }
           },
-          "textual_options": {
+          "options": {
             "type": [
               "object",
               "null"
             ],
             "properties": {
-              "A": { "type": "string" },
-              "B": { "type": "string" },
-              "C": { "type": "string" },
-              "D": { "type": "string" }
-            }
-          },
-          "graphical_options": {
-            "type": [
-              "object",
-              "null"
-            ],
-            "properties": {
-              "A": { "type": "string" },
-              "B": { "type": "string" },
-              "C": { "type": "string" },
-              "D": { "type": "string" }
+              "A": {
+                "type": "object",
+                "properties": {
+                  "text": { "type": ["string", "null"] },
+                  "image": { "type": ["string", "null"] }
+                }
+              },
+              "B": {
+                "type": "object",
+                "properties": {
+                  "text": { "type": ["string", "null"] },
+                  "image": { "type": ["string", "null"] }
+                }
+              },
+              "C": {
+                "type": "object",
+                "properties": {
+                  "text": { "type": ["string", "null"] },
+                  "image": { "type": ["string", "null"] }
+                }
+              },
+              "D": {
+                "type": "object",
+                "properties": {
+                  "text": { "type": ["string", "null"] },
+                  "image": { "type": ["string", "null"] }
+                }
+              }
             }
           },
           "correct_answer": {
@@ -134,16 +165,6 @@
             "type": [
               "string",
               "null"
-            ]
-          },
-          "question_format": {
-            "type": "string",
-            "enum": [
-              "shared_passage",
-              "visual_reasoning",
-              "statement_assumption",
-              "course_of_action",
-              "standard_mcq"
             ]
           }
         }

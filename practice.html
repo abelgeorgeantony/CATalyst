@@ -1,0 +1,34 @@
+---
+layout: base
+title: Examination Room
+scripts:
+  - /assets/js/practice.js
+---
+
+<div id="exam-loading">Initializing Test Environment...</div>
+
+<div id="exam-container" style="display: none;">
+    <div class="exam-header">
+        <h2 id="paper-title">Paper Title</h2>
+        <div class="timer" id="time-remaining">00:00:00</div>
+    </div>
+
+    <div class="exam-body">
+        <div class="question-section">
+            <div id="q-number" class="q-badge">Q. 1</div>
+            <div id="q-direction" class="q-direction"></div>
+            <div id="q-stem" class="q-stem"></div>
+            <div id="q-images" class="q-images"></div>
+        </div>
+
+        <div class="options-section" id="options-container">
+            </div>
+    </div>
+
+    <div class="exam-footer">
+        <button id="btn-prev" class="btn-secondary">◄ Previous</button>
+        <button id="btn-clear" class="btn-secondary">Clear</button>
+        <button id="btn-next" class="btn-primary">Next ►</button>
+        <button id="btn-submit" class="btn-danger" style="float: right;">Submit Exam</button>
+    </div>
+</div>
