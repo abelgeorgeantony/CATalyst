@@ -6,14 +6,6 @@ scripts:
 ---
 
 <style>
-    /* Form control styling strictly for the dashboard */
-    .dashboard-panel {
-        border: 2px dashed #000000;
-        padding: 20px;
-        background-color: #f9f9f9;
-        margin-top: 20px;
-    }
-
     .control-group {
         margin-bottom: 20px;
     }
@@ -34,11 +26,17 @@ scripts:
         font-family: "Courier New", Courier, monospace;
         font-size: 1rem;
         cursor: pointer;
+        border-radius: 0;
+        /* Ensures a flat look across all browsers */
+        appearance: none;
+        /* Cleans up the default browser dropdown arrow */
     }
 
     select:disabled {
         background-color: #e0e0e0;
         cursor: not-allowed;
+        border-style: dashed;
+        /* Small tweak so disabled fields match your dashed theme */
     }
 
     .btn-primary {
@@ -73,6 +71,13 @@ scripts:
         font-weight: bold;
         font-size: 0.9rem;
         display: none;
+        margin-top: 15px;
+        /* Gives it breathing room if it triggers */
+    }
+    #test-details-log {
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        font-size: 0.9rem;
     }
 
     .notice-box {
@@ -86,27 +91,49 @@ scripts:
         text-align: center;
         line-height: 1.5;
     }
+
+    .index-nav-bar {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-bottom: 10px;
+    }
 </style>
 
-<h2>Practice Papers</h2>
-<p>Choose a previous year question paper from the dropdown below to start practicing.</p>
-
-<div class="dashboard-panel">
-    <div class="control-group">
-        <label for="paper-select">> SELECT PAPER:</label>
-        <select id="paper-select" disabled>
-            <option value="">Loading available papers...</option>
-        </select>
+<div class="index-nav-bar">
+    <div class="nav-links">
+        <a href="performance.html" rel="noopener noreferrer"
+            class="btn-github">
+            Performance
+        </a>
     </div>
-
-    <div class="control-group">
-        <button id="start-btn" disabled class="btn-primary">Start Practice</button>
-    </div>
-
-    <div id="error-log" class="error-log"></div>
 </div>
 
+<h2>Practice Papers</h2>
+
+<div class="control-group">
+    <label for="test-select">Test code:</label>
+    <select id="test-select" disabled>
+        <option value="">Loading available test codes...</option>
+    </select>
+</div>
+
+<div class="control-group">
+    <label for="year-select">Year:</label>
+    <select id="year-select" disabled>
+        <option value="">Waiting for test code selection...</option>
+    </select>
+</div>
+
+<p id="test-details-log"></p>
+
+<div class="control-group" style="margin-bottom: 0;">
+    <button id="start-btn" disabled class="btn-primary">Start Practice</button>
+</div>
+
+<div id="error-log" class="error-log"></div>
+
 <p class="notice-box">
-    This was built on the consensus that this will be used by real people for analyzing their real knowledge.<br>You
-    would only make a fool out of yourself if you resort to cheating!
+    This was built on the consensus that this will be used by real people for analyzing their real knowledge.<br>You are
+    the only person that would be judging your performance here.<br>You would only make a fool out of yourself if you
+    resort to cheating!
 </p>

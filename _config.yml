@@ -17,9 +17,7 @@ plugins:
 # Exclusions
 # Tell Jekyll to ignore these files and folders when building the static site
 exclude:
-  - extract_pdf_text.py
-  - inject_answers.py
-  - questions_to_json.py
+  - scripts/
   - README.md
   - assets/data/raw/
   - .sass-cache/
