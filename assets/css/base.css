@@ -81,8 +81,8 @@ a:hover {
     text-decoration: none;
 }
 
-/* The "Plain but bold" GitHub Button */
-.btn-github {
+/* The "Plain but bold" Button */
+.link-btn {
     display: inline-flex;          /* Changed to inline-flex for alignment */
     align-items: center;           /* Centers the SVG and text vertically */
     gap: 8px;                      /* Adds space between the logo and text */
@@ -98,11 +98,11 @@ a:hover {
 }
 
 /* Make sure the SVG inherits the text color */
-.btn-github svg {
+.link-btn svg {
     fill: currentColor; 
 }
 
-.btn-github:hover {
+.link-btn:hover {
     background-color: #000000;
     color: #ffffff !important;
 }

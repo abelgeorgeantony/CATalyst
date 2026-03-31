@@ -32,7 +32,14 @@ def normalize_text(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def clean_and_append_question(question, db_list, year, course_name):
+def get_image_path(local_dir, web_dir, base_name):
+    """Checks for various image extensions and returns the web path if found."""
+    for ext in ['.jpeg', '.jpg']:
+        if os.path.exists(os.path.join(local_dir, base_name + ext)):
+            return f"{web_dir}/{base_name}{ext}"
+    return None
+
+def clean_and_append_question(question, db_list, year, test_code):
     """Post-processes the question and links images by scanning the local directory."""
     if not question:
         return
@@ -52,7 +59,7 @@ def clean_and_append_question(question, db_list, year, course_name):
             question["question"]["direction"] = fallback_match.group(1)
             question["question"]["stem"] = ""
 
-    # 2. Normalize and Clean All Text Fields
+    # 2. Normalize and Clean Text Fields
     if question["question"]["direction"]:
         question["question"]["direction"] = normalize_text(question["question"]["direction"])
         
@@ -63,29 +70,41 @@ def clean_and_append_question(question, db_list, year, course_name):
             question["options"][opt]["text"] = normalize_text(question["options"][opt]["text"])
 
     # 3. Dynamic Filesystem Image Detection
-    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{course_name}")
-    web_asset_path = f"/assets/data/images/{year}_{course_name}"
+    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{test_code}")
+    web_asset_path = f"/assets/data/images/{year}_{test_code}"
     
     # --- Check for Question Images (Arrays) ---
     question_images = []
     
     # Check for the classic single image first
-    if os.path.exists(os.path.join(local_check_dir, f"Q{q_num}.jpeg")):
-        question_images.append(f"{web_asset_path}/Q{q_num}.jpeg")
+    img_path = get_image_path(local_check_dir, web_asset_path, f"Q{q_num}")
+    if img_path:
+        question_images.append(img_path)
     
     # Check for sequential images
     idx = 1
-    while os.path.exists(os.path.join(local_check_dir, f"Q{q_num}_{idx}.jpeg")):
-        question_images.append(f"{web_asset_path}/Q{q_num}_{idx}.jpeg")
-        idx += 1
+    while True:
+        img_path = get_image_path(local_check_dir, web_asset_path, f"Q{q_num}_{idx}")
+        if img_path:
+            question_images.append(img_path)
+            idx += 1
+        else:
+            break
 
     # Assign array if we found any images, otherwise null
     question["question"]["images"] = question_images if question_images else None
 
     # Check for Option Images
     for opt in ["A", "B", "C", "D"]:
-        if os.path.exists(os.path.join(local_check_dir, f"Q{q_num}{opt}.jpeg")):
-            question["options"][opt]["image"] = f"{web_asset_path}/Q{q_num}{opt}.jpeg"
+        img_path = get_image_path(local_check_dir, web_asset_path, f"Q{q_num}{opt}")
+        if img_path:
+            question["options"][opt]["image"] = img_path
+            # SECURITY: If there is an image in the option, the text value MUST be null
+            question["options"][opt]["text"] = None
+        else:
+            # If no image is present, but text is an empty string, clean it up to null
+            if question["options"][opt]["text"] == "":
+                question["options"][opt]["text"] = None
 
     # 4. Auto-Detect Question Format
     q_text_lower = question["question"]["stem"].lower() if question["question"]["stem"] else ""
@@ -119,7 +138,7 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
         print(f"Error: The input file '{filepath}' was not found.")
         sys.exit(1)
 
-    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{course_name}")
+    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{test_code}")
     if not os.path.exists(local_check_dir):
         print(f"Warning: The image directory '{local_check_dir}' does not exist. No images will be linked.")
 
@@ -181,7 +200,8 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
             # Multi-line question check: if we have a question but missing options
             if current_question:
                 opts = current_question["options"]
-                filled_opts = sum(1 for k in opts if opts[k]["text"] is not None or opts[k]["image"] is not None)
+                # FIX: Count options that have been touched (even if they are empty strings "")
+                filled_opts = sum(1 for k in opts if opts[k]["text"] is not None)
                 
                 if filled_opts < 2:
                     if current_target == "QUESTION" and current_question["question"]["stem"] is not None:
@@ -193,7 +213,7 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
                     continue
 
             if current_question:
-                clean_and_append_question(current_question, database["questions"], year, course_name)
+                clean_and_append_question(current_question, database["questions"], year, test_code)
 
             q_num = int(q_match.group(1))
             q_text = q_match.group(2).strip()
@@ -235,7 +255,9 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
             opt_text = opt_match.group(2).strip()
             
             if opt_letter in current_question["options"]:
-                current_question["options"][opt_letter]["text"] = opt_text if opt_text else None
+                # FIX: Set the text to the extracted text (even if it's empty `""`). 
+                # This explicitly registers the option as "seen" to prevent the next question from being swallowed.
+                current_question["options"][opt_letter]["text"] = opt_text
 
             current_option = opt_letter 
             current_target = "OPTION"
@@ -259,7 +281,7 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
     if current_question:
         if floating_buffer and current_target == "BUFFER" and current_question["question"]["stem"] is not None:
             current_question["question"]["stem"] += "\n" + "\n".join(floating_buffer)
-        clean_and_append_question(current_question, database["questions"], year, course_name)
+        clean_and_append_question(current_question, database["questions"], year, test_code)
 
     # --- DYNAMICALLY CALCULATE TOTALS ---
     total_q = len(database["questions"])
@@ -271,12 +293,14 @@ def parse_questions_to_json(filepath, year, course_name, test_code, total_time, 
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convert exam questions from text to JSON. Auto-detects Year, Course, and Test Code from filename: <year>_<course>_<testcode>.txt")
+    parser = argparse.ArgumentParser(description="Convert exam questions from text to JSON. Auto-detects Year and Test Code from filename: <year>_<test_code>_questions.txt")
     
     # Attach the completer to the input argument
     parser.add_argument("-q", "--questions", required=True, 
-                        help="Input filename in format <year>_<course>_<testcode>.txt (script will look in assets/data/raw/)").completer = txt_file_completer
+                        help="Input filename in format <year>_<test_code>_questions.txt (script will look in assets/data/raw/)").completer = txt_file_completer
                         
+    parser.add_argument("-c", "--course", required=True, help="Course name (e.g., MCA)")
+    
     parser.add_argument("-m", "--minutes", type=int, required=True, help="Total time allowed for the exam in minutes")
     
     # Optional flags for marking scheme
@@ -293,13 +317,12 @@ if __name__ == "__main__":
     question_filepath = os.path.join(DATA_DIR, "raw", args.questions)
     
     # --- FILENAME PARSING LOGIC ---
-    # Strip extension (e.g., .txt) and split by underscore
     base_filename = os.path.splitext(os.path.basename(args.questions))[0]
     filename_parts = base_filename.split('_')
     
-    if len(filename_parts) != 3:
-        print(f"Error: The filename '{args.questions}' does not strictly match the required format '<year>_<course>_<testcode>.ext'")
-        print("Example of correct format: 2025_MCA_501.txt")
+    if len(filename_parts) < 2:
+        print(f"Error: The filename '{args.questions}' does not match the expected format '<year>_<test_code>_questions.ext'")
+        print("Example of correct format: 2025_501_questions.txt")
         sys.exit(1)
         
     try:
@@ -308,12 +331,12 @@ if __name__ == "__main__":
         print(f"Error: The year part of the filename '{filename_parts[0]}' is not a valid integer.")
         sys.exit(1)
         
-    parsed_course = filename_parts[1].upper()
-    parsed_test_code = filename_parts[2]
+    parsed_test_code = filename_parts[1]
+    parsed_course = args.course.upper()
     # ------------------------------
     
-    # Dynamically construct the JSON filename
-    json_filename = f"{parsed_year}_{parsed_course}_db.json"
+    # Dynamically construct the new JSON filename (<year>_<test_code>_db.json)
+    json_filename = f"{parsed_year}_{parsed_test_code}_db.json"
     json_filepath = os.path.join(DATA_DIR, "json", json_filename)
     
     os.makedirs(os.path.dirname(json_filepath), exist_ok=True)
@@ -344,7 +367,6 @@ if __name__ == "__main__":
     else:
         print("SUCCESS: All 150 questions were parsed and accounted for.")
     print("----------------------------\n")
-    
     
     with open(json_filepath, 'w', encoding='utf-8') as json_file:
         json.dump(parsed_data, json_file, indent=4, ensure_ascii=False)

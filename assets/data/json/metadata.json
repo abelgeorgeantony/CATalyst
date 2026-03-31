@@ -1,16 +1,16 @@
 [
     {
         "course_name": "MCA",
-        "test_code": "questions",
+        "test_code": "501",
         "year": 2025,
         "total_time": 120,
-        "total_questions": 148,
-        "maximum_marks": 444,
+        "total_questions": 150,
+        "maximum_marks": 450,
         "marking_scheme": {
             "reward": 3,
             "penalty": -1,
             "unanswered": 0
         },
-        "filename": "2025_MCA_db.json"
+        "filename": "2025_501_db.json"
     }
 ]

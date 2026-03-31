@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const els = {
         testSelect: document.getElementById('test-select'),
         yearSelect: document.getElementById('year-select'),
+        randomYearBtn: document.getElementById('random-year-btn'),
         testDetails: document.getElementById("test-details-log"),
         startBtn: document.getElementById('start-btn'),
         errorLog: document.getElementById('error-log')
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!selectedCode) {
             els.startBtn.disabled = true;
             els.testDetails.innerHTML = "";
+            els.randomYearBtn.disabled = true;
             els.yearSelect.disabled = true;
             els.yearSelect.innerHTML = '<option value="">Waiting for test selection...</option>';
             return;
@@ -93,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         els.yearSelect.disabled = false;
+        els.randomYearBtn.disabled = false;
     });
 
     // Handle Year Selection
@@ -112,6 +115,20 @@ document.addEventListener("DOMContentLoaded", () => {
             els.testDetails.innerHTML = "";
             els.startBtn.disabled = true;
         }
+    });
+    els.randomYearBtn.addEventListener("click", () => {
+        const yearCount = (els.yearSelect.childElementCount - 1);
+        if (yearCount === 1) {
+            els.yearSelect.selectedIndex = 1;
+        }
+        else {
+        }
+
+        els.yearSelect.dispatchEvent(
+            new Event("change", {
+                bubbles: true
+            })
+        );
     });
 
     // Handle Submission

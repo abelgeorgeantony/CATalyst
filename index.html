@@ -6,6 +6,10 @@ scripts:
 ---
 
 <style>
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
     .control-group {
         margin-bottom: 20px;
     }
@@ -74,10 +78,16 @@ scripts:
         margin-top: 15px;
         /* Gives it breathing room if it triggers */
     }
+
     #test-details-log {
         font-family: "Courier New", Courier, monospace;
         font-weight: bold;
         font-size: 0.9rem;
+    }
+
+    #year-selector-buttons {
+        width: fit-content;
+        margin-left: 10px;
     }
 
     .notice-box {
@@ -101,14 +111,14 @@ scripts:
 
 <div class="index-nav-bar">
     <div class="nav-links">
-        <a href="performance.html" rel="noopener noreferrer"
-            class="btn-github">
+        <a href="fileexplorer" rel="noopener noreferrer" class="link-btn">Documents</a>
+        <a href="performance.html" rel="noopener noreferrer" class="link-btn">
             Performance
         </a>
     </div>
 </div>
 
-<h2>Practice Papers</h2>
+<h2>Previous Year Question Papers</h2>
 
 <div class="control-group">
     <label for="test-select">Test code:</label>
@@ -119,9 +129,14 @@ scripts:
 
 <div class="control-group">
     <label for="year-select">Year:</label>
-    <select id="year-select" disabled>
-        <option value="">Waiting for test code selection...</option>
-    </select>
+    <div class="row">
+        <select id="year-select" disabled>
+            <option value="">Waiting for test code selection...</option>
+        </select>
+        <div id="year-selector-buttons">
+            <button id="random-year-btn" disabled class="btn-primary">Random</button>
+        </div>
+    </div>
 </div>
 
 <p id="test-details-log"></p>
@@ -133,7 +148,7 @@ scripts:
 <div id="error-log" class="error-log"></div>
 
 <p class="notice-box">
-    This was built on the consensus that this will be used by real people for analyzing their real knowledge.<br>You are
+    This was built on the consensus that this will be used by real people for self-analyzing their real performance.<br>You are
     the only person that would be judging your performance here.<br>You would only make a fool out of yourself if you
     resort to cheating!
 </p>
