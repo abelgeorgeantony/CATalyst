@@ -16,8 +16,8 @@ DATA_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
 
 # --- Custom Completer ---
 def pdf_file_completer(prefix, parsed_args, **kwargs):
-    """Suggests only .pdf files from the assets/data/raw directory."""
-    target_dir = os.path.join(DATA_DIR, "raw")
+    """Suggests only .pdf files from the assets/data/raw/pyqs directory."""
+    target_dir = os.path.join(DATA_DIR, "raw","pyqs")
     if not os.path.exists(target_dir):
         return []
     return [f for f in os.listdir(target_dir) if f.lower().endswith('.pdf') and f.startswith(prefix)]
@@ -44,8 +44,8 @@ def extract_pdf(input_pdf, q_first, q_last, a_first, a_last):
 
     
     base_name = os.path.splitext(os.path.basename(input_pdf))[0]
-    questions_output = os.path.join(DATA_DIR, "raw", f"{base_name}_questions.txt")
-    answers_output = os.path.join(DATA_DIR, "raw", f"{base_name}_answers.txt")
+    questions_output = os.path.join(DATA_DIR, "raw", "pyqs", f"{base_name}_questions.txt")
+    answers_output = os.path.join(DATA_DIR, "raw", "pyqs", f"{base_name}_answers.txt")
 
     print(f"Processing '{input_pdf}'...")
 
@@ -109,7 +109,7 @@ if __name__ == "__main__":
     
     # Attach the completer to the input argument
     parser.add_argument("-i", "--input", required=True, 
-                        help="Filename of the input PDF (script will look in assets/data/raw/)").completer = pdf_file_completer
+                        help="Filename of the input PDF (script will look in assets/data/raw/pyqs/)").completer = pdf_file_completer
                         
     parser.add_argument("-qf", "--q-first", type=int, default=1, help="First page of the questions (Default: 1)")
     parser.add_argument("-ql", "--q-last", type=int, required=True, help="Last page of the questions (Required)")
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     # Automatically prepend the directory path
-    input_filepath = os.path.join(DATA_DIR, "raw", args.input)
+    input_filepath = os.path.join(DATA_DIR, "raw", "pyqs", args.input)
 
     # Automatically calculate the first page of answers if not explicitly provided
     ans_first = args.a_first if args.a_first else (args.q_last + 1)

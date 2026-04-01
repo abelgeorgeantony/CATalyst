@@ -7,7 +7,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     exit 1
 fi
 
-# 2. Dynamically find the directory (using BASH_SOURCE is required when sourcing)
+# 2. Dynamically find the directory (this is your 'scripts' folder)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_DIR="${SCRIPT_DIR}/venv"
 REQ_FILE="${SCRIPT_DIR}/requirements.txt"
@@ -27,19 +27,43 @@ echo " -> Virtual environment activated."
 
 # 5. Check if dependencies need to be installed
 if [ ! -f "$MARKER_FILE" ] || [ "$REQ_FILE" -nt "$MARKER_FILE" ]; then
-    echo " -> Dependencies missing or outdated. Installing..."
-    pip install --upgrade pip
-    pip install -r "$REQ_FILE"
-    touch "$MARKER_FILE"
+    if [ -f "$REQ_FILE" ]; then
+        echo " -> Dependencies missing or outdated. Installing..."
+        pip install --upgrade pip
+        pip install -r "$REQ_FILE"
+        touch "$MARKER_FILE"
+    else
+        echo " ⚠️ Notice: No requirements.txt found."
+    fi
 else
     echo " -> Dependencies are up-to-date."
 fi
 
-# 6. Make all Python scripts executable
-chmod +x "${SCRIPT_DIR}"/*.py
+# 6. Make Python scripts executable and link them to the venv
+echo " -> Linking development scripts to the virtual environment..."
 
-# 7. Register autocompletions for the exact commands you will type
-eval "$(activate-global-python-argcomplete --dest=-)"
+# Make only the Python scripts executable so we don't mess with venv/txt files
+chmod +x "${SCRIPT_DIR}"/*.py 2>/dev/null
+
+# Symlink each Python script into the venv's bin/ directory
+for script in "${SCRIPT_DIR}"/*.py; do
+    # Check if the file actually exists (prevents loop errors if no .py files exist yet)
+    if [ -f "$script" ]; then
+        script_name=$(basename "$script")
+        
+        # Create the symlink
+        #ln -sf "$script" "${VENV_DIR}/bin/${script_name}"
+        
+        # Create a command without the extension
+        cmd_name="${script_name%.py}"
+        ln -sf "$script" "${VENV_DIR}/bin/${cmd_name}"
+    fi
+done
+
+# 7. Register autocompletions (checking if it exists first to avoid errors)
+if command -v activate-global-python-argcomplete &> /dev/null; then
+    eval "$(activate-global-python-argcomplete --dest=-)"
+fi
 
 echo ""
 echo "================================================================"

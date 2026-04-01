@@ -25,8 +25,8 @@ def json_file_completer(prefix, parsed_args, **kwargs):
     return [f for f in os.listdir(target_dir) if f.lower().endswith('.json') and f.startswith(prefix)]
 
 def txt_file_completer(prefix, parsed_args, **kwargs):
-    """Suggests only .txt files from the assets/data/raw directory."""
-    target_dir = os.path.join(DATA_DIR, "raw")
+    """Suggests only .txt files from the assets/data/raw/pyqs directory."""
+    target_dir = os.path.join(DATA_DIR, "raw", "pyqs")
     if not os.path.exists(target_dir):
         return []
     return [f for f in os.listdir(target_dir) if f.lower().endswith('.txt') and f.startswith(prefix)]
@@ -104,6 +104,6 @@ if __name__ == "__main__":
 
     # Automatically prepend the directory paths
     json_filepath = os.path.join(DATA_DIR, "json", args.json)
-    answer_filepath = os.path.join(DATA_DIR, "raw", args.answers)
+    answer_filepath = os.path.join(DATA_DIR, "raw", "pyqs", args.answers)
 
     inject_answers_into_json(json_filepath=json_filepath, answer_filepath=answer_filepath)

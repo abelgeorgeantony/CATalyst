@@ -18,8 +18,8 @@ DATA_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
 
 # --- Custom Completer ---
 def txt_file_completer(prefix, parsed_args, **kwargs):
-    """Suggests only .txt files from the assets/data/raw directory."""
-    target_dir = os.path.join(DATA_DIR, "raw")
+    """Suggests only .txt files from the assets/data/raw/pyqs directory."""
+    target_dir = os.path.join(DATA_DIR, "raw", "pyqs")
     if not os.path.exists(target_dir):
         return []
     return [f for f in os.listdir(target_dir) if f.lower().endswith('.txt') and f.startswith(prefix)]
@@ -297,7 +297,7 @@ if __name__ == "__main__":
     
     # Attach the completer to the input argument
     parser.add_argument("-q", "--questions", required=True, 
-                        help="Input filename in format <year>_<test_code>_questions.txt (script will look in assets/data/raw/)").completer = txt_file_completer
+                        help="Input filename in format <year>_<test_code>_questions.txt (script will look in assets/data/raw/pyqs/)").completer = txt_file_completer
                         
     parser.add_argument("-c", "--course", required=True, help="Course name (e.g., MCA)")
     
@@ -314,7 +314,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Automatically prepend the directory path
-    question_filepath = os.path.join(DATA_DIR, "raw", args.questions)
+    question_filepath = os.path.join(DATA_DIR, "raw", "pyqs", args.questions)
     
     # --- FILENAME PARSING LOGIC ---
     base_filename = os.path.splitext(os.path.basename(args.questions))[0]
