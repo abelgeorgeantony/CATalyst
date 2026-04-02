@@ -1,0 +1,92 @@
+---
+layout: base
+permalink: /404.html
+title: Page Not Found
+---
+
+<style>
+    .error-shell {
+        border: 2px solid #000000;
+        padding: 24px;
+    }
+
+    .error-code {
+        display: inline-block;
+        margin-bottom: 18px;
+        padding: 6px 12px;
+        border: 2px solid #000000;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+    }
+
+    .error-shell h1 {
+        margin-bottom: 12px;
+    }
+
+    .error-copy {
+        max-width: 40rem;
+    }
+
+    .error-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 28px 0 22px;
+    }
+
+    .error-link {
+        display: inline-block;
+        border: 2px solid #000000;
+        padding: 8px 14px;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #000000 !important;
+    }
+
+    .error-link:hover {
+        background-color: #000000;
+        color: #ffffff !important;
+    }
+
+    .error-note {
+        padding-top: 16px;
+        border-top: 1px dotted #999999;
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+        .error-shell {
+            padding: 18px;
+        }
+
+        .error-actions {
+            flex-direction: column;
+        }
+
+        .error-link {
+            text-align: center;
+        }
+    }
+</style>
+
+<section class="error-shell">
+    <div class="error-code">ERROR 404</div>
+    <h1>Page not found</h1>
+    <p class="error-copy">
+        The page you requested does not exist here, may have been moved, or the link may be incorrect.
+    </p>
+
+    <div class="error-actions">
+        <a href="{{ '/' | relative_url }}" class="error-link">Go to Home</a>
+        <a href="{{ '/fileexplorer' | relative_url }}" class="error-link">Open Documents</a>
+        <a href="{{ '/performance' | relative_url }}" class="error-link">View Performance</a>
+    </div>
+
+    <p class="error-note">
+        If you reached this page from a bookmark or an internal link,<br>please report it to me!
+    </p>
+</section>

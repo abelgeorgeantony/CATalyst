@@ -2,8 +2,274 @@
 layout: base
 permalink: /fileexplorer
 title: File Explorer
-scripts:
-  - /assets/js/fileexplorer.js
+directories:
+  - title: Prospectus Archive
+    path: assets/data/raw/prospectus
+    description: Official CUSAT CAT prospectus PDFs collected by year.
+  - title: PYQ Archive
+    path: assets/data/raw/pyqs
+    description: Source PDFs for CAT papers.
 ---
 
-<h2>Coming soon!</h2>
+<style>
+    .explorer-intro {
+        max-width: 42rem;
+        margin-bottom: 24px;
+    }
+
+    .explorer-panel {
+        border: 2px solid #000000;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .explorer-panel:last-child {
+        margin-bottom: 0;
+    }
+
+    .explorer-panel h3 {
+        margin-bottom: 8px;
+    }
+
+    .explorer-panel p {
+        margin-bottom: 14px;
+    }
+
+    .archive-details {
+        margin-bottom: 14px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.9rem;
+    }
+
+    .archive-details span {
+        font-weight: bold;
+    }
+
+    .archive-status {
+        font-size: 0.8rem;
+        color: #555555;
+    }
+
+    .file-list {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        border-top: 1px dotted #999999;
+    }
+
+    .file-list li {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 0;
+        margin-bottom: 0;
+        border-bottom: 1px dotted #999999;
+    }
+
+    .file-link {
+        font-weight: bold;
+    }
+
+    .file-path {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.9rem;
+        color: #444444;
+    }
+
+    .download-btn {
+        display: inline-block;
+        border: 2px solid #000000;
+        padding: 6px 12px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        color: #000000 !important;
+        background-color: #ffffff;
+    }
+
+    .download-btn:hover {
+        background-color: #000000;
+        color: #ffffff !important;
+    }
+
+    .empty-state {
+        margin-bottom: 0;
+        padding-top: 14px;
+        border-top: 1px dotted #999999;
+        font-style: italic;
+        color: #555555;
+    }
+
+    @media (max-width: 640px) {
+        .explorer-panel {
+            padding: 16px;
+        }
+
+        .file-list li {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>
+
+<h2>File Explorer</h2>
+<p class="explorer-intro">
+    This is the entirety of the files I sourced to make this site a possibility, I am displaying them here because I
+    thought someone might find it easy to find it here rather than searching in the internet.
+</p>
+
+{% for directory in page.directories %}
+{% assign root_path = directory.path %}
+{% assign root_prefix = root_path %}
+{% assign first_char = root_prefix | slice: 0, 1 %}
+{% if first_char != '/' %}
+{% assign root_prefix = '/' | append: root_prefix %}
+{% endif %}
+{% assign root_prefix = root_prefix | append: '/' %}
+{% assign sorted_files = site.static_files | sort: 'path' %}
+{% assign file_count = 0 %}
+{% for file in sorted_files %}
+{% assign file_prefix = file.path | slice: 0, root_prefix.size %}
+{% if file_prefix == root_prefix %}
+{% assign file_count = file_count | plus: 1 %}
+{% endif %}
+{% endfor %}
+
+<section class="explorer-panel" data-archive-panel>
+    <h3>{{ directory.title }}</h3>
+    {% if directory.description %}
+    <p>{{ directory.description }}</p>
+    {% endif %}
+    <p class="archive-details">
+        <span>{{ file_count }}</span> files,
+        <span data-format-summary>Scanning formats...</span>,
+        <span data-total-size>Calculating size...</span>
+        <span class="archive-status" data-size-status></span>
+    </p>
+
+    <ul class="file-list">
+        {% for file in sorted_files %}
+        {% assign file_prefix = file.path | slice: 0, root_prefix.size %}
+        {% if file_prefix == root_prefix %}
+        {% assign file_count = file_count | plus: 1 %}
+        {% assign relative_path = file.path | remove_first: root_prefix %}
+        <li>
+            <a class="file-link" href="{{ file.path | relative_url }}">{{ relative_path }}</a>
+            <a class="download-btn" href="{{ file.path | relative_url }}" download>Download</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% if file_count == 0 %}
+    <p class="empty-state">No files were found inside this directory at build time.</p>
+    {% endif %}
+</section>
+{% endfor %}
+
+<script>
+    function formatBytes(bytes) {
+        if (!Number.isFinite(bytes) || bytes <= 0) {
+            return "0 B";
+        }
+
+        const units = ["B", "KB", "MB", "GB", "TB"];
+        let size = bytes;
+        let unitIndex = 0;
+
+        while (size >= 1024 && unitIndex < units.length - 1) {
+            size /= 1024;
+            unitIndex += 1;
+        }
+
+        const precision = size >= 100 || unitIndex === 0 ? 0 : 1;
+        return size.toFixed(precision) + " " + units[unitIndex];
+    }
+
+    async function resolveArchiveSize(panel) {
+        const sizeValue = panel.querySelector("[data-total-size]");
+        const sizeStatus = panel.querySelector("[data-size-status]");
+        const links = Array.from(panel.querySelectorAll(".download-btn"));
+
+        if (!links.length) {
+            sizeValue.textContent = "0 B total";
+            sizeStatus.textContent = "";
+            return;
+        }
+
+        let totalBytes = 0;
+        let measuredFiles = 0;
+
+        await Promise.all(links.map(async (link) => {
+            try {
+                const response = await fetch(link.href, { method: "HEAD" });
+                if (!response.ok) {
+                    return;
+                }
+
+                const contentLength = response.headers.get("content-length");
+                if (!contentLength) {
+                    return;
+                }
+
+                totalBytes += Number(contentLength);
+                measuredFiles += 1;
+            } catch (error) {
+                console.warn("Could not read file size for", link.href, error);
+            }
+        }));
+
+        if (!measuredFiles) {
+            sizeValue.textContent = "size unavailable";
+            sizeStatus.textContent = "";
+            return;
+        }
+
+        sizeValue.textContent = formatBytes(totalBytes) + " total";
+        if (measuredFiles === links.length) {
+            sizeStatus.textContent = "";
+            return;
+        }
+
+        sizeStatus.textContent = " (" + measuredFiles + " of " + links.length + " files measured)";
+    }
+
+    function resolveFormatSummary(panel) {
+        const formatValue = panel.querySelector("[data-format-summary]");
+        const fileLinks = Array.from(panel.querySelectorAll(".file-link"));
+        const formats = new Set();
+
+        fileLinks.forEach((link) => {
+            const relativePath = link.textContent.trim();
+            const lastDotIndex = relativePath.lastIndexOf(".");
+
+            if (lastDotIndex === -1 || lastDotIndex === relativePath.length - 1) {
+                formats.add("files without extension");
+                return;
+            }
+
+            formats.add(relativePath.slice(lastDotIndex + 1).toUpperCase());
+        });
+
+        if (!formats.size) {
+            formatValue.textContent = "unknown format";
+            return;
+        }
+
+        const formatList = Array.from(formats);
+        const label = formatList.join(", ");
+        formatValue.textContent = label + (formatList.length === 1 ? " format" : " formats");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const archivePanels = Array.from(document.querySelectorAll("[data-archive-panel]"));
+        archivePanels.forEach((panel) => {
+            resolveFormatSummary(panel);
+            resolveArchiveSize(panel);
+        });
+    });
+</script>

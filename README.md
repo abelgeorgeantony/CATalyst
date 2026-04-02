@@ -9,3 +9,6 @@ The worst case that can happen when you do something improbable is the same as i
 You can access my hosted version at: https://abelgeorgeantony.github.io/CATalyst
 
 If you are looking to contribute to the site or question DBs take a look at the [guide](/DEVELOPMENT.md)
+
+
+Even though all code was written using AI, I have spent a lot of time thinking, reviewing, tweaking.

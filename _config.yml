@@ -19,7 +19,7 @@ plugins:
 exclude:
   - scripts/
   - README.md
-  - assets/data/raw/
+  - DEVELOPMENT.md
   - .sass-cache/
   - .jekyll-cache/
   - Gemfile

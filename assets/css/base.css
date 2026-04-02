@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     line-height: 1.5;
     color: #000000;
     background-color: #ffffff;
@@ -36,7 +36,6 @@ body {
 
 /* Brought back the Monospace look */
 .site-title, h1, h2, h3 {
-    font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     letter-spacing: -0.5px;
 }
@@ -90,7 +89,6 @@ a:hover {
     background-color: #ffffff;
     color: #000000 !important;
     padding: 5px 10px;
-    font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     text-decoration: none !important;
     text-transform: uppercase;
@@ -125,7 +123,6 @@ li {
     margin-top: 40px;
     border-top: 2px solid #000000;
     padding-top: 15px;
-    font-family: "Courier New", Courier, monospace;
     font-size: 0.85rem;
     text-align: right;
 }
