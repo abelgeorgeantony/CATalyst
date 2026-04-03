@@ -12,6 +12,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_DIR="${SCRIPT_DIR}/venv"
 REQ_FILE="${SCRIPT_DIR}/requirements.txt"
 MARKER_FILE="${VENV_DIR}/.req_installed"
+ENV_FILE="${VENV_DIR}/.env"
 
 echo "Checking environment status..."
 
@@ -24,6 +25,17 @@ fi
 # 4. Activate the environment (This now happens in your CURRENT terminal)
 source "${VENV_DIR}/bin/activate"
 echo " -> Virtual environment activated."
+
+# 4.1 Create the local env file if it's missing
+if [ ! -f "$ENV_FILE" ]; then
+    cat <<'EOF' > "$ENV_FILE"
+# CATalyst local environment variables
+# Update the key below with your real Gemini / Google API key.
+GOOGLE_API_KEY=your_api_key_here
+EOF
+    echo " -> Created ${ENV_FILE}."
+    echo " ⚠️ Reminder: Open ${ENV_FILE} and replace GOOGLE_API_KEY with your real key."
+fi
 
 # 5. Check if dependencies need to be installed
 if [ ! -f "$MARKER_FILE" ] || [ "$REQ_FILE" -nt "$MARKER_FILE" ]; then
@@ -68,4 +80,7 @@ fi
 echo ""
 echo "================================================================"
 echo " ✅ CATalyst Environment Ready! "
+if grep -Eq '^[[:space:]]*GOOGLE_API_KEY=your_api_key_here[[:space:]]*$' "$ENV_FILE"; then
+    echo " ⚠️ Update ${ENV_FILE} with your real Gemini / Google API key before running API-backed scripts."
+fi
 echo "================================================================"

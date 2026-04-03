@@ -1,3 +1,4 @@
 # CLI autocompletion for argparse
 argcomplete>=3.0.0
 PyMuPDF>=1.24.0
+google-genai>=0.8.0

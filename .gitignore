@@ -1,5 +1,6 @@
 *questions.txt
 *answers.txt
+.codex
 
 # =========================
 # Jekyll & Ruby
@@ -21,3 +22,4 @@ __pycache__/
 venv/
 env/
 .venv/
+.env
