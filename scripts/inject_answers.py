@@ -5,38 +5,29 @@ import json
 import re
 import argparse
 import sys
-import os
 import argcomplete
+from path_utils import find_project_root, list_relative_files, resolve_under
 
-# --- Dynamic Path Resolution ---
-# 1. Get the absolute path of the directory containing this script
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# 2. Go one level up to find the project root
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-# 3. Build your asset paths absolutely from the project root
-DATA_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
+PROJECT_ROOT = find_project_root(__file__)
+DATA_DIR = PROJECT_ROOT / "assets" / "data"
+JSON_DIR = DATA_DIR / "json"
+RAW_PYQ_DIR = DATA_DIR / "raw" / "pyqs"
 
 # --- Custom Completers ---
 def json_file_completer(prefix, parsed_args, **kwargs):
     """Suggests only .json files from the assets/data/json directory."""
-    target_dir = os.path.join(DATA_DIR, "json")
-    if not os.path.exists(target_dir):
-        return []
-    return [f for f in os.listdir(target_dir) if f.lower().endswith('.json') and f.startswith(prefix)]
+    return [path for path in list_relative_files(JSON_DIR, "*.json") if path.startswith(prefix)]
 
 def txt_file_completer(prefix, parsed_args, **kwargs):
     """Suggests only .txt files from the assets/data/raw/pyqs directory."""
-    target_dir = os.path.join(DATA_DIR, "raw", "pyqs")
-    if not os.path.exists(target_dir):
-        return []
-    return [f for f in os.listdir(target_dir) if f.lower().endswith('.txt') and f.startswith(prefix)]
+    return [path for path in list_relative_files(RAW_PYQ_DIR, "*.txt") if path.startswith(prefix)]
 
 
 def parse_answer_key(filepath):
     """Parses the flat text file into a dictionary of {question_number: 'A/B/C/D'}"""
     answer_dict = {}
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with filepath.open("r", encoding="utf-8") as f:
             # Read all lines, remove whitespace, and drop empty lines
             tokens = [line.strip() for line in f.readlines() if line.strip()]
     except FileNotFoundError:
@@ -62,7 +53,7 @@ def inject_answers_into_json(json_filepath, answer_filepath):
 
     # 2. Load the existing JSON database
     try:
-        with open(json_filepath, 'r', encoding='utf-8') as f:
+        with json_filepath.open("r", encoding="utf-8") as f:
             database = json.load(f)
     except FileNotFoundError:
         print(f"Error: The JSON file '{json_filepath}' was not found.")
@@ -82,7 +73,7 @@ def inject_answers_into_json(json_filepath, answer_filepath):
             updated_count += 1
 
     # 4. Save the updated JSON back to the same file (overwriting it)
-    with open(json_filepath, 'w', encoding='utf-8') as f:
+    with json_filepath.open("w", encoding="utf-8") as f:
         json.dump(database, f, indent=4, ensure_ascii=False)
 
     print(f"Successfully injected {updated_count} answers into '{json_filepath}'.")
@@ -103,7 +94,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Automatically prepend the directory paths
-    json_filepath = os.path.join(DATA_DIR, "json", args.json)
-    answer_filepath = os.path.join(DATA_DIR, "raw", "pyqs", args.answers)
+    json_filepath = resolve_under(JSON_DIR, args.json)
+    answer_filepath = resolve_under(RAW_PYQ_DIR, args.answers)
 
     inject_answers_into_json(json_filepath=json_filepath, answer_filepath=answer_filepath)

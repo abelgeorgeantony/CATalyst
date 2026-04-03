@@ -96,6 +96,70 @@ directories:
         color: #ffffff !important;
     }
 
+    .folder-groups {
+        margin-top: 16px;
+    }
+
+    .folder-group {
+        margin-bottom: 12px;
+        border: 1px solid #000000;
+    }
+
+    .folder-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .folder-summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .folder-summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .folder-summary::before {
+        content: "+";
+        margin-right: 8px;
+    }
+
+    .folder-group[open] .folder-summary::before {
+        content: "-";
+    }
+
+    .folder-summary-label {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .folder-summary-meta {
+        font-size: 0.85rem;
+    }
+
+    .folder-file-list {
+        border-top: 1px dotted #999999;
+        margin: 0 12px 12px;
+    }
+
+    .archive-root-files {
+        margin-top: 16px;
+    }
+
+    .archive-section-label {
+        margin-bottom: 10px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
     .empty-state {
         margin-bottom: 0;
         padding-top: 14px;
@@ -132,12 +196,22 @@ directories:
 {% assign root_prefix = root_prefix | append: '/' %}
 {% assign sorted_files = site.static_files | sort: 'path' %}
 {% assign file_count = 0 %}
+{% assign direct_file_count = 0 %}
+{% capture raw_subfolder_names %}{% endcapture %}
 {% for file in sorted_files %}
 {% assign file_prefix = file.path | slice: 0, root_prefix.size %}
 {% if file_prefix == root_prefix %}
 {% assign file_count = file_count | plus: 1 %}
+{% assign relative_path = file.path | remove_first: root_prefix %}
+{% if relative_path contains '/' %}
+{% assign subfolder_name = relative_path | split: '/' | first %}
+{% capture raw_subfolder_names %}{{ raw_subfolder_names }}||{{ subfolder_name }}{% endcapture %}
+{% else %}
+{% assign direct_file_count = direct_file_count | plus: 1 %}
+{% endif %}
 {% endif %}
 {% endfor %}
+{% assign subfolder_list = raw_subfolder_names | split: '||' | uniq | sort %}
 
 <section class="explorer-panel" data-archive-panel>
     <h3>{{ directory.title }}</h3>
@@ -151,19 +225,74 @@ directories:
         <span class="archive-status" data-size-status></span>
     </p>
 
-    <ul class="file-list">
+    {% if direct_file_count > 0 %}
+    <div class="archive-root-files">
+        {% assign has_subfolders = false %}
+        {% for subfolder_name in subfolder_list %}
+        {% unless subfolder_name == "" %}
+        {% assign has_subfolders = true %}
+        {% endunless %}
+        {% endfor %}
+        {% if has_subfolders %}
+        <p class="archive-section-label">Files In Root</p>
+        {% endif %}
+        <ul class="file-list">
+            {% for file in sorted_files %}
+            {% assign file_prefix = file.path | slice: 0, root_prefix.size %}
+            {% if file_prefix == root_prefix %}
+            {% assign relative_path = file.path | remove_first: root_prefix %}
+            {% unless relative_path contains '/' %}
+            <li>
+                <a class="file-link" href="{{ file.path | relative_url }}">{{ relative_path }}</a>
+                <a class="download-btn" href="{{ file.path | relative_url }}" download>Download</a>
+            </li>
+            {% endunless %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="folder-groups">
+        {% for subfolder_name in subfolder_list %}
+        {% unless subfolder_name == "" %}
+        {% assign folder_prefix = subfolder_name | append: '/' %}
+        {% assign folder_file_count = 0 %}
         {% for file in sorted_files %}
         {% assign file_prefix = file.path | slice: 0, root_prefix.size %}
         {% if file_prefix == root_prefix %}
-        {% assign file_count = file_count | plus: 1 %}
         {% assign relative_path = file.path | remove_first: root_prefix %}
-        <li>
-            <a class="file-link" href="{{ file.path | relative_url }}">{{ relative_path }}</a>
-            <a class="download-btn" href="{{ file.path | relative_url }}" download>Download</a>
-        </li>
+        {% assign folder_match = relative_path | slice: 0, folder_prefix.size %}
+        {% if folder_match == folder_prefix %}
+        {% assign folder_file_count = folder_file_count | plus: 1 %}
+        {% endif %}
         {% endif %}
         {% endfor %}
-    </ul>
+        <details class="folder-group">
+            <summary class="folder-summary">
+                <span class="folder-summary-label">{{ subfolder_name }}</span>
+                <span class="folder-summary-meta">{{ folder_file_count }} files</span>
+            </summary>
+            <ul class="file-list folder-file-list">
+                {% for file in sorted_files %}
+                {% assign file_prefix = file.path | slice: 0, root_prefix.size %}
+                {% if file_prefix == root_prefix %}
+                {% assign relative_path = file.path | remove_first: root_prefix %}
+                {% assign folder_match = relative_path | slice: 0, folder_prefix.size %}
+                {% if folder_match == folder_prefix %}
+                {% assign nested_path = relative_path | remove_first: folder_prefix %}
+                <li>
+                    <a class="file-link" href="{{ file.path | relative_url }}">{{ nested_path }}</a>
+                    <a class="download-btn" href="{{ file.path | relative_url }}" download>Download</a>
+                </li>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </details>
+        {% endunless %}
+        {% endfor %}
+    </div>
 
     {% if file_count == 0 %}
     <p class="empty-state">No files were found inside this directory at build time.</p>

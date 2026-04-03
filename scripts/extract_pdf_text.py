@@ -1,26 +1,34 @@
 #!/usr/bin/env python
 # PYTHON_ARGCOMPLETE_OK
 
+import re
 import os
 import argparse
 import subprocess
 import sys
+import tempfile
+
+try:
+    import fitz
+except ImportError:
+    fitz = None
+
+# Try the standard Python 3.4+ built-in first
+try:
+    from pathlib import Path
+# Fallback to the pip-installed backport for older versions
+except ImportError:
+    from pathlib2 import Path
 import argcomplete
+from path_utils import find_project_root, list_relative_files, resolve_under
 
-# 1. Get the absolute path of the directory containing this script (e.g., /.../CATalyst/scripts)
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# 2. Go one level up to find the project root (e.g., /.../CATalyst)
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-# 3. Build your asset paths absolutely from the project root
-DATA_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
+PROJECT_ROOT = find_project_root(__file__)
+DATA_DIR = PROJECT_ROOT / "assets" / "data"
 
-# --- Custom Completer ---
 def pdf_file_completer(prefix, parsed_args, **kwargs):
-    """Suggests only .pdf files from the assets/data/raw/pyqs directory."""
-    target_dir = os.path.join(DATA_DIR, "raw","pyqs")
-    if not os.path.exists(target_dir):
-        return []
-    return [f for f in os.listdir(target_dir) if f.lower().endswith('.pdf') and f.startswith(prefix)]
+    """Suggests any .pdf files from the assets/data/raw/pyqs/<year>/ directories."""
+    target_dir = DATA_DIR / "raw" / "pyqs"
+    return [path for path in list_relative_files(target_dir, "*.pdf") if path.startswith(prefix)]
 
 
 def run_pdftotext(args_list):
@@ -36,48 +44,170 @@ def run_pdftotext(args_list):
         print(f"Error executing pdftotext: {e.stderr.decode('utf-8')}")
         sys.exit(1)
 
+
+def clean_extracted_text_file(filepath):
+    """Remove common PDF extraction control-character junk from a text file."""
+    with filepath.open("r", encoding="utf-8", errors="ignore") as f:
+        content = f.read()
+
+    cleaned_content = content.replace("\f", "\n")
+    cleaned_content = re.sub(r"[\x00-\x08\x0b-\x1f\x7f]", "", cleaned_content)
+
+    if cleaned_content != content:
+        with filepath.open("w", encoding="utf-8") as f:
+            f.write(cleaned_content)
+
+
+def format_answers_file(filepath):
+    """Parses the grid layout and formats it strictly with alternating lines."""
+    with filepath.open("r", encoding="utf-8", errors="ignore") as f:
+        content = f.read()
+
+    # Regex: Find a number, followed by whitespace, followed by A, B, C, or D
+    matches = re.findall(r'\b(\d+)\s+([A-D])\b', content, re.IGNORECASE)
+
+    if not matches:
+        return
+
+    # Sort the pairs numerically based on the question number
+    sorted_matches = sorted(matches, key=lambda x: int(x[0]))
+
+    # Overwrite the file with the strict vertical format
+    with filepath.open("w", encoding="utf-8") as f:
+        for num, ans in sorted_matches:
+            # changed the space to \n here 👇
+            f.write(f"{num}\n{ans.upper()}\n")
+
+
+def create_sanitized_pdf(input_pdf, answer_first_page, answer_last_page):
+    """Redact the header area on answer pages and return a temporary PDF path."""
+    if fitz is None:
+        print("Error: PyMuPDF is required for answer-page redaction but is not installed.")
+        print("Install it with: pip install PyMuPDF")
+        sys.exit(1)
+
+    temp_pdf_path = None
+    doc = None
+
+    try:
+        doc = fitz.open(input_pdf)
+        page_count = len(doc)
+
+        if page_count == 0:
+            raise ValueError("The PDF has no pages.")
+
+        start_idx = answer_first_page - 1
+        end_idx = (answer_last_page - 1) if answer_last_page else (page_count - 1)
+
+        if start_idx < 0 or start_idx >= page_count:
+            raise ValueError(
+                f"Answer start page {answer_first_page} is outside the document page range 1-{page_count}."
+            )
+        if end_idx < start_idx or end_idx >= page_count:
+            last_page_label = answer_last_page if answer_last_page else page_count
+            raise ValueError(
+                f"Answer end page {last_page_label} is outside the valid range {answer_first_page}-{page_count}."
+            )
+
+        for page_num in range(start_idx, end_idx + 1):
+            page = doc[page_num]
+            header_boxes = page.search_for("SI No") + page.search_for("Key")
+
+            if header_boxes:
+                lowest_header_y = max(box.y1 for box in header_boxes)
+                dynamic_height = lowest_header_y + 1
+                header_rect = fitz.Rect(0, 0, page.rect.width, dynamic_height)
+                page.add_redact_annot(header_rect, fill=(1, 1, 1))
+                page.apply_redactions()
+            else:
+                print(
+                    f"  -> Warning: Headers not found on page {page_num + 1}. "
+                    "Skipping redaction."
+                )
+
+        temp_fd, temp_pdf_path = tempfile.mkstemp(suffix=".pdf")
+        os.close(temp_fd)
+        doc.save(temp_pdf_path)
+        return temp_pdf_path
+
+    except Exception as exc:
+        if temp_pdf_path and os.path.exists(temp_pdf_path):
+            os.remove(temp_pdf_path)
+        print(f"Error preparing sanitized PDF: {exc}")
+        sys.exit(1)
+
+    finally:
+        if doc is not None:
+            doc.close()
+
+
 def extract_pdf(input_pdf, q_first, q_last, a_first, a_last):
     # Ensure the input file exists
-    if not os.path.exists(input_pdf):
+    if not input_pdf.exists():
         print(f"Error: The file '{input_pdf}' does not exist.")
         sys.exit(1)
 
+    if q_first < 1 or q_last < q_first:
+        print("Error: Question page range is invalid.")
+        sys.exit(1)
+    if a_first < 1:
+        print("Error: Answer start page must be 1 or greater.")
+        sys.exit(1)
+    if a_last is not None and a_last < a_first:
+        print("Error: Answer end page cannot be earlier than answer start page.")
+        sys.exit(1)
+
     
-    base_name = os.path.splitext(os.path.basename(input_pdf))[0]
-    questions_output = os.path.join(DATA_DIR, "raw", "pyqs", f"{base_name}_questions.txt")
-    answers_output = os.path.join(DATA_DIR, "raw", "pyqs", f"{base_name}_answers.txt")
+    # 1. Get the exact directory where the input PDF is located
+    pdf_dir = input_pdf.parent
+    # 2. Get the filename without the .pdf extension
+    base_name = input_pdf.stem
+    # 3. Save the text files into that exact same directory
+    questions_output = pdf_dir / f"{base_name}_questions.txt"
+    answers_output = pdf_dir / f"{base_name}_answers.txt"
 
     print(f"Processing '{input_pdf}'...")
-
-    # --- 1. Extract Questions ---
-    print(f"Extracting Questions (Pages {q_first} to {q_last})...")
-    q_args = [
-        "-layout", 
-        "-nodiag", 
-        "-f", str(q_first), 
-        "-l", str(q_last), 
-        input_pdf, 
-        questions_output
-    ]
-    run_pdftotext(q_args)
-    print(f"  -> Saved to {questions_output}")
-
-    # --- 2. Extract Answers ---
     a_last_str = str(a_last) if a_last else "End"
-    print(f"Extracting Answers (Pages {a_first} to {a_last_str})...")
-    
-    a_args = [
-        "-nodiag", 
-        "-f", str(a_first)
-    ]
-    # If a_last is provided, append it. Otherwise, pdftotext extracts to the end of the document.
-    if a_last:
-        a_args.extend(["-l", str(a_last)])
+    print(f"Sanitizing headers on answer pages ({a_first} to {a_last_str})...")
+    temp_pdf_path = create_sanitized_pdf(str(input_pdf), a_first, a_last)
+
+    try:
+        # --- 1. Extract Questions ---
+        print(f"Extracting Questions (Pages {q_first} to {q_last})...")
+        q_args = [
+            "-layout", 
+            "-nodiag", 
+            "-f", str(q_first), 
+            "-l", str(q_last), 
+            temp_pdf_path, 
+            questions_output
+        ]
+        run_pdftotext(q_args)
+        clean_extracted_text_file(questions_output)
+        print(f"  -> Saved to {questions_output}")
+
+        # --- 2. Extract Answers ---
+        print(f"Extracting Answers (Pages {a_first} to {a_last_str})...")
         
-    a_args.extend([input_pdf, answers_output])
-    
-    run_pdftotext(a_args)
-    print(f"  -> Saved to {answers_output}")
+        a_args = [
+            "-layout",
+            "-nodiag", 
+            "-f", str(a_first)
+        ]
+        # If a_last is provided, append it. Otherwise, pdftotext extracts to the end of the document.
+        if a_last:
+            a_args.extend(["-l", str(a_last)])
+            
+        a_args.extend([temp_pdf_path, answers_output])
+        
+        run_pdftotext(a_args)
+        clean_extracted_text_file(answers_output)
+        # Format the file perfectly for the DB
+        format_answers_file(answers_output)
+        print(f"  -> Saved to {answers_output}")
+    finally:
+        if os.path.exists(temp_pdf_path):
+            os.remove(temp_pdf_path)
 
     # --- 3. Print Post-Extraction Instructions ---
     print("\n" + "="*60)
@@ -122,7 +252,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     # Automatically prepend the directory path
-    input_filepath = os.path.join(DATA_DIR, "raw", "pyqs", args.input)
+    input_filepath = resolve_under(DATA_DIR / "raw" / "pyqs", args.input)
 
     # Automatically calculate the first page of answers if not explicitly provided
     ans_first = args.a_first if args.a_first else (args.q_last + 1)

@@ -5,24 +5,19 @@ import re
 import json
 import argparse
 import sys
-import os
 import argcomplete
+from path_utils import find_project_root, list_relative_files, resolve_under
 
-# --- Dynamic Path Resolution ---
-# 1. Get the absolute path of the directory containing this script
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# 2. Go one level up to find the project root
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-# 3. Build your asset paths absolutely from the project root
-DATA_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
+PROJECT_ROOT = find_project_root(__file__)
+DATA_DIR = PROJECT_ROOT / "assets" / "data"
+RAW_PYQ_DIR = DATA_DIR / "raw" / "pyqs"
+JSON_DIR = DATA_DIR / "json"
+IMAGE_DIR = DATA_DIR / "images"
 
 # --- Custom Completer ---
 def txt_file_completer(prefix, parsed_args, **kwargs):
     """Suggests only .txt files from the assets/data/raw/pyqs directory."""
-    target_dir = os.path.join(DATA_DIR, "raw", "pyqs")
-    if not os.path.exists(target_dir):
-        return []
-    return [f for f in os.listdir(target_dir) if f.lower().endswith('.txt') and f.startswith(prefix)]
+    return [path for path in list_relative_files(RAW_PYQ_DIR, "*.txt") if path.startswith(prefix)]
 
 def normalize_text(text):
     """Cleans OCR/PDF text by removing newlines and squashing redundant spaces."""
@@ -34,8 +29,8 @@ def normalize_text(text):
 
 def get_image_path(local_dir, web_dir, base_name):
     """Checks for various image extensions and returns the web path if found."""
-    for ext in ['.jpeg', '.jpg']:
-        if os.path.exists(os.path.join(local_dir, base_name + ext)):
+    for ext in [".jpeg", ".jpg"]:
+        if (local_dir / f"{base_name}{ext}").exists():
             return f"{web_dir}/{base_name}{ext}"
     return None
 
@@ -70,7 +65,7 @@ def clean_and_append_question(question, db_list, year, test_code):
             question["options"][opt]["text"] = normalize_text(question["options"][opt]["text"])
 
     # 3. Dynamic Filesystem Image Detection
-    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{test_code}")
+    local_check_dir = IMAGE_DIR / f"{year}_{test_code}"
     web_asset_path = f"/assets/data/images/{year}_{test_code}"
     
     # --- Check for Question Images (Arrays) ---
@@ -132,14 +127,14 @@ def clean_and_append_question(question, db_list, year, test_code):
 
 def parse_questions_to_json(filepath, year, course_name, test_code, total_time, reward, penalty, unanswered):
     try:
-        with open(filepath, 'r', encoding='utf-8') as file:
+        with filepath.open("r", encoding="utf-8") as file:
             lines = file.readlines()
     except FileNotFoundError:
         print(f"Error: The input file '{filepath}' was not found.")
         sys.exit(1)
 
-    local_check_dir = os.path.join(DATA_DIR, "images", f"{year}_{test_code}")
-    if not os.path.exists(local_check_dir):
+    local_check_dir = IMAGE_DIR / f"{year}_{test_code}"
+    if not local_check_dir.exists():
         print(f"Warning: The image directory '{local_check_dir}' does not exist. No images will be linked.")
 
     # Paper Metadata (Initialized dynamically)
@@ -314,11 +309,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Automatically prepend the directory path
-    question_filepath = os.path.join(DATA_DIR, "raw", "pyqs", args.questions)
+    question_filepath = resolve_under(RAW_PYQ_DIR, args.questions)
     
     # --- FILENAME PARSING LOGIC ---
-    base_filename = os.path.splitext(os.path.basename(args.questions))[0]
-    filename_parts = base_filename.split('_')
+    base_filename = question_filepath.stem
+    filename_parts = base_filename.split("_")
     
     if len(filename_parts) < 2:
         print(f"Error: The filename '{args.questions}' does not match the expected format '<year>_<test_code>_questions.ext'")
@@ -337,9 +332,9 @@ if __name__ == "__main__":
     
     # Dynamically construct the new JSON filename (<year>_<test_code>_db.json)
     json_filename = f"{parsed_year}_{parsed_test_code}_db.json"
-    json_filepath = os.path.join(DATA_DIR, "json", json_filename)
+    json_filepath = JSON_DIR / json_filename
     
-    os.makedirs(os.path.dirname(json_filepath), exist_ok=True)
+    json_filepath.parent.mkdir(parents=True, exist_ok=True)
 
     print(f"Detected parameters -> Year: {parsed_year}, Course: {parsed_course}, Test Code: {parsed_test_code}")
 
@@ -368,7 +363,7 @@ if __name__ == "__main__":
         print("SUCCESS: All 150 questions were parsed and accounted for.")
     print("----------------------------\n")
     
-    with open(json_filepath, 'w', encoding='utf-8') as json_file:
+    with json_filepath.open("w", encoding="utf-8") as json_file:
         json.dump(parsed_data, json_file, indent=4, ensure_ascii=False)
         
     print(f"Saved to {json_filepath}")
