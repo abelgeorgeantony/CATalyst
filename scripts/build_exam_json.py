@@ -382,7 +382,7 @@ def create_genai_client() -> Any:
 
     if not api_key:
         print("Error: Missing GOOGLE_API_KEY or GEMINI_API_KEY.")
-        print("Add it to your shell environment or a project-level .env file.")
+        print("Add it to your shell environment or inside venv/ as a .env file.")
         sys.exit(1)
 
     return genai.Client(api_key=api_key)

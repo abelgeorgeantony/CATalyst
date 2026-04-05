@@ -1,0 +1,692 @@
+{
+  "version": 1,
+  "description": "Normalized CUSAT CAT test-code metadata derived from the yearly test-code sheets and prospectus PDFs. This file is intended as a reference for what each test code represents across years.",
+  "sources": {
+    "testcode_text_years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "prospectus_pdf_years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ]
+  },
+  "notes": [
+    "Descriptions are normalized across years; where the meaning of a code changed, the change is recorded in year_specific_usage.",
+    "pyq_years lists the years that currently have a code-named PDF in assets/data/raw/pyqs after the rename pass.",
+    "Older 2011-2015 wording is inferred from filenames and later prospectus patterns when the attached yearly code sheets were not available.",
+    "Code 615 appears in older prospectuses and PYQs, but the 2025-2026 OCRed code lists omit it; the raw 2025 Zoology paper is therefore left unresolved."
+  ],
+  "codes": {
+    "101": {
+      "title": "Physics, Chemistry and Mathematics entrance test",
+      "category": "undergraduate_and_integrated",
+      "pyq_years": [2012, 2013, 2014, 2015, 2017, 2018, 2019],
+      "used_for": [
+        "B.Tech admission",
+        "5-year integrated M.Sc. Photonics",
+        "Several 5-year integrated science programmes in later years"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2017,
+          "summary": "PCM technology entrance for B.Tech and 5-year integrated M.Sc. Photonics."
+        },
+        {
+          "from_year": 2018,
+          "to_year": 2020,
+          "summary": "Still the main PCM technology entrance; prospectuses also route some integrated M.Sc. science programmes through this code."
+        },
+        {
+          "from_year": 2021,
+          "to_year": 2026,
+          "summary": "Main PCM entrance for B.Tech and multiple integrated programmes; available PYQs for later years exist as separate shift papers rather than a single 101.pdf."
+        }
+      ]
+    },
+    "102": {
+      "title": "Lateral Entry to B.Tech",
+      "category": "undergraduate_lateral_entry",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2023, 2024, 2025],
+      "used_for": [
+        "Admission to III semester B.Tech programmes"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "B.Tech lateral entry test covering English, Mathematics, Engineering Mechanics, Engineering Graphics and General Engineering."
+        }
+      ]
+    },
+    "103": {
+      "title": "B.Voc aptitude test",
+      "category": "undergraduate",
+      "pyq_years": [2019, 2023, 2024, 2025],
+      "used_for": [
+        "B.Voc programmes"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2018,
+          "to_year": 2026,
+          "summary": "Common aptitude paper built around English, numerical reasoning, comprehension and logical reasoning."
+        }
+      ]
+    },
+    "104": {
+      "title": "Physics, Chemistry and Biology entrance test",
+      "category": "integrated_science",
+      "pyq_years": [2022, 2023, 2024, 2025],
+      "used_for": [
+        "5-year integrated M.Sc. Biological Sciences",
+        "Biology-track integrated science admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2021,
+          "to_year": 2026,
+          "summary": "PCB entrance used for biology-track integrated M.Sc. admissions; later years run this as a sectioned, shift-based paper."
+        }
+      ]
+    },
+    "105": {
+      "title": "Economics and quantitative aptitude entrance test",
+      "category": "integrated_masters",
+      "pyq_years": [],
+      "used_for": [
+        "Five-Year Integrated M.Sc. in Econometrics and Data Science"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2026,
+          "to_year": 2026,
+          "summary": "Introduced for the integrated Econometrics and Data Science programme; 60 Economics, 60 quantitative aptitude and 30 English questions."
+        }
+      ]
+    },
+    "106": {
+      "title": "Hindi entrance test at Plus Two level",
+      "category": "integrated_masters",
+      "pyq_years": [],
+      "used_for": [
+        "Five-Year Integrated M.A. in Hindi Language and Literature"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2026,
+          "to_year": 2026,
+          "summary": "Introduced for the integrated Hindi programme; objective questions answerable by candidates with Hindi at Plus Two level."
+        }
+      ]
+    },
+    "201": {
+      "title": "Common integrated law aptitude test",
+      "category": "undergraduate_professional",
+      "pyq_years": [2011, 2012, 2013, 2015, 2016, 2017, 2018, 2019, 2023, 2024, 2025],
+      "used_for": [
+        "5-year BBA LL.B. (Hons.)",
+        "5-year B.Com LL.B. (Hons.)",
+        "5-year B.Sc. LL.B. (Hons.) Computer Science in later years"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2023,
+          "summary": "Common aptitude test for the 5-year BBA LL.B. and B.Com LL.B. programmes."
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "summary": "Expanded to include the 5-year B.Sc. LL.B. (Hons.) Computer Science programme."
+        }
+      ]
+    },
+    "301": {
+      "title": "M.A. Hindi",
+      "category": "postgraduate",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "M.A. Hindi",
+        "M.A. Hindi Language and Literature"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2025,
+          "summary": "Postgraduate Hindi entrance at a level answerable by candidates with Hindi as a second language at degree level."
+        }
+      ]
+    },
+    "501": {
+      "title": "MCA aptitude test",
+      "category": "postgraduate",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "MCA",
+        "M.Voc. Software Application Development in 2025-2026"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2024,
+          "summary": "Standard MCA aptitude test with mathematics and logical reasoning."
+        },
+        {
+          "from_year": 2025,
+          "to_year": 2026,
+          "summary": "Shared test for MCA and M.Voc. Software Application Development."
+        }
+      ]
+    },
+    "502": {
+      "title": "M.Sc. Computer Science test",
+      "category": "postgraduate",
+      "pyq_years": [2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "M.Sc. Computer Science",
+        "MCA lateral entry in older years"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2022,
+          "summary": "Used for MCA lateral entry and/or M.Sc. Computer Science, depending on the prospectus year."
+        },
+        {
+          "from_year": 2023,
+          "to_year": 2026,
+          "summary": "Used for M.Sc. Computer Science only."
+        }
+      ]
+    },
+    "601": {
+      "title": "Biotechnology",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Biotechnology-related postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2022,
+          "summary": "Biotechnology paper; older prospectuses describe it as a composite of Biotechnology, Zoology, Botany and Chemistry."
+        },
+        {
+          "from_year": 2023,
+          "to_year": 2024,
+          "summary": "Graduate-level Biotechnology paper with equal weightage to Biotechnology, Botany, Zoology and Chemistry."
+        },
+        {
+          "from_year": 2025,
+          "to_year": 2026,
+          "summary": "Graduate-level Biotechnology paper weighted toward Biotechnology and Microbiology, with smaller Zoology, Botany, Biochemistry and Chemistry components."
+        }
+      ]
+    },
+    "602": {
+      "title": "Botany",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024],
+      "used_for": [
+        "Botany postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2024,
+          "summary": "Graduate-level Botany subject test."
+        }
+      ]
+    },
+    "603": {
+      "title": "Chemical Engineering",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2012, 2017, 2018, 2019],
+      "used_for": [
+        "Chemical Engineering postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2020,
+          "summary": "Graduate-level Chemical Engineering subject test."
+        }
+      ]
+    },
+    "604": {
+      "title": "Chemistry",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Chemistry postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "Graduate-level Chemistry subject test."
+        }
+      ]
+    },
+    "606": {
+      "title": "Electronic Science",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Electronic Science postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "Graduate-level Electronic Science subject test."
+        }
+      ]
+    },
+    "607": {
+      "title": "Engineering Science",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2014, 2015, 2016, 2017, 2019, 2022, 2023, 2024],
+      "used_for": [
+        "Engineering Science postgraduate admissions",
+        "M.Sc. Environmental Science and Technology Stream I in later years"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2022,
+          "summary": "Engineering Science subject test grouped with the other PG subject papers."
+        },
+        {
+          "from_year": 2023,
+          "to_year": 2024,
+          "summary": "Explicitly described as the test for M.Sc. Environmental Science and Technology Stream I."
+        }
+      ]
+    },
+    "608": {
+      "title": "Fisheries / Fisheries Science",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Fisheries and Fisheries Science postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "Graduate-level Fisheries / Fisheries Science subject test."
+        }
+      ]
+    },
+    "609": {
+      "title": "Geology",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Geology postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "Graduate-level Geology subject test."
+        }
+      ]
+    },
+    "610": {
+      "title": "Law / LL.M. paper",
+      "category": "postgraduate_professional",
+      "pyq_years": [2011, 2012, 2013, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "LL.M.",
+        "LL.M. (IPR) and related research tracks in some years"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2024,
+          "summary": "Law paper for LL.M.; 2024 prospectus explicitly describes it as the standalone LL.M. test."
+        },
+        {
+          "from_year": 2025,
+          "to_year": 2026,
+          "summary": "Broadened to cover LL.M., LL.M. (IPR), LL.M. (IP) Ph.D. and LL.M. (IPR) Ph.D. in one paper."
+        }
+      ]
+    },
+    "611": {
+      "title": "Life Sciences",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Life Science and interdisciplinary life-science postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2022,
+          "summary": "Life Sciences paper grouped with the PG subject tests."
+        },
+        {
+          "from_year": 2023,
+          "to_year": 2024,
+          "summary": "Interdisciplinary life-science paper drawing on life science, medical science and agricultural science."
+        },
+        {
+          "from_year": 2025,
+          "to_year": 2026,
+          "summary": "Weighted Life Sciences paper with Zoology, Botany, Microbiology and Biochemistry components."
+        }
+      ]
+    },
+    "612": {
+      "title": "Mathematics",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Mathematics postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "Graduate-level Mathematics subject test."
+        }
+      ]
+    },
+    "613": {
+      "title": "Physics",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Physics postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "Graduate-level Physics subject test."
+        }
+      ]
+    },
+    "614": {
+      "title": "Statistics",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Statistics postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2026,
+          "summary": "Graduate-level Statistics subject test."
+        }
+      ]
+    },
+    "615": {
+      "title": "Zoology",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2011, 2012, 2013, 2016, 2017, 2018, 2022, 2023, 2024],
+      "used_for": [
+        "Zoology postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2024,
+          "summary": "Graduate-level Zoology subject test."
+        }
+      ],
+      "remarks": [
+        "A raw 2025 Zoology paper exists in pyqs, but the 2025-2026 OCRed code lists do not cleanly expose code 615."
+      ]
+    },
+    "616": {
+      "title": "Economics paper",
+      "category": "postgraduate",
+      "pyq_years": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "M.A. Applied Economics",
+        "Economics and Finance in later years"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2024,
+          "summary": "Used for M.A. Applied Economics."
+        },
+        {
+          "from_year": 2025,
+          "to_year": 2026,
+          "summary": "Renamed in the prospectus as Test in Economics and Finance."
+        }
+      ]
+    },
+    "617": {
+      "title": "Instrumentation",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+      "used_for": [
+        "Instrumentation postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2020,
+          "summary": "Graduate-level Instrumentation subject test."
+        }
+      ]
+    },
+    "618": {
+      "title": "Food Science",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2014, 2017, 2018, 2019, 2022, 2023, 2024],
+      "used_for": [
+        "Food Science postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2024,
+          "summary": "Graduate-level Food Science subject test."
+        }
+      ]
+    },
+    "619": {
+      "title": "Three-year LL.B.",
+      "category": "professional",
+      "pyq_years": [2013, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024, 2025],
+      "used_for": [
+        "Three-year LL.B. programme"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2023,
+          "summary": "Three-year LL.B. aptitude test."
+        },
+        {
+          "from_year": 2024,
+          "to_year": 2026,
+          "summary": "LL.B. paper explicitly described around legal aptitude, logical reasoning, English, comprehension and current affairs."
+        }
+      ]
+    },
+    "620": {
+      "title": "IP / IPR law research aptitude test",
+      "category": "postgraduate_and_research",
+      "pyq_years": [2013, 2016, 2017, 2018, 2019, 2022, 2023, 2024],
+      "used_for": [
+        "LL.M. (IP) Ph.D.",
+        "LL.M. (IPR) Ph.D."
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2016,
+          "to_year": 2024,
+          "summary": "Aptitude test for the intellectual-property law research tracks."
+        }
+      ]
+    },
+    "621": {
+      "title": "M.Voc. application development aptitude test",
+      "category": "postgraduate_vocational",
+      "pyq_years": [2017, 2018, 2019, 2022, 2023, 2024],
+      "used_for": [
+        "M.Voc. Mobile Phone Application Development",
+        "M.Voc. Software Application Development"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2017,
+          "to_year": 2022,
+          "summary": "Aptitude test for M.Voc. Mobile Phone Application Development."
+        },
+        {
+          "from_year": 2023,
+          "to_year": 2024,
+          "summary": "Renamed as the aptitude test for M.Voc. Software Application Development."
+        }
+      ]
+    },
+    "622": {
+      "title": "M.Voc. Technology and Management Consulting",
+      "category": "postgraduate_vocational",
+      "pyq_years": [2017, 2018, 2019, 2022, 2023, 2024],
+      "used_for": [
+        "M.Voc. Technology and Management Consulting"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2017,
+          "to_year": 2024,
+          "summary": "Aptitude test for M.Voc. Technology and Management Consulting."
+        }
+      ]
+    },
+    "623": {
+      "title": "Microbiology",
+      "category": "postgraduate_subject_test",
+      "pyq_years": [2018, 2019, 2022, 2023, 2024],
+      "used_for": [
+        "Microbiology postgraduate admissions"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2018,
+          "to_year": 2024,
+          "summary": "Graduate-level Microbiology paper."
+        }
+      ]
+    },
+    "624": {
+      "title": "Econometrics and Financial Technology",
+      "category": "postgraduate",
+      "pyq_years": [2022, 2023, 2024],
+      "used_for": [
+        "M.Sc. in Econometrics and Financial Technology"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2021,
+          "to_year": 2024,
+          "summary": "Aptitude test for M.Sc. in Econometrics and Financial Technology."
+        }
+      ]
+    },
+    "625": {
+      "title": "Forensic Science",
+      "category": "postgraduate",
+      "pyq_years": [2022, 2023, 2024, 2025],
+      "used_for": [
+        "M.Sc. Forensic Science"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2021,
+          "to_year": 2026,
+          "summary": "Forensic Science aptitude paper with equal weightage across physics, chemistry, biology, forensic science and computer science."
+        }
+      ]
+    },
+    "626": {
+      "title": "Masters in Bioethics",
+      "category": "postgraduate",
+      "pyq_years": [2022, 2023, 2024],
+      "used_for": [
+        "Masters in Bioethics"
+      ],
+      "year_specific_usage": [
+        {
+          "from_year": 2022,
+          "to_year": 2024,
+          "summary": "Bioethics aptitude paper covering English, general knowledge, analytical reasoning, law and life sciences."
+        }
+      ]
+    }
+  },
+  "unresolved_pyq_files": {
+    "legacy_or_ambiguous_files": [
+      "2011/AptitudeMBA.pdf",
+      "2011/Engg_Tech_Maths1.7.pdf",
+      "2011/Engg_tech_PhyChe.pdf",
+      "2012/MBA.pdf",
+      "2013/MBA.pdf",
+      "2014/222 LLB.pdf",
+      "2014/520 LLB.pdf",
+      "2016/B.Tech MPC _Final1_.pdf",
+      "2016/B.Tech MPC _Final2_.pdf",
+      "2018/MCA FINAL.pdf",
+      "2025/ZOOLOGY.pdf",
+      "2025/a1.pdf",
+      "2025/a2.pdf",
+      "2025/a3.pdf",
+      "2025/a4.pdf"
+    ],
+    "duplicate_shift_papers_left_unrenamed": [
+      "2022/101 Test in Physics Chemistry and Mathematics First Shift.pdf",
+      "2022/101 Test in Physics Chemistry and Mathematics Second Shift.pdf",
+      "2022/101 Test in Physics Chemistry and Mathematics Third Shift.pdf",
+      "2022/101 Test in Physics Chemistry and Mathematics Fourth Shift.pdf",
+      "2022/102 Test for Lateral Entry to B Tech Programmes First Shift.pdf",
+      "2022/102 Test for Lateral Entry to B Tech Programmes Second Shift.pdf",
+      "2022/103 Test for B Voc programme First Shift.pdf",
+      "2022/103 Test for B Voc programme Second Shift.pdf",
+      "2022/201 Aptitude Test for Five year BBA LLB Hons or BCom LLB Hons First Shift.pdf",
+      "2022/201 Aptitude Test for Five year BBA LLB Hons or BCom LLB Hons Second Shift.pdf",
+      "2023/TEST FOR PHYSICS CHEMISTRY MATHEMATICS SHIFT I.pdf",
+      "2023/TEST FOR PHYSICS CHEMISTRY MATHEMATICS SHIFT II.pdf",
+      "2023/TEST FOR PHYSICS CHEMISTRY MATHEMATICS SHIFT III.pdf",
+      "2023/TEST FOR PHYSICS CHEMISTRY MATHEMATICS SHIFT IV.pdf",
+      "2023/TEST FOR PHYSICS CHEMISTRY MATHEMATICS SHIFT V.pdf",
+      "2024/BS1.pdf",
+      "2024/BS2.pdf",
+      "2024/BS3.pdf",
+      "2024/BS4.pdf",
+      "2024/BS5.pdf"
+    ]
+  }
+}
